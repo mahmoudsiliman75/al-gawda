@@ -1,0 +1,3 @@
+<template>
+  Our Brief
+</template>

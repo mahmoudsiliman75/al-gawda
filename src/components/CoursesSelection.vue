@@ -31,9 +31,11 @@
                   <div class="card" :class="course.status">
                     <img :src="course.courseImgSrc" class="card-img-top" alt="Course Img">
                     <div class="card-body">
-                      <h4 class="card-title"> {{course.courseTitle}} </h4>
-                      <h6> {{course.instructor}} </h6>
-                      <p> {{course.coursePrice}} </p>
+                      <h4 class="card-title text-center"> {{course.courseTitle}} </h4>
+                      <div class="course-info">
+                        <p class="instructor"> {{course.instructor}} </p>
+                        <p class="price"> {{course.coursePrice}} </p>
+                      </div>
                       <span class="badge" :class="course.status">{{course.status}}</span>
                     </div>
                   </div>
@@ -167,6 +169,7 @@ export default {
 // END:: INCLUDING MAIN FILE
 
 .our-courses {
+  padding: $sectionPadding;
   .nav-pills {
     .nav-link {
       color: $mainColor;
@@ -204,10 +207,20 @@ export default {
 
         .card-body {
           text-align: start;
+          .course-info {
+            p {
+              padding: 8px;
+              background-color: $mainColor;
+              color: #fff;
+              text-align: center;
+              position: relative;
+              @include borderRadius(10px);
+            }
+          }
           .badge {
             color: #fff;
             font-size: 15px;
-            padding: 5px 15px;
+            padding: 8px 15px;
             @include borderRadius(20px);
             &.Bestseller {
               background-color: $bestSellerCourse;
