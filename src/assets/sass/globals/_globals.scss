@@ -4,6 +4,13 @@ $secondryColor: #9B7C29;
 // END:: SASS VARIABLES 
 
 // START:: SASS MIXINS
+@mixin boxSizing() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 @mixin transitioning() {
   -moz-transition: all 0.45s ease-in-out;
   -webkit-transition: all 0.45s ease-in-out;

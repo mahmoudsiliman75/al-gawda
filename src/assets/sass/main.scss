@@ -7,5 +7,6 @@
 // END:: INCLUDING CAIRO FONT
 
 * {
+  @include boxSizing();
   font-family: 'Cairo', sans-serif;
 }

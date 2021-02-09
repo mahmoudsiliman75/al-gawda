@@ -36,9 +36,23 @@
     </div>
 
     <div class="nav-bar-links">
-      <router-link to="/home">Home</router-link> 
-      <router-link to="/about">About</router-link>
-      <router-link to="/">Join</router-link>
+      <router-link to="/home">
+        Home 
+        <span></span> 
+        <span></span>
+      </router-link>
+
+      <router-link to="/about">
+        About
+        <span></span> 
+        <span></span>
+      </router-link>
+
+      <router-link to="/">
+        Join Us
+        <span></span> 
+        <span></span>
+      </router-link>
     </div>
   </div>
   <!-- END:: NAVIGATION BAR -->
@@ -101,18 +115,94 @@
   }
 
   .nav-bar-links {
+    display: flex;
     a {
-      margin: 0 8px;
+      margin: 0 10px;
+      padding: 5px 10px;
       text-decoration: none;
-      font-size: 18px;
-      font-weight: 600;
       color: $mainColor;
-      border-bottom: 2px solid transparent;
+      text-transform: uppercase;
+      position: relative;
       @include transitioning();
-      &.router-link-active, 
-      &:hover {
+
+      span {
+        &:first-child {
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+            border-top: 2px solid $secondryColor;
+            border-left: 2px solid $secondryColor;
+            opacity: 0;
+            @include transitioning();
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+            border-top: 2px solid $secondryColor;
+            border-right: 2px solid $secondryColor;
+            opacity: 0;
+            @include transitioning();
+          }
+        }
+
+        &:last-child {
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+            border-bottom: 2px solid $secondryColor;
+            border-left: 2px solid $secondryColor;
+            opacity: 0;
+            @include transitioning();
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+            border-bottom: 2px solid $secondryColor;
+            border-right: 2px solid $secondryColor;
+            opacity: 0;
+            @include transitioning();
+          }
+        }
+      }
+
+      &:hover span:first-child::before,
+      &:hover span:first-child::after,
+      &:hover span:last-child::before,
+      &:hover span:last-child::after,
+      &.router-link-active span:first-child::before,
+      &.router-link-active span:first-child::after,
+      &.router-link-active span:last-child::before,
+      &.router-link-active span:last-child::after
+      {
         color: $secondryColor;
-        border-bottom: 2px solid $secondryColor;
+        opacity: 1;
+      }
+
+      &:hover,
+      &.router-link-active {
+        color: $secondryColor;
       }
     }
   }
