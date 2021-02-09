@@ -1,10 +1,11 @@
 <template>
   <div class="our-courses">
       <div class="container">
+        <h2 class="sec-header"> The Selection Of Our Courses </h2>
         <!-- START:: TABS -->
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills d-flex justify-content-center mb-3" id="pills-tab" role="tablist">
 
-          <li class="nav-item" role="presentation" v-for="(tab, index) in tabInfo" :key="tab.tadId">
+          <li class="nav-item mx-3" role="presentation" v-for="(tab, index) in tabInfo" :key="tab.tadId">
             <a class="nav-link" :class="index == 0 ? 'active ' : ''" :id="tab.tabId" data-toggle="pill" :href="`${tab.tabHref}`" role="tab" :aria-controls="`${tab.tabAriaControls}`" aria-selected="true">
               {{tab.tabText}}
             </a>
@@ -18,19 +19,21 @@
       <div class="tab-content" id="pills-tabContent">
         <div v-for="(tab, index) in tabInfo" :key="tab.tadId" class="tab-pane fade active" :class="index == 0 ? 'show ' : ''" :id="`${tab.sheet.sheetId}`" :role="`${tab.sheet.sheetRole}`" :aria-labelledby="`${tab.sheet.sheetAriaLabelledby}`">
           <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
 
+              <!-- START:: CARD MARKUP -->
               <div class="col-12 col-md-4 px-2" v-for="course in tab.courseDetails" :key="course.courseId">
-                <div class="card">
+                <div class="card" :class="course.status">
                   <img :src="course.courseImgSrc" class="card-img-top" alt="Course Img">
                   <div class="card-body">
-                    <h4 class="card-title">{{course.courseTitle}}</h4>
+                    <h4 class="card-title"> {{course.courseTitle}} </h4>
                     <h6> {{course.instructor}} </h6>
-                    <span class="badge badge-primary">{{course.status}}</span>
                     <p> {{course.coursePrice}} </p>
+                    <span class="badge" :class="course.status">{{course.status}}</span>
                   </div>
                 </div>
               </div>
+              <!-- END:: CARD MARKUP -->
 
             </div>
           </div>
@@ -49,7 +52,7 @@ export default {
           tadId: "pills-course-1-tab",
           tabHref: "#pills-course-1",
           tabAriaControls: "pills-course-1",
-          tabText: "Course 1",
+          tabText: "Java",
           sheet: {
             sheetId: "pills-course-1",
             sheetRole: "tabpane1",
@@ -59,18 +62,18 @@ export default {
             {
               courseId: "1",
               status: "Sale",
-              courseImgSrc: "http://placekitten.com/150/150",
-              courseTitle: "Master java",
+              courseImgSrc: "https://www.anbilarabi.com/wp-content/uploads/2018/03/Java-Logo.jpg",
+              courseTitle: "Learn Java",
               instructor: "Eng. Mohamed Eid",
-              coursePrice: "180$"
+              coursePrice: "90$"
             },
             {
               courseId: "4",
               status: "Bestseller",
-              courseImgSrc: "",
-              courseTitle: "Master java",
+              courseImgSrc: "https://www.anbilarabi.com/wp-content/uploads/2018/03/Java-Logo.jpg",
+              courseTitle: "Master Java",
               instructor: "Eng. Mohamed Eid",
-              coursePrice: "180$"
+              coursePrice: "200$"
             },
           ],
         },
@@ -78,7 +81,7 @@ export default {
           tadId: "pills-course-2-tab",
           tabHref: "#pills-course-2",
           tabAriaControls: "pills-course-2",
-          tabText: "Course 2",
+          tabText: "C",
           sheet: {
             courseId: "2",
             sheetId: "pills-course-2",
@@ -88,9 +91,9 @@ export default {
           },
           courseDetails: [
             {
-              status: "Bestseller",
-              courseImgSrc: "",
-              courseTitle: "Master java",
+              status: "Recent",
+              courseImgSrc: "https://nareshit.com/wp-content/uploads/2018/08/C-Programming-online-training-nareshit.jpg",
+              courseTitle: "Master C Language",
               instructor: "Eng. Mohamed Eid",
               coursePrice: "180$"
             },
@@ -100,7 +103,7 @@ export default {
           tadId: "pills-course-3-tab",
           tabHref: "#pills-course-3",
           tabAriaControls: "pills-course-3",
-          tabText: "Course 3",
+          tabText: "C++",
           sheet: {
             sheetId: "pills-course-3",
             sheetRole: "tabpane3",
@@ -110,10 +113,31 @@ export default {
             {
               courseId: "2",
               status: "Bestseller",
-              courseImgSrc: "",
-              courseTitle: "Master java",
+              courseImgSrc: "https://www.educative.io/v2api/editorpage/5393602882568192/image/6038586442907648",
+              courseTitle: "The Full C++ Guide",
               instructor: "Eng. Mohamed Eid",
-              coursePrice: "180$"
+              coursePrice: "300$"
+            },
+          ],
+        },
+        {
+          tadId: "pills-course-4-tab",
+          tabHref: "#pills-course-4",
+          tabAriaControls: "pills-course-4",
+          tabText: "C#",
+          sheet: {
+            sheetId: "pills-course-4",
+            sheetRole: "tabpane4",
+            sheetAriaLabelledby: "pills-course-4-tab",
+          },
+          courseDetails: [
+            {
+              courseId: "5",
+              status: "Recent",
+              courseImgSrc: "https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png",
+              courseTitle: "Master C#",
+              instructor: "Eng. Mohamed Eid",
+              coursePrice: "70$"
             },
           ],
         },
@@ -122,3 +146,65 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+// START:: INCLUDING MAIN FILE
+@import "../assets/sass/main.scss";
+// END:: INCLUDING MAIN FILE
+
+.our-courses {
+  padding: $sectionPadding;
+  .nav-pills {
+    .nav-link {
+      color: $mainColor;
+      padding: 5px 10px;
+      @include borderRadius(20px);
+      &.active {
+        color: #fff;
+        background-color: $mainColor;
+      }
+    }
+  } 
+
+  .tab-content {
+    .card {
+      &.Bestseller {
+        border-bottom: 2px solid $bestSellerCourse;
+      }
+      &.Sale {
+        border-bottom: 2px solid $saleCourse;
+      }
+      &.Recent {
+        border-bottom: 2px solid $secondryColor;
+      }
+      @include borderRadius(10px);
+
+      img {
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+        min-height: 200px;
+        max-height: 200px;
+      }
+
+      .card-body {
+        text-align: start;
+        .badge {
+          color: #fff;
+          font-size: 15px;
+          padding: 5px 15px;
+          @include borderRadius(20px);
+          &.Bestseller {
+            background-color: $bestSellerCourse;
+          }
+          &.Sale {
+            background-color: $saleCourse;
+          }
+          &.Recent {
+            background-color: $secondryColor;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

@@ -9,4 +9,17 @@
 * {
   @include boxSizing();
   font-family: 'Cairo', sans-serif;
+
+  .sec-header {
+    display: inline-block;
+    border-bottom: 2px solid $mainColor;
+    border-right: 2px solid $mainColor;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 20px;
+    padding: 0 5px 5px 0;
+  }
+}
+
+body {
+  height: 300vh;
 }

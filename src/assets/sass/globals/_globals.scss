@@ -1,6 +1,10 @@
 // START:: SASS VARIABLES
 $mainColor: #21496C;
 $secondryColor: #9B7C29;
+$textColor: #ababab;
+$bestSellerCourse: #16c79a;
+$saleCourse: #ff4646;
+$sectionPadding: 80px;
 // END:: SASS VARIABLES 
 
 // START:: SASS MIXINS
@@ -23,5 +27,12 @@ $secondryColor: #9B7C29;
   -webkit-transform: scale($s) rotate($r);
   -o-transform: scale($s) rotate($r);
   transform: scale($s) rotate($r);
+}
+
+@mixin borderRadius($br) {
+  -moz-border-radius: $br;
+  -webkit-border-radius: $br;
+  -o-border-radius: $br;
+  border-radius: $br;
 }
 // END:: SASS MIXINS
