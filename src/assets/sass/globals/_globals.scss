@@ -1,0 +1,20 @@
+// START:: SASS VARIABLES
+$mainColor: #21496C;
+$secondryColor: #9B7C29;
+// END:: SASS VARIABLES 
+
+// START:: SASS MIXINS
+@mixin transitioning() {
+  -moz-transition: all 0.45s ease-in-out;
+  -webkit-transition: all 0.45s ease-in-out;
+  -o-transition: all 0.45s ease-in-out;
+  transition: all 0.45s ease-in-out;
+}
+
+@mixin scaleAndRotate( $s, $r ) {
+  -moz-transform: scale($s) rotate($r);
+  -webkit-transform: scale($s) rotate($r);
+  -o-transform: scale($s) rotate($r);
+  transform: scale($s) rotate($r);
+}
+// END:: SASS MIXINS
