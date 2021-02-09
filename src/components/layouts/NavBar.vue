@@ -137,6 +137,7 @@
             background-color: transparent;
             border-top: 2px solid $secondryColor;
             border-left: 2px solid $secondryColor;
+            border-top-left-radius: 5px;
             opacity: 0;
             @include transitioning();
           }
@@ -151,6 +152,7 @@
             background-color: transparent;
             border-top: 2px solid $secondryColor;
             border-right: 2px solid $secondryColor;
+            border-top-right-radius: 5px;
             opacity: 0;
             @include transitioning();
           }
@@ -167,6 +169,7 @@
             background-color: transparent;
             border-bottom: 2px solid $secondryColor;
             border-left: 2px solid $secondryColor;
+            border-bottom-left-radius: 5px;
             opacity: 0;
             @include transitioning();
           }
@@ -181,6 +184,7 @@
             background-color: transparent;
             border-bottom: 2px solid $secondryColor;
             border-right: 2px solid $secondryColor;
+            border-bottom-right-radius: 5px;
             opacity: 0;
             @include transitioning();
           }
