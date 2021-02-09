@@ -1,7 +1,11 @@
 <template>
   <div class="our-courses">
       <div class="container">
-        <h2 class="sec-header"> The Selection Of Our Courses </h2>
+        <h2 class="sec-header"> 
+          The Selection Of Our Courses
+          <span></span>
+          <span></span>
+        </h2>
         <!-- START:: TABS -->
         <ul class="nav nav-pills d-flex justify-content-center mb-3" id="pills-tab" role="tablist">
 
@@ -23,15 +27,17 @@
 
               <!-- START:: CARD MARKUP -->
               <div class="col-12 col-md-4 px-2 mb-3" v-for="course in tab.courseDetails" :key="course.courseId">
-                <div class="card" :class="course.status">
-                  <img :src="course.courseImgSrc" class="card-img-top" alt="Course Img">
-                  <div class="card-body">
-                    <h4 class="card-title"> {{course.courseTitle}} </h4>
-                    <h6> {{course.instructor}} </h6>
-                    <p> {{course.coursePrice}} </p>
-                    <span class="badge" :class="course.status">{{course.status}}</span>
+                <router-link to="/">
+                  <div class="card" :class="course.status">
+                    <img :src="course.courseImgSrc" class="card-img-top" alt="Course Img">
+                    <div class="card-body">
+                      <h4 class="card-title"> {{course.courseTitle}} </h4>
+                      <h6> {{course.instructor}} </h6>
+                      <p> {{course.coursePrice}} </p>
+                      <span class="badge" :class="course.status">{{course.status}}</span>
+                    </div>
                   </div>
-                </div>
+                </router-link>
               </div>
               <!-- END:: CARD MARKUP -->
 
@@ -61,6 +67,7 @@ export default {
           courseDetails: [
             {
               courseId: "1",
+              categoryUrl: "",
               status: "Sale",
               courseImgSrc: "https://www.anbilarabi.com/wp-content/uploads/2018/03/Java-Logo.jpg",
               courseTitle: "Learn Java",
@@ -69,6 +76,7 @@ export default {
             },
             {
               courseId: "4",
+              categoryUrl: "",
               status: "Bestseller",
               courseImgSrc: "https://www.anbilarabi.com/wp-content/uploads/2018/03/Java-Logo.jpg",
               courseTitle: "Master Java",
@@ -77,13 +85,13 @@ export default {
             },
           ],
         },
+
         {
           tadId: "pills-course-2-tab",
           tabHref: "#pills-course-2",
           tabAriaControls: "pills-course-2",
           tabText: "C",
           sheet: {
-            courseId: "2",
             sheetId: "pills-course-2",
             sheetRole: "tabpane2",
             sheetAriaLabelledby: "pills-course-2-tab",
@@ -91,6 +99,8 @@ export default {
           },
           courseDetails: [
             {
+              courseId: "1",
+              categoryUrl: "",
               status: "Recent",
               courseImgSrc: "https://nareshit.com/wp-content/uploads/2018/08/C-Programming-online-training-nareshit.jpg",
               courseTitle: "Master C Language",
@@ -99,6 +109,7 @@ export default {
             },
           ],
         },
+
         {
           tadId: "pills-course-3-tab",
           tabHref: "#pills-course-3",
@@ -112,6 +123,7 @@ export default {
           courseDetails: [
             {
               courseId: "2",
+              categoryUrl: "",
               status: "Bestseller",
               courseImgSrc: "https://www.educative.io/v2api/editorpage/5393602882568192/image/6038586442907648",
               courseTitle: "The Full C++ Guide",
@@ -120,6 +132,7 @@ export default {
             },
           ],
         },
+
         {
           tadId: "pills-course-4-tab",
           tabHref: "#pills-course-4",
@@ -133,6 +146,7 @@ export default {
           courseDetails: [
             {
               courseId: "5",
+              categoryUrl: "",
               status: "Recent",
               courseImgSrc: "https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png",
               courseTitle: "Master C#",
@@ -153,7 +167,6 @@ export default {
 // END:: INCLUDING MAIN FILE
 
 .our-courses {
-  padding: $sectionPadding;
   .nav-pills {
     .nav-link {
       color: $mainColor;
@@ -167,40 +180,44 @@ export default {
   } 
 
   .tab-content {
-    .card {
-      &.Bestseller {
-        border-bottom: 2px solid $bestSellerCourse;
-      }
-      &.Sale {
-        border-bottom: 2px solid $saleCourse;
-      }
-      &.Recent {
-        border-bottom: 2px solid $secondryColor;
-      }
-      @include borderRadius(10px);
+    a {
+      text-decoration: none;
+      color: $darkColor;
+      .card {
+        &.Bestseller {
+          border-bottom: 2px solid $bestSellerCourse;
+        }
+        &.Sale {
+          border-bottom: 2px solid $saleCourse;
+        }
+        &.Recent {
+          border-bottom: 2px solid $secondryColor;
+        }
+        @include borderRadius(10px);
 
-      img {
-        border-radius: 10px 10px 0 0;
-        width: 100%;
-        min-height: 200px;
-        max-height: 200px;
-      }
+        img {
+          border-radius: 10px 10px 0 0;
+          width: 100%;
+          min-height: 200px;
+          max-height: 200px;
+        }
 
-      .card-body {
-        text-align: start;
-        .badge {
-          color: #fff;
-          font-size: 15px;
-          padding: 5px 15px;
-          @include borderRadius(20px);
-          &.Bestseller {
-            background-color: $bestSellerCourse;
-          }
-          &.Sale {
-            background-color: $saleCourse;
-          }
-          &.Recent {
-            background-color: $secondryColor;
+        .card-body {
+          text-align: start;
+          .badge {
+            color: #fff;
+            font-size: 15px;
+            padding: 5px 15px;
+            @include borderRadius(20px);
+            &.Bestseller {
+              background-color: $bestSellerCourse;
+            }
+            &.Sale {
+              background-color: $saleCourse;
+            }
+            &.Recent {
+              background-color: $secondryColor;
+            }
           }
         }
       }
