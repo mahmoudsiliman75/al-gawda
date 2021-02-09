@@ -22,7 +22,7 @@
             <div class="row justify-content-center">
 
               <!-- START:: CARD MARKUP -->
-              <div class="col-12 col-md-4 px-2" v-for="course in tab.courseDetails" :key="course.courseId">
+              <div class="col-12 col-md-4 px-2 mb-3" v-for="course in tab.courseDetails" :key="course.courseId">
                 <div class="card" :class="course.status">
                   <img :src="course.courseImgSrc" class="card-img-top" alt="Course Img">
                   <div class="card-body">
