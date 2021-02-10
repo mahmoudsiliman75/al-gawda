@@ -111,11 +111,16 @@ export default {
             margin: 0 10px;
             border: 2px solid $mainColor;
             color: $mainColor;
+            font-weight: bold;
             @include borderRadius(25px);
             @include transitioning();
             &:first-child {
               background-color: $mainColor;
               color: #fff;
+              &:hover {
+                background-color: #fff;
+                color: $mainColor;
+              }
             }
             &:last-child {
               &:hover {

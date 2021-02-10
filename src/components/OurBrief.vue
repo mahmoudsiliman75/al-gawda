@@ -11,9 +11,10 @@
           <img src="../assets/media/svg/coding.svg" alt="About Us Image" class="about-sec-img">
         </div>
 
-        <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+        <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
           <p> {{firstDesc}} </p>
           <p> {{lastDesc}} </p>
+          <router-link to="/about"> View More </router-link>
         </div>
 
       </div>
@@ -48,6 +49,20 @@ export default {
     font-size: 18px;
     &:first-child {
       color: $mainColor;
+    }
+  }
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: $mainColor;
+    background-color: transparent;
+    padding: 5px 15px;
+    border: 2px solid $mainColor;
+    @include borderRadius(20px);
+    @include transitioning();
+    &:hover {
+      background-color: $mainColor;
+      color: #fff;
     }
   }
 }
