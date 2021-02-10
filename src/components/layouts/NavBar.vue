@@ -48,6 +48,12 @@
         <span></span>
       </router-link>
 
+      <router-link to="/team">
+        Our Team
+        <span></span> 
+        <span></span>
+      </router-link>
+
       <router-link to="/">
         Join Us
         <span></span> 
