@@ -16,8 +16,6 @@
           <p> {{lastDesc}} </p>
         </div>
 
-        
-
       </div>
     </div>
   </div>

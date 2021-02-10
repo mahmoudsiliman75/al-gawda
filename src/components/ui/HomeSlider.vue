@@ -12,7 +12,7 @@
             <p class="text-justify text-md-center"> {{slide.desc}} </p>
             <div class="btns-box">
               <router-link to="/"> Get Started </router-link>
-              <router-link to="/"> Courses </router-link>
+              <router-link to="/courses"> Courses </router-link>
             </div>
           </div>
         </div>

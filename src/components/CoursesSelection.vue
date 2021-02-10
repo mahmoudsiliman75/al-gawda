@@ -21,7 +21,7 @@
 
       <!-- START:: TABS SHEET -->
       <div class="tab-content" id="pills-tabContent">
-        <div v-for="(tab, index) in tabInfo" :key="tab.tadId" class="tab-pane fade active" :class="index == 0 ? 'show ' : ''" :id="`${tab.sheet.sheetId}`" :role="`${tab.sheet.sheetRole}`" :aria-labelledby="`${tab.sheet.sheetAriaLabelledby}`">
+        <div v-for="(tab, index) in tabInfo" :key="tab.tadId" class="tab-pane fade" :class="index == 0 ? 'show active' : ''" :id="`${tab.sheet.sheetId}`" :role="`${tab.sheet.sheetRole}`" :aria-labelledby="`${tab.sheet.sheetAriaLabelledby}`">
           <div class="container">
             <div class="row justify-content-center">
 
@@ -31,12 +31,16 @@
                   <div class="card" :class="course.status">
                     <img :src="course.courseImgSrc" class="card-img-top" alt="Course Img">
                     <div class="card-body">
-                      <h4 class="card-title text-center"> {{course.courseTitle}} </h4>
-                      <div class="course-info">
-                        <p class="instructor"> {{course.instructor}} </p>
-                        <p class="price"> {{course.coursePrice}} </p>
+                      <h4 class="card-title"> {{course.courseTitle}} </h4>
+                      <p class="instructor"> {{course.instructor}} </p>
+                      <div class="d-flex justify-content-between">
+                        <span class="badge" :class="course.status">{{course.status}}</span>
+
+                        <div class="price-box">
+                          <span class="price mx-2" :class=" parseInt(course.saleAmount) > 0 ? 'sale-price' : '' " > {{course.coursePrice}} </span>
+                          <span class="mx-2" v-if="parseInt(course.saleAmount) > 0"> {{calcSale( course.coursePrice, course.saleAmount )}}$ </span>
+                        </div>
                       </div>
-                      <span class="badge" :class="course.status">{{course.status}}</span>
                     </div>
                   </div>
                 </router-link>
@@ -71,6 +75,7 @@ export default {
               courseId: "1",
               categoryUrl: "",
               status: "Sale",
+              saleAmount: "10",
               courseImgSrc: "https://www.anbilarabi.com/wp-content/uploads/2018/03/Java-Logo.jpg",
               courseTitle: "Learn Java",
               instructor: "Eng. Mohamed Eid",
@@ -80,6 +85,7 @@ export default {
               courseId: "4",
               categoryUrl: "",
               status: "Bestseller",
+              saleAmount: "0",
               courseImgSrc: "https://gorillalogic.com/wp-content/uploads/2018/02/Java-9-Modules-1024x640.gif",
               courseTitle: "Master Java",
               instructor: "Eng. Mohamed Eid",
@@ -104,6 +110,7 @@ export default {
               courseId: "1",
               categoryUrl: "",
               status: "Recent",
+              saleAmount: "0",
               courseImgSrc: "https://nareshit.com/wp-content/uploads/2018/08/C-Programming-online-training-nareshit.jpg",
               courseTitle: "Master C Language",
               instructor: "Eng. Mohamed Eid",
@@ -127,6 +134,7 @@ export default {
               courseId: "2",
               categoryUrl: "",
               status: "Bestseller",
+              saleAmount: "0",
               courseImgSrc: "https://www.educative.io/v2api/editorpage/5393602882568192/image/6038586442907648",
               courseTitle: "The Full C++ Guide",
               instructor: "Eng. Mohamed Eid",
@@ -150,6 +158,7 @@ export default {
               courseId: "5",
               categoryUrl: "",
               status: "Recent",
+              saleAmount: "0",
               courseImgSrc: "https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png",
               courseTitle: "Master C#",
               instructor: "Eng. Mohamed Eid",
@@ -158,6 +167,12 @@ export default {
           ],
         },
       ],
+    }
+  },
+
+  methods: {
+    calcSale( price, discount ) {
+      return parseInt(price) - (parseInt(price) * parseInt(discount) / 100);
     }
   }
 }
@@ -207,14 +222,17 @@ export default {
 
         .card-body {
           text-align: start;
-          .course-info {
-            p {
-              padding: 8px;
-              background-color: $mainColor;
-              color: #fff;
-              text-align: center;
-              position: relative;
-              @include borderRadius(10px);
+          h4 {
+            font-weight: 600;
+          }
+          p,
+          span {
+            color: #666;
+          }
+          span {
+            &.sale-price {
+              text-decoration: line-through;
+              color: #888;
             }
           }
           .badge {
