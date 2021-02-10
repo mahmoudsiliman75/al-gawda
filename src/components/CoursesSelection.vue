@@ -80,7 +80,7 @@ export default {
               courseId: "4",
               categoryUrl: "",
               status: "Bestseller",
-              courseImgSrc: "https://www.anbilarabi.com/wp-content/uploads/2018/03/Java-Logo.jpg",
+              courseImgSrc: "https://gorillalogic.com/wp-content/uploads/2018/02/Java-9-Modules-1024x640.gif",
               courseTitle: "Master Java",
               instructor: "Eng. Mohamed Eid",
               coursePrice: "200$"
