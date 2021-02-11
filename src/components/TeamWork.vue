@@ -1,12 +1,12 @@
 <template>
   <div class="teamwork-sec">
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h2 class="sec-header"> Our Team</h2>
         </div>
 
-        <div class="col-12 col-md-4 px-2">
+        <div class="col-12 col-md-4 px-2 mb-2" v-for="member in members" :key="member.id">
           <div class="member-card mb-2 d-flex flex-column justify-content-center align-items-center">
             <!-- START:: FIRST SVG -->
             <svg class="first" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
@@ -14,22 +14,22 @@
             </svg>
             <!-- END:: FIRST SVG -->
 
-            <img src="https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png" alt="Team Member Img">
+            <img :src="member.imgUrl">
 
-            <h4> Mohamed Eid </h4>
-            <h6> Back-end Developer </h6>
+            <h4> {{member.name}} </h4>
+            <h6> {{member.role}} </h6>
 
             <ul class="list-unstyled">
               <li> 
-                <a href="#"> <b-icon-facebook /> </a> 
+                <a :href="member.faceUrl"> <b-icon-facebook /> </a> 
               </li>
 
               <li> 
-                <a href="#"> <b-icon-twitter /> </a> 
+                <a :href="member.twitterUrl"> <b-icon-twitter /> </a> 
               </li>
 
               <li> 
-                <a href="#"> <b-icon-linkedin /> </a> 
+                <a :href="member.linkedUrl"> <b-icon-linkedin /> </a> 
               </li>
             </ul>
 
@@ -48,7 +48,48 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      members: [
+        {
+          id: "1",
+          imgUrl: "https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+          name: "Mohamed Eid",
+          role: "Back-End Developer",
+          faceUrl: "#",
+          twitterUrl: "#",
+          linkedUrl: "#",
+        },
+        {
+          id: "2",
+          imgUrl: "https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+          name: "Mahmoud siliman",
+          role: "Front-End Developer",
+          faceUrl: "#",
+          twitterUrl: "#",
+          linkedUrl: "#",
+        },
+        {
+          id: "3",
+          imgUrl: "https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+          name: "Mostafa Emam",
+          role: "Back-End Developer",
+          faceUrl: "#",
+          twitterUrl: "#",
+          linkedUrl: "#",
+        },
+        {
+          id: "4",
+          imgUrl: "https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+          name: "Ahmed Ebrahim",
+          role: "Mobile App Developer",
+          faceUrl: "#",
+          twitterUrl: "#",
+          linkedUrl: "#",
+        },
+      ],
+    }
+  },
 }
 </script>
 
@@ -104,7 +145,7 @@ export default {
       bottom: 0;
       display: block;
       width: 100%;
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0, 0, 0, 0.4);
       display: flex;
       justify-content: center;
       li {
