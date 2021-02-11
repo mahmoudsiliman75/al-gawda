@@ -65,6 +65,7 @@ export default {
 
 .testemonuals-sec {
   padding: $sectionPadding;
+  padding-bottom: 90px; 
   .carousel {
     .carousel__viewport {
       .carousel__track {

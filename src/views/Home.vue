@@ -8,7 +8,9 @@
 
     <team-work></team-work>
 
-    <clients-testeemonials></clients-testeemonials>
+    <clients-testemonials></clients-testemonials>
+
+    <center-mobile-app></center-mobile-app>
   </div>
 </template>
 
@@ -18,6 +20,7 @@ import CoursesSelection from "../components/CoursesSelection.vue";
 import OurBrief from "../components/OurBrief.vue";
 import TeamWork from "../components/TeamWork.vue";
 import clientsTestemonials from "../components/ClientsTestemonials.vue";
+import CenterMobileApp from "../components/CenterMobileApp.vue";
 
 export default {
   name: "Home",
@@ -27,7 +30,8 @@ export default {
     "courses-selection": CoursesSelection,
     "our-brief": OurBrief,
     "team-work": TeamWork,
-    "clients-testeemonials": clientsTestemonials,
+    "clients-testemonials": clientsTestemonials,
+    "center-mobile-app": CenterMobileApp,
   }
 };
 </script>
