@@ -20,7 +20,9 @@
     "vue": "^3.0.5",
     "vue-feather": "^1.1.1",
     "vue-flux": "^6.4.0",
+    "vue-owl-carousel": "^2.0.3",
     "vue-router": "^4.0.0-0",
+    "vue3-carousel": "^0.1.11",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

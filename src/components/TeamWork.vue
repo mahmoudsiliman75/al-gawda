@@ -139,15 +139,18 @@ export default {
     }
     ul {
       margin-bottom: 0;
-      padding: 8px;
+      padding: 25px 12px 8px;
+      border-radius: 91% 0 0 0%;
       position: absolute;
-      left: 0;
+      right: 0;
       bottom: 0;
       display: block;
       width: 100%;
       background-color: rgba(0, 0, 0, 0.4);
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
+      width: 40%;
       li {
         margin: 0 8px;
         transform: scale(1.1);

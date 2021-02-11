@@ -7,6 +7,8 @@
     <courses-selection></courses-selection>
 
     <team-work></team-work>
+
+    <clients-testeemonials></clients-testeemonials>
   </div>
 </template>
 
@@ -15,6 +17,7 @@ import HomeSlider from "../components/ui/HomeSlider.vue";
 import CoursesSelection from "../components/CoursesSelection.vue";
 import OurBrief from "../components/OurBrief.vue";
 import TeamWork from "../components/TeamWork.vue";
+import clientsTestemonials from "../components/ClientsTestemonials.vue";
 
 export default {
   name: "Home",
@@ -24,6 +27,7 @@ export default {
     "courses-selection": CoursesSelection,
     "our-brief": OurBrief,
     "team-work": TeamWork,
+    "clients-testeemonials": clientsTestemonials,
   }
 };
 </script>
