@@ -54,8 +54,8 @@
         <span></span>
       </router-link>
 
-      <router-link to="/">
-        Join Us
+      <router-link to="/blog">
+        Blog
         <span></span> 
         <span></span>
       </router-link>

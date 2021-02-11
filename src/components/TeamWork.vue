@@ -21,15 +21,15 @@
 
             <ul class="list-unstyled">
               <li> 
-                <a :href="member.faceUrl"> <b-icon-facebook /> </a> 
+                <a :href="member.faceUrl" class="member-social"> <b-icon-facebook /> </a> 
               </li>
 
               <li> 
-                <a :href="member.twitterUrl"> <b-icon-twitter /> </a> 
+                <a :href="member.twitterUrl" class="member-social"> <b-icon-twitter /> </a> 
               </li>
 
               <li> 
-                <a :href="member.linkedUrl"> <b-icon-linkedin /> </a> 
+                <a :href="member.linkedUrl" class="member-social"> <b-icon-linkedin /> </a> 
               </li>
             </ul>
 
@@ -39,6 +39,10 @@
             </svg>
             <!-- END:: LAST SVG -->
           </div>
+        </div>
+
+        <div class="col-12 view-more-btn">
+          <router-link to="/team"> Meet Our Team </router-link>
         </div>
 
       </div>
@@ -53,7 +57,7 @@ export default {
       members: [
         {
           id: "1",
-          imgUrl: "https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+          imgUrl: "http://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
           name: "Mohamed Eid",
           role: "Back-End Developer",
           faceUrl: "#",
@@ -62,7 +66,7 @@ export default {
         },
         {
           id: "2",
-          imgUrl: "https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+          imgUrl: "http://unitedthemes.com/wp-content/uploads/2018/09/team1.jpg",
           name: "Mahmoud siliman",
           role: "Front-End Developer",
           faceUrl: "#",
@@ -71,18 +75,9 @@ export default {
         },
         {
           id: "3",
-          imgUrl: "https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+          imgUrl: "http://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2015/03/shutterstock_159780776-uai-828x828.jpg",
           name: "Mostafa Emam",
           role: "Back-End Developer",
-          faceUrl: "#",
-          twitterUrl: "#",
-          linkedUrl: "#",
-        },
-        {
-          id: "4",
-          imgUrl: "https://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
-          name: "Ahmed Ebrahim",
-          role: "Mobile App Developer",
           faceUrl: "#",
           twitterUrl: "#",
           linkedUrl: "#",
@@ -154,7 +149,7 @@ export default {
       li {
         margin: 0 8px;
         transform: scale(1.1);
-        a {
+        .member-social {
           text-decoration: none;
           color: #fff;
           font-size: 22px;
@@ -163,6 +158,23 @@ export default {
             color: $secondryColor;
           }
         }
+      }
+    }
+  }
+  .view-more-btn {
+    a {
+      text-decoration: none;
+      display: inline-block;
+      color: $mainColor;
+      font-weight: bold;
+      margin: 15px 0;
+      padding: 5px 10px;
+      border: 2px solid $mainColor;
+      @include borderRadius(20px);
+      @include transitioning();
+      &:hover {
+        color: #fff;
+        background-color: $mainColor;
       }
     }
   }

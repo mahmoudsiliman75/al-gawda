@@ -13,7 +13,6 @@
 
         <template #addons>
           <navigation/>
-          <pagination />
         </template>
       </carousel>
 
@@ -90,7 +89,7 @@ export default {
               content: "";
               position: absolute;
               bottom: -20px;
-              left: 50%;
+              left: 45%;
               display: block;
               width: 40px;
               height: 40px;
