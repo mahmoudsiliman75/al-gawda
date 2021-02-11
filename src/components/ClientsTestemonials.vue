@@ -12,7 +12,7 @@
         </slide>
 
         <template #addons>
-          <navigation />
+          <navigation/>
           <pagination />
         </template>
       </carousel>
@@ -109,6 +109,10 @@ export default {
         }
       }
     }
+  }
+
+  .carousel__prev {
+    background-color: #f00 !important;
   }
 }
 </style>
