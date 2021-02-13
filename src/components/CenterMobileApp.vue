@@ -15,8 +15,14 @@
         <div class="row">
           <div class="col-12 col-md-8 mobile-app-info">
             <h2> Get Our Mobile App Now </h2>
-            <div class="links-box">
-
+            <div class="links-box d-flex justify-content-between">
+              <a href="#">
+                <img src="../assets/media/google-play.png">
+              </a>
+              
+              <a href="#">
+                <img src="../assets/media/app-store.png">
+              </a>
             </div>
           </div>
 
@@ -79,6 +85,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    .links-box {
+      a {
+        margin: 10px;
+        img {
+          height: 60px;
+        }
+      }
+    }
   }
 }
 </style>
