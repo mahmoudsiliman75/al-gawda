@@ -59,6 +59,12 @@
         <span></span> 
         <span></span>
       </router-link>
+
+      <router-link to="/contact">
+        Contact Us
+        <span></span> 
+        <span></span>
+      </router-link>
     </div>
   </div>
   <!-- END:: NAVIGATION BAR -->

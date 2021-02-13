@@ -4,6 +4,7 @@ import AboutUs from "../views/AboutUs.vue";
 import Courses from "../views/Courses.vue";
 import OurTeam from "../views/OurTeam.vue";
 import Blog from "../views/CenterBlog.vue";
+import ContactUs from "../components/ContactUs.vue";
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: "/blog",
     name: "Blog",
     component: Blog,
+  },
+  {
+    path: "/contact",
+    name: "ContactUs",
+    component: ContactUs,
   },
 ];
 

@@ -11,6 +11,8 @@
     <clients-testemonials></clients-testemonials>
 
     <center-mobile-app></center-mobile-app>
+
+    <contact-us></contact-us>
   </div>
 </template>
 
@@ -21,6 +23,7 @@ import OurBrief from "../components/OurBrief.vue";
 import TeamWork from "../components/TeamWork.vue";
 import clientsTestemonials from "../components/ClientsTestemonials.vue";
 import CenterMobileApp from "../components/CenterMobileApp.vue";
+import ContactUs from "../components/ContactUs.vue";
 
 export default {
   name: "Home",
@@ -32,6 +35,7 @@ export default {
     "team-work": TeamWork,
     "clients-testemonials": clientsTestemonials,
     "center-mobile-app": CenterMobileApp,
+    "contact-us": ContactUs,
   }
 };
 </script>

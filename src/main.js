@@ -13,6 +13,7 @@ import "../src/assets/sass/main.scss";
 import {BootstrapIconsPlugin } from "bootstrap-icons-vue";
 
 
+
 createApp(App)
   .use(store)
   .use(router)
