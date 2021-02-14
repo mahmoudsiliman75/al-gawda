@@ -41,9 +41,9 @@
           </div>
         </div>
 
-        <div class="col-12 view-more-btn">
+        <!-- <div class="col-12 view-more-btn">
           <router-link to="/team"> Meet Our Team </router-link>
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -52,39 +52,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      members: [
-        {
-          id: "1",
-          imgUrl: "http://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
-          name: "Mohamed Eid",
-          role: "Back-End Developer",
-          faceUrl: "#",
-          twitterUrl: "#",
-          linkedUrl: "#",
-        },
-        {
-          id: "2",
-          imgUrl: "http://unitedthemes.com/wp-content/uploads/2018/09/team1.jpg",
-          name: "Mahmoud siliman",
-          role: "Front-End Developer",
-          faceUrl: "#",
-          twitterUrl: "#",
-          linkedUrl: "#",
-        },
-        {
-          id: "3",
-          imgUrl: "http://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2015/03/shutterstock_159780776-uai-828x828.jpg",
-          name: "Mostafa Emam",
-          role: "Back-End Developer",
-          faceUrl: "#",
-          twitterUrl: "#",
-          linkedUrl: "#",
-        },
-      ],
-    }
-  },
+  inject: [ 'members' ],
 }
 </script>
 
