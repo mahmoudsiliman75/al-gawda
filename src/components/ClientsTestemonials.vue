@@ -1,60 +1,60 @@
 <template>
   <div class="testemonuals-sec">
     <div class="container">
-      <h2 class="sec-header"> What Our Clients Say </h2>
+      <h2 class="sec-header">What Our Clients Say</h2>
 
       <carousel :items-to-show="1" :wrapAround="true">
         <slide v-for="slide in slides" :key="slide.id">
           <div class="testemonial-card">
             <q> {{ slide.testemonial }} </q>
           </div>
-          <h4 class="cllient-name"> {{slide.clientName}} </h4>
+          <h4 class="cllient-name">{{ slide.clientName }}</h4>
         </slide>
 
         <template #addons>
           <navigation/>
         </template>
       </carousel>
-
     </div>
   </div>
 </template>
 
 <script>
 import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide, Navigation } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 
 export default {
   components: {
     Carousel,
-    Slide,
-    Navigation
+    Navigation,
+    Slide
   },
 
   data() {
     return {
+      transform: "0px",
       slides: [
         {
           id: "1",
           testemonial:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero deserunt maiores dolore laboriosam, veniam necessitatibus minima omnis assumenda, esse iusto fuga? Recusandae ipsam deleniti, rerum quo nam aspernatur eligendi. Consequuntur.",
-          clientName: "Mahmoud Siliman",
+          clientName: "Mahmoud Siliman"
         },
         {
           id: "2",
           testemonial:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero deserunt maiores dolore laboriosam, veniam necessitatibus minima omnis assumenda, esse iusto fuga? Recusandae ipsam deleniti, rerum quo nam aspernatur eligendi. Consequuntur.",
-          clientName: "Mohamed Eid",
+          clientName: "Mohamed Eid"
         },
         {
           id: "3",
           testemonial:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero deserunt maiores dolore laboriosam, veniam necessitatibus minima omnis assumenda, esse iusto fuga? Recusandae ipsam deleniti, rerum quo nam aspernatur eligendi. Consequuntur.",
-          clientName: "Omar Ehab",
+          clientName: "Omar Ehab"
         }
       ]
     };
-  }
+  },
 };
 </script>
 
@@ -65,7 +65,7 @@ export default {
 
 .testemonuals-sec {
   padding: $sectionPadding;
-  padding-bottom: 90px; 
+  padding-bottom: 90px;
   .carousel {
     .carousel__viewport {
       .carousel__track {
@@ -109,10 +109,6 @@ export default {
         }
       }
     }
-  }
-
-  .carousel__prev {
-    background-color: #f00 !important;
   }
 }
 </style>

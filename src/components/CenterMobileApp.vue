@@ -5,14 +5,18 @@
     <div class="overlay">
       <!-- START:: SECTION SVG -->
       <div class="section-svg">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
-        </svg>
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+          </svg>
       </div>
       <!-- END:: SECTION SVG -->
 
       <div class="container">
         <div class="row">
+          <div class="col-12 col-md-4 mobile-app-img">
+            <img src="../assets/media/mobile.png" alt="">
+          </div>
+
           <div class="col-12 col-md-8 mobile-app-info">
             <h2> Get Our Mobile App Now </h2>
             <div class="links-box d-flex justify-content-between">
@@ -24,10 +28,6 @@
                 <img src="../assets/media/app-store.png">
               </a>
             </div>
-          </div>
-
-          <div class="col-12 col-md-4 mobile-app-img">
-            <img src="../assets/media/mobile.png" alt="">
           </div>
         </div>
       </div>
@@ -71,6 +71,7 @@
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    transform: rotateY(180deg);
     z-index: 2;
     path {
       fill: #fff
