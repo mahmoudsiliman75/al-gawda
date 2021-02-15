@@ -7,6 +7,9 @@
         <div class="btns-box col-6 d-flex justify-content-start align-items-center">
           <router-link to="/"> Register </router-link>
           <router-link to="/"> Login </router-link>
+          <a href="#"> 
+            <img src="../../assets/media/translate.png" alt="" width="25" height="25">
+          </a>
         </div>
 
         <div class="links-menu-box col-6">
