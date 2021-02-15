@@ -36,7 +36,7 @@
     </div>
 
     <div class="nav-bar-links">
-      <router-link to="/home">
+      <router-link to="/">
         Home 
         <span></span> 
         <span></span>

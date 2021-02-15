@@ -7,13 +7,14 @@ import Blog from "../views/CenterBlog.vue";
 import ContactUs from "../components/ContactUs.vue";
 
 const routes = [
+
+  // {
+  //   path: "/home",
+  //   name: "Home",
+  //   component: Home
+  // },
   {
     path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/home",
     name: "Home",
     component: Home
   },
