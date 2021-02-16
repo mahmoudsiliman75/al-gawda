@@ -51,6 +51,12 @@
         <span></span>
       </router-link>
 
+      <router-link to="/courses">
+        Courses
+        <span></span> 
+        <span></span>
+      </router-link>
+
       <router-link to="/team">
         Our Team
         <span></span> 

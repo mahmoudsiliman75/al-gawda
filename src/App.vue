@@ -1,14 +1,18 @@
 <template>
   <nav-bar></nav-bar>
   <router-view />
+  <the-footer></the-footer>
+
 </template>
 
 <script>
 import NavBar from "./components/layouts/NavBar.vue";
+import TheFooter from "./components/layouts/TheFooter";
 
 export default {
   components: {
     "nav-bar": NavBar,
+    "the-footer": TheFooter,
   }
 }
 </script>

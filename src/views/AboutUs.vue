@@ -94,6 +94,7 @@
 }
 
 .target {
+  padding-bottom: 50px;
   .card {
     padding: 10px;
     margin-top: 30px;

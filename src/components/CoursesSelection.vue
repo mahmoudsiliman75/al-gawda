@@ -2,9 +2,7 @@
   <div class="our-courses">
       <div class="container">
         <h2 class="sec-header"> 
-          The Selection Of Our Courses
-          <span></span>
-          <span></span>
+          Featured Courses
         </h2>
         <!-- START:: TABS -->
         <ul class="nav nav-pills d-flex justify-content-center mb-3" id="pills-tab" role="tablist">

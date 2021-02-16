@@ -50,6 +50,7 @@
 
 .contact-us {
   padding: $sectionPadding;
+  padding-bottom: 50px;
   .row {
     .map-box {
       padding: 0;
