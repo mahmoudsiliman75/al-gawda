@@ -168,6 +168,12 @@ export default {
     }
   },
 
+  provide() {
+    return {
+      tabs: this.tabInfo,
+    }
+  },
+
   methods: {
     calcSale( price, discount ) {
       return parseInt(price) - (parseInt(price) * parseInt(discount) / 100);

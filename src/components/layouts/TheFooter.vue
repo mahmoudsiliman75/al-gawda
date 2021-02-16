@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container">
+    <!-- <div class="container">
       <div class="row justify-content-around">
         <div class="col-4 col-md-2 p-2">
           <div class="footer-icon">
@@ -37,17 +37,16 @@
           </ul>
         </div>
       </div>
-
+    </div> -->
+    <div class="copy-right col-12 text-center d-flex justify-content-between">
+      <div>
+        powered By <a href="https://www.technomasr.com/"> Tehcnomasr </a>
       </div>
-        <div class="copy-right col-12 text-center d-flex justify-content-between">
-          <div>
-            powered By <a href="https://www.technomasr.com/"> Tehcnomasr </a>
-          </div>
 
-          <div>
-            &copy; Al Gawda 2021
-          </div>
+      <div>
+        &copy; Al Gawda 2021
       </div>
+    </div>
 
   </footer>
 </template>

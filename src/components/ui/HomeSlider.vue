@@ -10,10 +10,6 @@
             <p class="text-justify text-md-center"> {{slide.upperDesc}} </p>
             <h2 class="mb-4"> {{slide.title}} </h2>
             <p class="text-justify text-md-center"> {{slide.desc}} </p>
-            <div class="btns-box">
-              <router-link to="/"> Get Started </router-link>
-              <router-link to="/courses"> Courses </router-link>
-            </div>
           </div>
         </div>
       </div>
