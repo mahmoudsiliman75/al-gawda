@@ -1,10 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import AboutUs from "../views/AboutUs.vue";
-import Courses from "../views/Courses.vue";
-import OurTeam from "../views/OurTeam.vue";
-import Blog from "../views/CenterBlog.vue";
-import ContactUs from "../components/ContactUs.vue";
 
 const routes = [
   {
@@ -15,27 +10,32 @@ const routes = [
   {
     path: "/about",
     name: "AboutUs",
-    component: AboutUs
+    component: () => import(/*webpackChunkName: 'about'*/ '../views/AboutUs.vue'),
   },
   {
-    path: "/courses/:id",
+    path: "/courses_cats",
     name: "Courses",
-    component: Courses,
+    component: () => import(/*webpackChunkName: 'coursesCats'*/ '../views/CoursesCategories.vue'),
   },
   {
     path: "/team",
     name: "OurTeam",
-    component: OurTeam,
+    component: () => import(/*webpackChunkName: 'ourTeam'*/ '../views/OurTeam.vue'),
   },
   {
     path: "/blog",
     name: "Blog",
-    component: Blog,
+    component: () => import(/*webpackChunkName: 'blog'*/ '../views/CenterBlog.vue'),
   },
   {
     path: "/contact",
     name: "ContactUs",
-    component: ContactUs,
+    component: () => import(/*webpackChunkName: 'contact'*/ '../components/ContactUs.vue'),
+  },
+  {
+    path: "/cat_content/:id",
+    name: "CategoryContent",
+    component: () => import(/*webpackChunkName: 'cat_content'*/ '../components/CategoryContent.vue'),
   },
 ];
 
