@@ -52,7 +52,6 @@ export default {
 
     categoryCourses() {
       return this.$store.state.coursesCategories;
-      
     },
   },
 

@@ -1,5 +1,80 @@
 <template>
   <div class="blog">
-    <h2 class="section-heading"> Blog </h2>
+    <div class="container">
+      <h2 class="sec-header"> Blog </h2>
+      <div class="row justify-content-center">
+
+        <div class="col-12 col-md-8 my-5 px-4 card-box border-bottom" v-for="post in blogs" :key="post.id">
+          <router-link :to="{name: 'BlogArticle', params: {articleId: post.id} }">
+            <h3 class="title"> {{post.title}} </h3>
+            <p class="desc"> {{post.desc}} </p>
+            <p class="author"> <span> By: </span> {{post.author}} </p>
+            <p class="date"> <span> Posted In: </span> {{post.date}} </p>
+            <button> Read More </button>
+          </router-link>
+        </div>
+
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    blogs() {
+      return this.$store.state.blogs;
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+// START:: IMPORTING MAIN FILE
+@import "../assets/sass/main.scss";
+// END:: IMPORTING MAIN FILE
+
+.blog {
+  padding: $sectionPadding;
+  padding-bottom: 50px;
+  .card-box {
+    padding-bottom: 15px;
+    text-align: start;
+    a {
+      text-decoration: none;
+      .title {
+        color: $mainColor;
+      }
+      .desc {
+        color: #555;
+        text-align: justify;
+      }
+      .author,
+      .date {
+        color: #888;
+        margin-bottom: 0;
+        span {
+          color: $secondryColor;
+          font-weight: bold;
+        }
+      }
+    }
+    button {
+      padding: 5px 10px;
+      margin-top: 15px;
+      background-color: transparent;
+      border: 2px solid $mainColor;
+      color: $mainColor;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      @include borderRadius(20px);
+      @include transitioning();
+      &:hover {
+        background-color: $mainColor;
+        color: #fff;
+      } 
+    }
+  }
+}
+</style>

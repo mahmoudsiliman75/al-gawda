@@ -141,7 +141,7 @@
 // START:: NAVIGATION BAR STYLES
 .nav-bar {
   background-color: #f1f1f1;
-  padding: 15px 5px;
+  padding: 15px 30px;
   .site-logo {
     img {
       min-height: 65px;

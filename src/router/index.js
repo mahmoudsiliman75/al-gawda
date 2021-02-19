@@ -18,6 +18,11 @@ const routes = [
     component: () => import(/*webpackChunkName: 'coursesCats'*/ '../views/CoursesCategories.vue'),
   },
   {
+    path: "/cat_content/:id",
+    name: "CategoryContent",
+    component: () => import(/*webpackChunkName: 'cat_content'*/ '../components/CategoryContent.vue'),
+  },
+  {
     path: "/team",
     name: "OurTeam",
     component: () => import(/*webpackChunkName: 'ourTeam'*/ '../views/OurTeam.vue'),
@@ -28,14 +33,14 @@ const routes = [
     component: () => import(/*webpackChunkName: 'blog'*/ '../views/CenterBlog.vue'),
   },
   {
+    path: "/article/:articleId",
+    name: "BlogArticle",
+    component: () => import(/*webpackChunkName: 'article'*/ '../components/BlogArticle.vue'),
+  },
+  {
     path: "/contact",
     name: "ContactUs",
     component: () => import(/*webpackChunkName: 'contact'*/ '../components/ContactUs.vue'),
-  },
-  {
-    path: "/cat_content/:id",
-    name: "CategoryContent",
-    component: () => import(/*webpackChunkName: 'cat_content'*/ '../components/CategoryContent.vue'),
   },
 ];
 
