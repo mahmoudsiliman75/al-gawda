@@ -23,6 +23,11 @@ const routes = [
     component: () => import(/*webpackChunkName: 'cat_content'*/ '../components/CategoryContent.vue'),
   },
   {
+    path: "/single_course/:id/:course_id",
+    name: "CourseContent",
+    component: () => import(/*webpackChunkName: 'course_content'*/ '../components/CourseContent.vue'),
+  },
+  {
     path: "/team",
     name: "OurTeam",
     component: () => import(/*webpackChunkName: 'ourTeam'*/ '../views/OurTeam.vue'),
