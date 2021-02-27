@@ -38,6 +38,7 @@
       <img alt="logo" src="../../assets/media/logo.png" />
     </div>
 
+    <!-- START:: LARGE SCREENS NAVIGATION BAR -->
     <div class="nav-bar-links">
       <router-link to="/">
         Home 
@@ -89,9 +90,68 @@
         <span></span>
       </router-link>
     </div>
+    <!-- END:: LARGE SCREENS NAVIGATION BAR -->
+
+    <!-- START:: SMALL SCREENS NAVIGATION MENU BUTTON -->
+    <div class="mobile-menu-btn">
+      <button class="btn" @click="toggleMobileMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>
+    </div>
+    <!-- END:: SMALL SCREENS NAVIGATION MENU BUTTON -->
+
   </div>
   <!-- END:: NAVIGATION BAR -->
+
+  <!-- START:: SMALL SCREENS NAVIGATION MENU -->
+  <div class="mobile-menu" v-if="menuIsVisible">
+    <ul class="list-unstyled">
+      <li>
+        <router-link to="/"> Home </router-link>
+      </li>
+
+      <li>
+        <router-link to="/about"> About </router-link>
+      </li>
+
+      <li>
+        <router-link to="/courses_cats"> Courses </router-link>
+      </li>
+
+      <li>
+        <router-link to="/team"> Our Team </router-link>
+      </li>
+
+      <li>
+        <router-link to="/blog"> Blog </router-link>
+      </li>
+
+      <li>
+        <router-link to="/contact"> Contact Us </router-link>
+      </li>
+    </ul>
+  </div>
+  <!-- END:: SMALL SCREENS NAVIGATION MENU -->
+
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      menuIsVisible: false,
+    }
+  },
+
+  methods: {
+    toggleMobileMenu() {
+      this.menuIsVisible = !this.menuIsVisible;
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 // START:: INCLUDING MAIN STYLE FILE
@@ -282,7 +342,92 @@
       }
     }
   }
+
+  .mobile-menu-btn {
+    .btn {
+      padding: 0;
+      svg {
+        color: $secondryColor;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+@media ( max-width: 850px ) {
+  .nav-bar {
+    .nav-bar-links {
+      display: none;
+    }
+  }
+}
+
+@media ( min-width: 850px ) {
+  .nav-bar {
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
 }
 // END:: NAVIGATION BAR STYLES
+
+// START:: MOBILE MENU STYLES
+.mobile-menu {
+  box-shadow: 0 15px 19px -15px $secondryColor;
+  ul {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    li {
+      padding: 8px 0;
+      margin-bottom: 8px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      a {
+        text-transform: uppercase;
+        color: $mainColor;
+        &:hover {
+          text-decoration: none;
+        }
+        &.router-link-active {
+          color: $secondryColor;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: $secondryColor;
+            @include transitioning();
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: -100%;
+          bottom: 0;
+          display: block;
+          width: 100%;
+          height: 2px;
+          background-color: $secondryColor;
+          @include transitioning();
+        }
+        &:hover::before {
+          left: 0 !important;
+        }
+      }
+
+
+    }
+  }
+}
+// END:: MOBILE MENU STYLES
 
 </style>

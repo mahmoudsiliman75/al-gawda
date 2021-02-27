@@ -14,7 +14,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-4 mobile-app-img">
-            <img src="../assets/media/mobile.png" alt="">
+            <img src="../assets/media/svg/mobile.svg" alt="">
           </div>
 
           <div class="col-12 col-md-8 mobile-app-info">
@@ -80,6 +80,10 @@
   .mobile-app-img,
   .mobile-app-info  {
     z-index: 999;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
   .mobile-app-info {
     display: flex;
@@ -92,6 +96,24 @@
         img {
           height: 60px;
         }
+      }
+    }
+  }
+}
+
+@media ( max-width: 767px) {
+  .mobile-app-sec {
+    min-height: 700px;
+    max-height: 700px;
+    .overlay {
+      min-height: 700px;
+      max-height: 700px;
+    }
+    .mobile-app-img {
+      z-index: 999;
+      img {
+        max-width: 70%;
+        height: auto;
       }
     }
   }

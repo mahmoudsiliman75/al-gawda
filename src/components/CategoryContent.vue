@@ -213,6 +213,7 @@ export default {
 // END:: INCLUDING MAIN FILE
 
 .cat-content {
+  min-height: 80vh;
   padding: $sectionPadding;
   padding-bottom: 50px;
 

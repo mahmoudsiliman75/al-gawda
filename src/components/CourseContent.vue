@@ -275,6 +275,7 @@ export default {
 }
 
 .course-content {
+  min-height: 80vh;
   margin-top: 300px;
   padding: $sectionPadding;
   .close-popup {

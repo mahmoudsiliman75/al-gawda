@@ -109,7 +109,6 @@ export default {
       bottom: 0;
       display: block;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -119,11 +118,11 @@ export default {
         transform: scale(1.1);
         .member-social {
           text-decoration: none;
-          color: #fff;
+          color: $secondryColor;
           font-size: 22px;
           @include transitioning();
           &:hover {
-            color: $secondryColor;
+            color: $mainColor;
           }
         }
       }
@@ -143,6 +142,25 @@ export default {
       &:hover {
         color: #fff;
         background-color: $mainColor;
+      }
+    }
+  }
+}
+
+@media ( max-width: 767px ) {
+  .teamwork-sec {
+    .member-card {
+      svg {
+        &.first {
+          top: -363px;
+          right: -318px;
+          transform: rotate(95deg);
+        }
+        &.last {
+          bottom: -369px !important;
+          left: -224px !important;
+          transform: rotate(256deg) !important;
+        }
       }
     }
   }

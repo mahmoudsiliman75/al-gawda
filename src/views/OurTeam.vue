@@ -78,6 +78,7 @@ export default {
 @import "../assets/sass/main.scss";
 // END:: IMPORTING MAIN FILE
 .our-team {
+  min-height: 80vh;
   padding-bottom: 60px;
 }
 </style>
