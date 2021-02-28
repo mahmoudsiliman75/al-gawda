@@ -131,11 +131,10 @@ export default {
       right: 0;
       bottom: 0;
       display: block;
-      width: 100%;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      width: 50%;
+      width: 60%;
       li {
         margin: 0 8px;
         transform: scale(1.1);

@@ -31,10 +31,15 @@ export default {
         perPage: 1,
         gap: "1rem",
         pagination: false,
-        fixedHeight: 70,
         cover: true,
         focus: "center",
-        isNavigation: true
+        isNavigation: true,
+        direction: 'rtl',
+        breakpoints: {
+          767: {
+            width: 500
+          }
+        }
       },
       slides: [
         {
