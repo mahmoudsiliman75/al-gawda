@@ -21,15 +21,21 @@
 
             <ul class="list-unstyled">
               <li> 
-                <!-- <a :href="member.faceUrl" class="member-social"> <b-icon-facebook /> </a>  -->
+                <a :href="member.faceUrl" class="member-social"> 
+                  <icon name="facebook-square" color="#9B7C29"/> 
+                </a> 
               </li>
 
               <li> 
-                <!-- <a :href="member.twitterUrl" class="member-social"> <b-icon-twitter /> </a>  -->
+                <a :href="member.twitterUrl" class="member-social"> 
+                  <icon name="twitter-square" color="#9B7C29"/> 
+                </a> 
               </li>
 
               <li> 
-                <!-- <a :href="member.linkedUrl" class="member-social"> <b-icon-linkedin /> </a>  -->
+                <a :href="member.linkedUrl" class="member-social"> 
+                  <icon name="linkedin" color="#9B7C29"/>  
+                </a> 
               </li>
             </ul>
 
@@ -108,7 +114,7 @@ export default {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      width: 40%;
+      width: 50%;
       li {
         margin: 0 8px;
         transform: scale(1.1);
