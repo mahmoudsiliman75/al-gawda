@@ -38,7 +38,6 @@ export default {
         breakpoints: {
           765: {
             width: 400,
-            // isNavigation: false
           },
           767: {
             width: 500
