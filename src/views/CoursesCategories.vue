@@ -1,6 +1,6 @@
 <template>
   <div class="courses-cats">
-    <div class="container">
+    <div class="container d-flex flex-column align-items-center justify-content-center">
       <h2 class="sec-header"> Courses Liberary </h2>
       <div class="row justify-content-center">
 
@@ -8,7 +8,7 @@
           <router-link :to="{name: 'CategoryContent', params: {id: category.id} }">
             <div class="card category-card">
               <img :src="category.imgUrl" class="card-img-top" alt="...">
-              <div class="card-body">
+              <div class="card-body text-center">
                 <h5 class="card-title"> {{category.name}} </h5>
               </div>
             </div>

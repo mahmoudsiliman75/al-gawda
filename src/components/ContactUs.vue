@@ -1,6 +1,6 @@
 <template>
   <div class="contact-us">
-    <div class="container">
+    <div class="container d-flex flex-column align-items-center justify-content-center">
       <h2 class="sec-header"> Get In Touch With Us </h2>
 
       <div class="row">
@@ -31,7 +31,7 @@
                 <textarea id="message" placeholder="Write Your Message..."></textarea>
               </div>
 
-              <div class="form-controle col-12">
+              <div class="form-controle col-12 d-flex justify-content-center">
                 <button> Send </button>
               </div>
 

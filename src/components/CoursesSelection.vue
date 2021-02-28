@@ -1,56 +1,56 @@
 <template>
   <div class="our-courses">
-      <div class="container">
-        <h2 class="sec-header"> 
-          Featured Courses
-        </h2>
-        <!-- START:: TABS -->
-        <ul class="nav nav-pills d-flex justify-content-center mb-3" id="pills-tab" role="tablist">
+    <div class="container d-flex flex-column align-items-center justify-content-center">
+      <h2 class="sec-header"> 
+        Featured Courses
+      </h2>
+      <!-- START:: TABS -->
+      <ul class="nav nav-pills d-flex justify-content-center mb-3" id="pills-tab" role="tablist">
 
-          <li class="nav-item mx-3" role="presentation" v-for="(tab, index) in tabInfo" :key="tab.tadId">
-            <a class="nav-link" :class="index == 0 ? 'active ' : ''" :id="tab.tabId" data-toggle="pill" :href="`${tab.tabHref}`" role="tab" :aria-controls="`${tab.tabAriaControls}`" aria-selected="true">
-              {{tab.tabText}}
-            </a>
-          </li>
+        <li class="nav-item mx-3" role="presentation" v-for="(tab, index) in tabInfo" :key="tab.tadId">
+          <a class="nav-link" :class="index == 0 ? 'active ' : ''" :id="tab.tabId" data-toggle="pill" :href="`${tab.tabHref}`" role="tab" :aria-controls="`${tab.tabAriaControls}`" aria-selected="true">
+            {{tab.tabText}}
+          </a>
+        </li>
 
-        </ul>
-        <!-- END:: TABS -->
-      </div>
+      </ul>
+      <!-- END:: TABS -->
+    </div>
 
-      <!-- START:: TABS SHEET -->
-      <div class="tab-content" id="pills-tabContent">
-        <div v-for="(tab, index) in tabInfo" :key="tab.tadId" class="tab-pane fade" :class="index == 0 ? 'show active' : ''" :id="`${tab.sheet.sheetId}`" :role="`${tab.sheet.sheetRole}`" :aria-labelledby="`${tab.sheet.sheetAriaLabelledby}`">
-          <div class="container">
-            <div class="row justify-content-center">
+    <!-- START:: TABS SHEET -->
+    <div class="tab-content" id="pills-tabContent">
+      <div v-for="(tab, index) in tabInfo" :key="tab.tadId" class="tab-pane fade" :class="index == 0 ? 'show active' : ''" :id="`${tab.sheet.sheetId}`" :role="`${tab.sheet.sheetRole}`" :aria-labelledby="`${tab.sheet.sheetAriaLabelledby}`">
+        <div class="container">
+          <div class="row justify-content-center">
 
-              <!-- START:: CARD MARKUP -->
-              <div class="col-12 col-md-4 px-2 mb-3" v-for="course in tab.courseDetails" :key="course.courseId">
-                <router-link to="/">
-                  <div class="card" :class="course.status">
-                    <img :src="course.courseImgSrc" class="card-img-top" alt="Course Img">
-                    <div class="card-body">
-                      <h4 class="card-title"> {{course.courseTitle}} </h4>
-                      <p class="instructor"> {{course.instructor}} </p>
-                      <div class="d-flex justify-content-between">
-                        <span class="badge" :class="course.status">{{course.status}}</span>
+            <!-- START:: CARD MARKUP -->
+            <div class="col-12 col-md-4 px-2 mb-3" v-for="course in tab.courseDetails" :key="course.courseId">
+              <router-link to="/">
+                <div class="card" :class="course.status">
+                  <img :src="course.courseImgSrc" class="card-img-top" alt="Course Img">
+                  <div class="card-body">
+                    <h4 class="card-title"> {{course.courseTitle}} </h4>
+                    <p class="instructor"> {{course.instructor}} </p>
+                    <div class="d-flex justify-content-between">
+                      <span class="badge" :class="course.status">{{course.status}}</span>
 
-                        <div class="price-box">
-                          <span class="price mx-2" :class=" parseInt(course.saleAmount) > 0 ? 'sale-price' : '' " > {{course.coursePrice}} </span>
-                          <span class="mx-2" v-if="parseInt(course.saleAmount) > 0"> {{calcSale( course.coursePrice, course.saleAmount )}}$ </span>
-                        </div>
+                      <div class="price-box">
+                        <span class="price mx-2" :class=" parseInt(course.saleAmount) > 0 ? 'sale-price' : '' " > {{course.coursePrice}} </span>
+                        <span class="mx-2" v-if="parseInt(course.saleAmount) > 0"> {{calcSale( course.coursePrice, course.saleAmount )}}$ </span>
                       </div>
                     </div>
                   </div>
-                </router-link>
-              </div>
-              <!-- END:: CARD MARKUP -->
-
+                </div>
+              </router-link>
             </div>
+            <!-- END:: CARD MARKUP -->
+
           </div>
         </div>
       </div>
-      <!-- END:: TABS SHEET -->
     </div>
+    <!-- END:: TABS SHEET -->
+  </div>
 </template>
 
 <script>

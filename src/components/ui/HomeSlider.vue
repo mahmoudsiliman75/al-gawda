@@ -7,8 +7,7 @@
         <img :src="slide.imgUrl" alt="Slide Img">
         <div class="carousel-caption d-block">
           <div class="d-flex flex-column justify-content-center align-items-center">
-            <p class="text-justify text-md-center"> {{slide.upperDesc}} </p>
-            <h2 class="mb-4"> {{slide.title}} </h2>
+            <h3 class="mb-4"> {{slide.title}} </h3>
             <p class="text-justify text-md-center"> {{slide.desc}} </p>
           </div>
         </div>
@@ -35,21 +34,18 @@ export default {
           id: "1",
           imgUrl: "https://images.pexels.com/photos/4491461/pexels-photo-4491461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           title: "Perfect Education Courses",
-          upperDesc: "Help Shape the Future of Education.",
           desc: "New Skills And Knowledge Can Spark A Lifetime Of Change. Algawda Training Center, has designed and delivered programs in education, health",
         },
         {
           id: "2",
           imgUrl: "https://images.pexels.com/photos/6517233/pexels-photo-6517233.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           title: "Perfect Education Courses",
-          upperDesc: "Help Shape the Future of Education.",
           desc: "New Skills And Knowledge Can Spark A Lifetime Of Change. Algawda Training Center, has designed and delivered programs in education, health",
         },
         {
           id: "3",
           imgUrl: "https://images.pexels.com/photos/6517081/pexels-photo-6517081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           title: "Perfect Education Courses",
-          upperDesc: "Help Shape the Future of Education.",
           desc: "New Skills And Knowledge Can Spark A Lifetime Of Change. Algawda Training Center, has designed and delivered programs in education, health",
         },
       ],
@@ -78,8 +74,8 @@ export default {
         object-fit: cover;
       }
       .carousel-caption {
-        h2 {
-          font-size: 3.5rem;
+        h3 {
+          font-size: 2.5rem;
           font-weight: 600;
           color: $mainColor;
         }

@@ -1,140 +1,142 @@
 <template>
-  <!-- START:: INTRO BAR -->
-  <div class="intro-bar">
-    <div class="container-fluid">
-      <div class="row d-flex justify-content-between">
+  <div>
+    <!-- START:: INTRO BAR -->
+    <div class="intro-bar">
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-between">
 
-        <div class="btns-box col-6 d-flex justify-content-start align-items-center">
-          <!-- <router-link to="/"> Register </router-link>
-          <router-link to="/"> Login </router-link> -->
-          <a href="#"> 
-            <img src="../../assets/media/translate.png" alt="" width="25" height="25">
-          </a>
-        </div>
+          <div class="btns-box col-6 d-flex justify-content-start align-items-center">
+            <!-- <router-link to="/"> Register </router-link>
+            <router-link to="/"> Login </router-link> -->
+            <a href="#"> 
+              <!-- <img src="../../assets/media/translate.png" alt="" width="25" height="25"> -->
+              <icon name="language" color="#9B7C29" size="40px" /> 
+            </a>
+          </div>
 
-        <div class="links-menu-box col-6">
-          <ul class="list-unstyled d-flex justify-content-end m-0">
-            <li>
-              <a href="#"> <b-icon-facebook /> </a>
-            </li>
+          <div class="links-menu-box col-6">
+            <ul class="list-unstyled d-flex justify-content-end m-0">
+              <li>
+                <a href="#"> <icon name="facebook-square" color="#fff" /> </a>
+              </li>
 
-            <li>
-              <a href="#"> <b-icon-twitter /> </a>
-            </li>
+              <li>
+                <a href="#"> <icon name="twitter-square" color="#fff" /> </a>
+              </li>
 
-            <li>
-              <a href="#"> <b-icon-linkedin /> </a>
-            </li>
-          </ul>
+              <li>
+                <a href="#"> <icon name="linkedin" color="#fff" /> </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- END:: INTRO BAR -->
+    <!-- END:: INTRO BAR -->
 
-  <!-- START:: NAVIGATION BAR -->
-  <div class="nav-bar d-flex align-items-center justify-content-between">
-    <div class="site-logo">
-      <img alt="logo" src="../../assets/media/logo.png" />
-    </div>
+    <!-- START:: NAVIGATION BAR -->
+    <div class="nav-bar d-flex align-items-center justify-content-between">
+      <div class="site-logo">
+        <img alt="logo" src="../../assets/media/logo.png" />
+      </div>
 
-    <!-- START:: LARGE SCREENS NAVIGATION BAR -->
-    <div class="nav-bar-links">
-      <router-link to="/">
-        Home 
-        <span></span> 
-        <span></span>
-      </router-link>
+      <!-- START:: LARGE SCREENS NAVIGATION BAR -->
+      <div class="nav-bar-links">
+        <router-link to="/">
+          Home 
+          <span></span> 
+          <span></span>
+        </router-link>
 
-      <router-link to="/about">
-        About
-        <span></span> 
-        <span></span>
-      </router-link>
+        <router-link to="/about">
+          About
+          <span></span> 
+          <span></span>
+        </router-link>
 
-      <!-- <div class="courses-menu-box d-flex">
-        <a href="#">
+        <!-- <div class="courses-menu-box d-flex">
+          <a href="#">
+            Courses
+            <span></span> 
+            <span></span>
+          </a>
+
+          <ul class="courses-dd-menu list-unstyled">
+            <li class="menu-item my-2" v-for="tab in tabInfo" :key="tab.tadId">
+              <router-link :to="'/courses/' + tab.tadId "> {{tab.tabText}} Courses </router-link> 
+            </li>
+          </ul>
+        </div> -->
+
+        <router-link to="/courses_cats">
           Courses
           <span></span> 
           <span></span>
-        </a>
+        </router-link>
 
-        <ul class="courses-dd-menu list-unstyled">
-          <li class="menu-item my-2" v-for="tab in tabInfo" :key="tab.tadId">
-            <router-link :to="'/courses/' + tab.tadId "> {{tab.tabText}} Courses </router-link> 
-          </li>
-        </ul>
-      </div> -->
+        <router-link to="/team">
+          Our Team
+          <span></span> 
+          <span></span>
+        </router-link>
 
-      <router-link to="/courses_cats">
-        Courses
-        <span></span> 
-        <span></span>
-      </router-link>
+        <router-link to="/blog">
+          Blog
+          <span></span> 
+          <span></span>
+        </router-link>
 
-      <router-link to="/team">
-        Our Team
-        <span></span> 
-        <span></span>
-      </router-link>
+        <router-link to="/contact">
+          Contact Us
+          <span></span> 
+          <span></span>
+        </router-link>
+      </div>
+      <!-- END:: LARGE SCREENS NAVIGATION BAR -->
 
-      <router-link to="/blog">
-        Blog
-        <span></span> 
-        <span></span>
-      </router-link>
+      <!-- START:: SMALL SCREENS NAVIGATION MENU BUTTON -->
+      <div class="mobile-menu-btn">
+        <button class="btn" @click="toggleMobileMenu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </button>
+      </div>
+      <!-- END:: SMALL SCREENS NAVIGATION MENU BUTTON -->
 
-      <router-link to="/contact">
-        Contact Us
-        <span></span> 
-        <span></span>
-      </router-link>
     </div>
-    <!-- END:: LARGE SCREENS NAVIGATION BAR -->
+    <!-- END:: NAVIGATION BAR -->
 
-    <!-- START:: SMALL SCREENS NAVIGATION MENU BUTTON -->
-    <div class="mobile-menu-btn">
-      <button class="btn" @click="toggleMobileMenu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-        </svg>
-      </button>
+    <!-- START:: SMALL SCREENS NAVIGATION MENU -->
+    <div class="mobile-menu" v-if="menuIsVisible">
+      <ul class="list-unstyled">
+        <li>
+          <router-link to="/"> Home </router-link>
+        </li>
+
+        <li>
+          <router-link to="/about"> About </router-link>
+        </li>
+
+        <li>
+          <router-link to="/courses_cats"> Courses </router-link>
+        </li>
+
+        <li>
+          <router-link to="/team"> Our Team </router-link>
+        </li>
+
+        <li>
+          <router-link to="/blog"> Blog </router-link>
+        </li>
+
+        <li>
+          <router-link to="/contact"> Contact Us </router-link>
+        </li>
+      </ul>
     </div>
-    <!-- END:: SMALL SCREENS NAVIGATION MENU BUTTON -->
-
+    <!-- END:: SMALL SCREENS NAVIGATION MENU -->
   </div>
-  <!-- END:: NAVIGATION BAR -->
-
-  <!-- START:: SMALL SCREENS NAVIGATION MENU -->
-  <div class="mobile-menu" v-if="menuIsVisible">
-    <ul class="list-unstyled">
-      <li>
-        <router-link to="/"> Home </router-link>
-      </li>
-
-      <li>
-        <router-link to="/about"> About </router-link>
-      </li>
-
-      <li>
-        <router-link to="/courses_cats"> Courses </router-link>
-      </li>
-
-      <li>
-        <router-link to="/team"> Our Team </router-link>
-      </li>
-
-      <li>
-        <router-link to="/blog"> Blog </router-link>
-      </li>
-
-      <li>
-        <router-link to="/contact"> Contact Us </router-link>
-      </li>
-    </ul>
-  </div>
-  <!-- END:: SMALL SCREENS NAVIGATION MENU -->
-
 </template>
 
 <script>
@@ -188,8 +190,10 @@ export default {
         }
         a {
           color: #fff;
-          &:hover {
-            color: $secondryColor;
+          svg {
+            path {
+              fill: #fff !important;
+            }
           }
         }
       }
@@ -204,8 +208,8 @@ export default {
   padding: 15px 30px;
   .site-logo {
     img {
-      min-height: 65px;
-      max-height: 65px;
+      min-height: 80px;
+      max-height: 80px;
     }
   }
 
@@ -290,17 +294,17 @@ export default {
       &:hover span:first-child::after,
       &:hover span:last-child::before,
       &:hover span:last-child::after,
-      &.router-link-active span:first-child::before,
-      &.router-link-active span:first-child::after,
-      &.router-link-active span:last-child::before,
-      &.router-link-active span:last-child::after
+      &.router-link-exact-active span:first-child::before,
+      &.router-link-exact-active span:first-child::after,
+      &.router-link-exact-active span:last-child::before,
+      &.router-link-exact-active span:last-child::after
       {
         color: $secondryColor;
         opacity: 1;
       }
 
       &:hover,
-      &.router-link-active {
+      &.router-link-exact-active {
         color: $secondryColor;
       }
     }
@@ -394,7 +398,7 @@ export default {
         &:hover {
           text-decoration: none;
         }
-        &.router-link-active {
+        &.router-link-exact-active {
           color: $secondryColor;
           &::before {
             content: "";
@@ -423,8 +427,6 @@ export default {
           left: 0 !important;
         }
       }
-
-
     }
   }
 }

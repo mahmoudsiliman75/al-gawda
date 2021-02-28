@@ -1,35 +1,18 @@
 <template>
   <div class="testemonuals-sec">
-    <div class="container">
+    <div class="container d-flex flex-column align-items-center justify-content-center">
       <h2 class="sec-header">What Our Clients Say</h2>
 
-      <carousel :items-to-show="1" :wrapAround="true">
-        <slide v-for="slide in slides" :key="slide.id">
-          <div class="testemonial-card">
-            <q> {{ slide.testemonial }} </q>
-          </div>
-          <h4 class="cllient-name">{{ slide.clientName }}</h4>
-        </slide>
-
-        <template #addons>
-          <navigation/>
-        </template>
-      </carousel>
+      <div class="testemonials-box">
+        Testemonials Will go Here
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import "vue3-carousel/dist/carousel.css";
-import { Carousel, Navigation, Slide } from "vue3-carousel";
 
 export default {
-  components: {
-    Carousel,
-    Navigation,
-    Slide
-  },
-
   data() {
     return {
       transform: "0px",

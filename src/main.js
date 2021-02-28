@@ -1,23 +1,22 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
+import Vue from "vue";
+import App from "../src/App.vue";
+import router from "../src/router/index.js";
+import store from "../src/store/index";
 
-import $ from 'jquery';
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
 import "../src/assets/sass/main.scss";
 
-import {BootstrapIconsPlugin } from "bootstrap-icons-vue";
+import icons from "v-svg-icons";
 
+Vue.config.productionTip = false;
+Vue.component("icon", icons);
 
-
-createApp(App)
-  .use(store)
-  .use(router)
-  .use(BootstrapIconsPlugin)
-  .use($)
-  .mount("#app");
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");
 

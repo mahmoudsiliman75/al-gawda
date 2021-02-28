@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-    <div class="container">
+    <div class="container d-flex flex-column align-items-center justify-content-center">
       <h2 class="sec-header"> Blog </h2>
       <div class="row justify-content-center">
 

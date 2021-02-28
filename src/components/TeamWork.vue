@@ -1,8 +1,8 @@
 <template>
   <div class="teamwork-sec">
-    <div class="container">
+    <div class="container ">
       <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-12 d-flex flex-column align-items-center justify-content-center">
           <h2 class="sec-header"> Our Team</h2>
         </div>
 
@@ -21,15 +21,15 @@
 
             <ul class="list-unstyled">
               <li> 
-                <a :href="member.faceUrl" class="member-social"> <b-icon-facebook /> </a> 
+                <!-- <a :href="member.faceUrl" class="member-social"> <b-icon-facebook /> </a>  -->
               </li>
 
               <li> 
-                <a :href="member.twitterUrl" class="member-social"> <b-icon-twitter /> </a> 
+                <!-- <a :href="member.twitterUrl" class="member-social"> <b-icon-twitter /> </a>  -->
               </li>
 
               <li> 
-                <a :href="member.linkedUrl" class="member-social"> <b-icon-linkedin /> </a> 
+                <!-- <a :href="member.linkedUrl" class="member-social"> <b-icon-linkedin /> </a>  -->
               </li>
             </ul>
 
@@ -40,10 +40,6 @@
             <!-- END:: LAST SVG -->
           </div>
         </div>
-
-        <!-- <div class="col-12 view-more-btn">
-          <router-link to="/team"> Meet Our Team </router-link>
-        </div> -->
 
       </div>
     </div>

@@ -1,37 +1,39 @@
 <template>
-  <!-- START:: HEADER PIC -->
-  <div class="header-pic">
-    <img src="../assets/media/svg/blog.svg" alt="">
+  <div>
+    <!-- START:: HEADER PIC -->
+    <div class="header-pic">
+      <img src="../assets/media/svg/blog.svg" alt="">
 
-    <!-- START:: SECTION CURVE -->
-    <div class="custom-shape-divider-bottom-1613755709">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
-      </svg>
+      <!-- START:: SECTION CURVE -->
+      <div class="custom-shape-divider-bottom-1613755709">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
+        </svg>
+      </div>
+      <!-- END:: SECTION CURVE -->
     </div>
-    <!-- END:: SECTION CURVE -->
-  </div>
-  <!-- END:: HEADER PIC -->
+    <!-- END:: HEADER PIC -->
 
-  <div class="blog-article">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-9 article-card">
+    <div class="blog-article">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-9 article-card">
 
-            <div class="article-pic">
-              <img :src="article.imgSrc" alt="Article Image">
-            </div>
+              <div class="article-pic">
+                <img :src="article.imgSrc" alt="Article Image">
+              </div>
 
-            <div class="article-head d-flex flex-column justify-content-center align-items-center">
-              <h3 class="mt-3 mb-0 text-center"> {{article.title}} </h3>
-              <span class="mb-3 auther"> 
-                {{article.author}}  
-                <span class="mb-3 date"> " {{article.date}} " </span>
-              </span>
-            </div>
+              <div class="article-head d-flex flex-column justify-content-center align-items-center">
+                <h3 class="mt-3 mb-0 text-center"> {{article.title}} </h3>
+                <span class="mb-3 auther"> 
+                  {{article.author}}  
+                  <span class="mb-3 date"> " {{article.date}} " </span>
+                </span>
+              </div>
 
-            <p class="article-subject"> {{article.subject}} </p>
+              <p class="article-subject"> {{article.subject}} </p>
 
+          </div>
         </div>
       </div>
     </div>

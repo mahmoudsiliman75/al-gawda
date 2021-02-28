@@ -13,7 +13,7 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-4 mobile-app-img">
+          <div class="col-12 col-md-4 mobile-app-img d-flex justify-content-center align-items-start">
             <img src="../assets/media/svg/mobile.svg" alt="">
           </div>
 

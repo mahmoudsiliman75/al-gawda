@@ -1,20 +1,22 @@
 <template>
-  <div></div>
-  <dialog open>
-    <h2> 
-      You Must Download Our Mobile App To Watch These Videos
-    </h2>
-    <slot>
+  <div>
+    <div class="back-drop"></div>
+    <dialog open>
+      <h2> 
+        You Must Download Our Mobile App To Watch These Videos
+      </h2>
+      <slot>
 
-    </slot>
-  </dialog>
+      </slot>
+    </dialog>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 // START:: IMPORTING MAIN FILE
 @import "../../assets/sass/main.scss";
 // END:: IMPORTING MAIN FILE
-div {
+.back-drop {
   position: fixed;
   top: 0;
   left: 0;
