@@ -1,20 +1,26 @@
 <template>
   <div class="courses-cats">
-    <div class="container d-flex flex-column align-items-center justify-content-center">
-      <h2 class="sec-header"> Courses Liberary </h2>
+    <div
+      class="container d-flex flex-column align-items-center justify-content-center"
+    >
+      <h2 class="sec-header">Courses Liberary</h2>
       <div class="row justify-content-center">
-
-        <div class="col-12 col-md-4 my-3" v-for="category in categories" :key="category.id">
-          <router-link :to="{name: 'CategoryContent', params: {id: category.id} }">
+        <div
+          class="col-12 col-md-4 my-3"
+          v-for="category in categories"
+          :key="category.id"
+        >
+          <router-link
+            :to="{ name: 'CategoryContent', params: { id: category.id } }"
+          >
             <div class="card category-card">
-              <img :src="category.imgUrl" class="card-img-top" alt="...">
+              <img :src="category.imgUrl" class="card-img-top" alt="..." />
               <div class="card-body text-center">
-                <h5 class="card-title"> {{category.name}} </h5>
+                <h5 class="card-title">{{ category.name }}</h5>
               </div>
             </div>
           </router-link>
         </div>
-
       </div>
     </div>
   </div>
@@ -27,7 +33,7 @@ export default {
       return this.$store.state.coursesCategories;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -40,7 +46,7 @@ export default {
   padding-bottom: 50px;
   a {
     text-decoration: none;
-      .category-card {
+    .category-card {
       img {
         width: 100%;
         min-height: 195px;

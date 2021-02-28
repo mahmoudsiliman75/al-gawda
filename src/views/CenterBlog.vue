@@ -1,19 +1,25 @@
 <template>
   <div class="blog">
-    <div class="container d-flex flex-column align-items-center justify-content-center">
-      <h2 class="sec-header"> Blog </h2>
+    <div
+      class="container d-flex flex-column align-items-center justify-content-center"
+    >
+      <h2 class="sec-header">Blog</h2>
       <div class="row justify-content-center">
-
-        <div class="col-12 col-md-8 my-5 px-4 card-box border-bottom" v-for="post in blogs" :key="post.id">
-          <router-link :to="{name: 'BlogArticle', params: {articleId: post.id} }">
-            <h3 class="title"> {{post.title}} </h3>
-            <p class="desc"> {{post.desc}} </p>
-            <p class="author"> <span> By: </span> {{post.author}} </p>
-            <p class="date"> <span> Posted In: </span> {{post.date}} </p>
-            <button> Read More </button>
+        <div
+          class="col-12 col-md-8 my-5 px-4 card-box border-bottom"
+          v-for="post in blogs"
+          :key="post.id"
+        >
+          <router-link
+            :to="{ name: 'BlogArticle', params: { articleId: post.id } }"
+          >
+            <h3 class="title">{{ post.title }}</h3>
+            <p class="desc">{{ post.desc }}</p>
+            <p class="author"><span> By: </span> {{ post.author }}</p>
+            <p class="date"><span> Posted In: </span> {{ post.date }}</p>
+            <button>Read More</button>
           </router-link>
         </div>
-
       </div>
     </div>
   </div>
@@ -26,7 +32,7 @@ export default {
       return this.$store.state.blogs;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -73,7 +79,7 @@ export default {
       &:hover {
         background-color: $mainColor;
         color: #fff;
-      } 
+      }
     }
   }
 }

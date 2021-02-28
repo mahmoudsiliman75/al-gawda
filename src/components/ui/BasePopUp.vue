@@ -2,12 +2,10 @@
   <div>
     <div class="back-drop"></div>
     <dialog open>
-      <h2> 
+      <h2>
         You Must Download Our Mobile App To Watch These Videos
       </h2>
-      <slot>
-
-      </slot>
+      <slot> </slot>
     </dialog>
   </div>
 </template>

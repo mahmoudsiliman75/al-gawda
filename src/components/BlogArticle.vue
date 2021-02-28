@@ -2,12 +2,20 @@
   <div>
     <!-- START:: HEADER PIC -->
     <div class="header-pic">
-      <img src="../assets/media/svg/blog.svg" alt="">
+      <img src="../assets/media/svg/blog.svg" alt="" />
 
       <!-- START:: SECTION CURVE -->
       <div class="custom-shape-divider-bottom-1613755709">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" class="shape-fill"></path>
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z"
+            class="shape-fill"
+          ></path>
         </svg>
       </div>
       <!-- END:: SECTION CURVE -->
@@ -18,21 +26,21 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-md-9 article-card">
+            <div class="article-pic">
+              <img :src="article.imgSrc" alt="Article Image" />
+            </div>
 
-              <div class="article-pic">
-                <img :src="article.imgSrc" alt="Article Image">
-              </div>
+            <div
+              class="article-head d-flex flex-column justify-content-center align-items-center"
+            >
+              <h3 class="mt-3 mb-0 text-center">{{ article.title }}</h3>
+              <span class="mb-3 auther">
+                {{ article.author }}
+                <span class="mb-3 date"> " {{ article.date }} " </span>
+              </span>
+            </div>
 
-              <div class="article-head d-flex flex-column justify-content-center align-items-center">
-                <h3 class="mt-3 mb-0 text-center"> {{article.title}} </h3>
-                <span class="mb-3 auther"> 
-                  {{article.author}}  
-                  <span class="mb-3 date"> " {{article.date}} " </span>
-                </span>
-              </div>
-
-              <p class="article-subject"> {{article.subject}} </p>
-
+            <p class="article-subject">{{ article.subject }}</p>
           </div>
         </div>
       </div>
@@ -44,8 +52,8 @@
 export default {
   data() {
     return {
-      articleId: this.$route.params.articleId,
-    }
+      articleId: this.$route.params.articleId
+    };
   },
 
   computed: {
@@ -54,11 +62,10 @@ export default {
     },
 
     article() {
-      return this.allBlogs.find( article => article.id == this.articleId );
+      return this.allBlogs.find(article => article.id == this.articleId);
     }
-
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -67,7 +74,7 @@ export default {
 // END:: IMPORTING MAIN FILE
 
 .header-pic {
-  background-image: url('../assets/media/blog2_bg.jpg');
+  background-image: url("../assets/media/blog2_bg.jpg");
   background-size: cover;
   min-height: 450px;
   max-height: 450px;
@@ -81,14 +88,14 @@ export default {
   }
 
   .custom-shape-divider-bottom-1613755709 {
-  position: absolute;
-  top: 500px;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
+    position: absolute;
+    top: 500px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
 
   .custom-shape-divider-bottom-1613755709 svg {
     position: relative;
@@ -98,7 +105,7 @@ export default {
   }
 
   .custom-shape-divider-bottom-1613755709 .shape-fill {
-    fill: #FFFFFF;
+    fill: #ffffff;
   }
 }
 
@@ -128,7 +135,7 @@ export default {
         font-weight: 600;
       }
       .auther {
-        color: #888
+        color: #888;
       }
       .date {
         color: $secondryColor;

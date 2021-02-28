@@ -13,9 +13,9 @@ import TheFooter from "./components/layouts/TheFooter";
 export default {
   components: {
     "nav-bar": NavBar,
-    "the-footer": TheFooter,
+    "the-footer": TheFooter
   }
-}
+};
 </script>
 
 <style lang="scss">

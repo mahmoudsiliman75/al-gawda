@@ -4,14 +4,14 @@
     <div class="intro-bar">
       <div class="container-fluid">
         <div class="row d-flex justify-content-between">
-
           <div class="btns-box col-6 d-flex justify-content-start align-items-center">
-            <!-- <router-link to="/"> Register </router-link>
-            <router-link to="/"> Login </router-link> -->
-            <a href="#"> 
-              <!-- <img src="../../assets/media/translate.png" alt="" width="25" height="25"> -->
-              <icon name="language" color="#9B7C29" size="40px" /> 
-            </a>
+            <button @click="changelang('en')" v-if="this.$i18n.locale == 'ar' ">
+              <img src="../../assets/media/translate.png" alt="" width="40" height="40">
+            </button>
+
+            <button @click="changelang('ar')" v-if="this.$i18n.locale == 'en' ">
+              <img src="../../assets/media/translate.png" alt="" width="40" height="40">
+            </button>
           </div>
 
           <div class="links-menu-box col-6">
@@ -43,14 +43,14 @@
       <!-- START:: LARGE SCREENS NAVIGATION BAR -->
       <div class="nav-bar-links">
         <router-link to="/">
-          Home 
-          <span></span> 
+          Home
+          <span></span>
           <span></span>
         </router-link>
 
         <router-link to="/about">
           About
-          <span></span> 
+          <span></span>
           <span></span>
         </router-link>
 
@@ -70,25 +70,25 @@
 
         <router-link to="/courses_cats">
           Courses
-          <span></span> 
+          <span></span>
           <span></span>
         </router-link>
 
         <router-link to="/team">
           Our Team
-          <span></span> 
+          <span></span>
           <span></span>
         </router-link>
 
         <router-link to="/blog">
           Blog
-          <span></span> 
+          <span></span>
           <span></span>
         </router-link>
 
         <router-link to="/contact">
           Contact Us
-          <span></span> 
+          <span></span>
           <span></span>
         </router-link>
       </div>
@@ -97,13 +97,22 @@
       <!-- START:: SMALL SCREENS NAVIGATION MENU BUTTON -->
       <div class="mobile-menu-btn">
         <button class="btn" @click="toggleMobileMenu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="35"
+            height="35"
+            fill="currentColor"
+            class="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+            />
           </svg>
         </button>
       </div>
       <!-- END:: SMALL SCREENS NAVIGATION MENU BUTTON -->
-
     </div>
     <!-- END:: NAVIGATION BAR -->
 
@@ -111,7 +120,7 @@
     <div class="mobile-menu" v-if="menuIsVisible">
       <ul class="list-unstyled">
         <li>
-          <router-link to="/"> Home </router-link>
+          <router-link to="/"> {{ $t("home") }} </router-link>
         </li>
 
         <li>
@@ -143,16 +152,26 @@
 export default {
   data() {
     return {
-      menuIsVisible: false,
-    }
+      menuIsVisible: false
+    };
   },
 
   methods: {
     toggleMobileMenu() {
       this.menuIsVisible = !this.menuIsVisible;
+    },
+
+    changelang(locale) {
+      this.$i18n.locale = locale;
+
+      if ( locale == 'en' ) {
+        document.querySelector('body').style.direction = "ltr";
+      } else if ( locale == 'ar' ) {
+        document.querySelector("body").style.direction = "rtl";
+      }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -165,11 +184,13 @@ export default {
   background-color: $mainColor;
   padding: 15px 5px;
   .btns-box {
-    a {
+    button {
       text-decoration: none;
       color: #fff;
       margin: 0 8px;
       padding: 5px 10px;
+      background-color: transparent;
+      border: none;
       @include transitioning();
       &:hover {
         background-color: rgba(225, 225, 225, 0.2);
@@ -297,8 +318,7 @@ export default {
       &.router-link-exact-active span:first-child::before,
       &.router-link-exact-active span:first-child::after,
       &.router-link-exact-active span:last-child::before,
-      &.router-link-exact-active span:last-child::after
-      {
+      &.router-link-exact-active span:last-child::after {
         color: $secondryColor;
         opacity: 1;
       }
@@ -360,7 +380,7 @@ export default {
   }
 }
 
-@media ( max-width: 850px ) {
+@media (max-width: 850px) {
   .nav-bar {
     .nav-bar-links {
       display: none;
@@ -368,7 +388,7 @@ export default {
   }
 }
 
-@media ( min-width: 850px ) {
+@media (min-width: 850px) {
   .nav-bar {
     .mobile-menu-btn {
       display: none;
@@ -431,5 +451,4 @@ export default {
   }
 }
 // END:: MOBILE MENU STYLES
-
 </style>

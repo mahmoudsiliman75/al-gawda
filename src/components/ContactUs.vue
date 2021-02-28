@@ -1,11 +1,20 @@
 <template>
   <div class="contact-us">
-    <div class="container d-flex flex-column align-items-center justify-content-center">
-      <h2 class="sec-header"> Get In Touch With Us </h2>
+    <div
+      class="container d-flex flex-column align-items-center justify-content-center"
+    >
+      <h2 class="sec-header">Get In Touch With Us</h2>
 
       <div class="row">
         <div class="map-box col-12 col-md-6">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d16261.614781627883!2d31.37979608834165!3d31.037854809698906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2seg!4v1613205394061!5m2!1sar!2seg" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d16261.614781627883!2d31.37979608834165!3d31.037854809698906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2seg!4v1613205394061!5m2!1sar!2seg"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
         </div>
 
         <div class="form-box col-12 col-md-6">
@@ -13,28 +22,45 @@
             <div class="row">
               <div class="form-controle col-12 col-md-6 mb-3">
                 <label for="name" class="d-block mb-2"> Your Name </label>
-                <input id="name" type="text" name="name" placeholder="Your Name">
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                />
               </div>
 
               <div class="form-controle col-12 col-md-6 mb-3">
                 <label for="phone" class="d-block mb-2"> Phone Number </label>
-                <input id="phone" type="tele" name="phone" placeholder="Phone Number">
+                <input
+                  id="phone"
+                  type="tele"
+                  name="phone"
+                  placeholder="Phone Number"
+                />
               </div>
 
               <div class="form-controle col-12 col-md-6 mb-3">
-                <label for="email" class="d-block mb-2">  Email </label>
-                <input id="email" type="text" name="email" placeholder="Email">
+                <label for="email" class="d-block mb-2"> Email </label>
+                <input
+                  id="email"
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                />
               </div>
 
               <div class="form-controle col-12">
                 <label for="email" class="d-block mb-2"> Message </label>
-                <textarea id="message" placeholder="Write Your Message..."></textarea>
+                <textarea
+                  id="message"
+                  placeholder="Write Your Message..."
+                ></textarea>
               </div>
 
               <div class="form-controle col-12 d-flex justify-content-center">
-                <button> Send </button>
+                <button>Send</button>
               </div>
-
             </div>
           </form>
         </div>
@@ -71,7 +97,7 @@
             text-align: start;
             color: $mainColor;
           }
-          input, 
+          input,
           textarea {
             width: 100%;
             padding: 3px 10px;

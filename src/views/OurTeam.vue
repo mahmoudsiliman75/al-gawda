@@ -9,19 +9,20 @@ import TeamWork from "../components/TeamWork.vue";
 
 export default {
   components: {
-    'team-work': TeamWork,
+    "team-work": TeamWork
   },
 
   provide: {
     members: [
       {
         id: "1",
-        imgUrl: "http://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+        imgUrl:
+          "http://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
         name: "Mohamed Eid",
         role: "Back-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
+        linkedUrl: "#"
       },
       {
         id: "2",
@@ -30,25 +31,27 @@ export default {
         role: "Front-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
+        linkedUrl: "#"
       },
       {
         id: "3",
-        imgUrl: "http://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2015/03/shutterstock_159780776-uai-828x828.jpg",
+        imgUrl:
+          "http://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2015/03/shutterstock_159780776-uai-828x828.jpg",
         name: "Mostafa Emam",
         role: "Back-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
+        linkedUrl: "#"
       },
       {
         id: "4",
-        imgUrl: "http://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+        imgUrl:
+          "http://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
         name: "Mohamed Eid",
         role: "Back-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
+        linkedUrl: "#"
       },
       {
         id: "5",
@@ -57,21 +60,22 @@ export default {
         role: "Front-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
+        linkedUrl: "#"
       },
       {
         id: "6",
-        imgUrl: "http://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2015/03/shutterstock_159780776-uai-828x828.jpg",
+        imgUrl:
+          "http://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2015/03/shutterstock_159780776-uai-828x828.jpg",
         name: "Mostafa Emam",
         role: "Back-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
-      },
-    ],
+        linkedUrl: "#"
+      }
+    ]
   }
-}
-</script> 
+};
+</script>
 
 <style lang="scss" scoped>
 // START:: IMPORTING MAIN FILE

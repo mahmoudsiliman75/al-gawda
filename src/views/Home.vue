@@ -42,6 +42,7 @@ import clientsTestemonials from "../components/ClientsTestemonials.vue";
 import CenterMobileApp from "../components/CenterMobileApp.vue";
 import ContactUs from "../components/ContactUs.vue";
 
+
 export default {
   name: "Home",
 
@@ -59,12 +60,13 @@ export default {
     members: [
       {
         id: "1",
-        imgUrl: "http://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+        imgUrl:
+          "http://cdn.powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
         name: "Mohamed Eid",
         role: "Back-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
+        linkedUrl: "#"
       },
       {
         id: "2",
@@ -73,19 +75,20 @@ export default {
         role: "Front-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
+        linkedUrl: "#"
       },
       {
         id: "3",
-        imgUrl: "http://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2015/03/shutterstock_159780776-uai-828x828.jpg",
+        imgUrl:
+          "http://d3f86pfw66amx.cloudfront.net/uncode/wp-content/uploads/2015/03/shutterstock_159780776-uai-828x828.jpg",
         name: "Mostafa Emam",
         role: "Back-End Developer",
         faceUrl: "#",
         twitterUrl: "#",
-        linkedUrl: "#",
-      },
-    ],
-  },
+        linkedUrl: "#"
+      }
+    ]
+  }
 };
 </script>
 

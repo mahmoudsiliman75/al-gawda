@@ -2,21 +2,25 @@
   <div class="brief-sec">
     <div class="container">
       <div class="row">
-
         <div class="col-12 text-center">
-          <h2 class="sec-header"> {{secTitle}} </h2>
-        </div>
-        
-        <div class="col-12 col-md-6">
-          <img src="../assets/media/svg/coding.svg" alt="About Us Image" class="about-sec-img">
+          <h2 class="sec-header">{{ secTitle }}</h2>
         </div>
 
-        <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
-          <p> {{firstDesc}} </p>
-          <p> {{lastDesc}} </p>
+        <div class="col-12 col-md-6">
+          <img
+            src="../assets/media/svg/coding.svg"
+            alt="About Us Image"
+            class="about-sec-img"
+          />
+        </div>
+
+        <div
+          class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center"
+        >
+          <p>{{ firstDesc }}</p>
+          <p>{{ lastDesc }}</p>
           <router-link to="/about"> View More </router-link>
         </div>
-
       </div>
     </div>
   </div>
@@ -27,11 +31,13 @@ export default {
   data() {
     return {
       secTitle: "We Will Give You Future",
-      firstDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eos voluptatum illo voluptates dolorum cupiditate omnis? Nulla ipsum cumque recusandae commodi tempore, est doloribus accusamus veritatis sed reprehenderit sit rem.",
-      lastDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eos voluptatum illo voluptates dolorum cupiditate omnis? Nulla ipsum cumque recusandae commodi tempore, est doloribus accusamus veritatis sed reprehenderit sit rem.",
-    }
-  },
-}
+      firstDesc:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eos voluptatum illo voluptates dolorum cupiditate omnis? Nulla ipsum cumque recusandae commodi tempore, est doloribus accusamus veritatis sed reprehenderit sit rem.",
+      lastDesc:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eos voluptatum illo voluptates dolorum cupiditate omnis? Nulla ipsum cumque recusandae commodi tempore, est doloribus accusamus veritatis sed reprehenderit sit rem."
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -42,7 +48,7 @@ export default {
 .brief-sec {
   .about-sec-img {
     width: 100%;
-    height: 100%
+    height: 100%;
   }
   p {
     color: #666;

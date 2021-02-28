@@ -1,18 +1,18 @@
 <template>
   <div class="testemonuals-sec">
-    <div class="container d-flex flex-column align-items-center justify-content-center">
+    <div
+      class="container d-flex flex-column align-items-center justify-content-center"
+    >
       <h2 class="sec-header">What Our Clients Say</h2>
 
       <div class="testemonials-box">
         <splide :options="options">
-
-          <splide-slide v-for=" slide in slides " :key="slide.id">
+          <splide-slide v-for="slide in slides" :key="slide.id">
             <div class="testemonial-card">
-              <q> {{slide.testemonial}} </q>
+              <q> {{ slide.testemonial }} </q>
             </div>
-            <h4> {{slide.clientName}} </h4>
+            <h4>{{ slide.clientName }}</h4>
           </splide-slide>
-
         </splide>
       </div>
     </div>
@@ -24,17 +24,17 @@ export default {
   data() {
     return {
       options: {
-        type        : 'loop',
-        autoplay    : 'playing',
-        rewind      : true,
-        width       : 800,
-        perPage     : 1,
-        gap         : '1rem',
-        pagination  : false,
-        fixedHeight : 70,
-        cover       : true,
-        focus       : 'center',
-        isNavigation: true,
+        type: "loop",
+        autoplay: "playing",
+        rewind: true,
+        width: 800,
+        perPage: 1,
+        gap: "1rem",
+        pagination: false,
+        fixedHeight: 70,
+        cover: true,
+        focus: "center",
+        isNavigation: true
       },
       slides: [
         {
@@ -57,7 +57,7 @@ export default {
         }
       ]
     };
-  },
+  }
 };
 </script>
 
