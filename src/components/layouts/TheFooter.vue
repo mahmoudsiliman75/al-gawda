@@ -1,8 +1,8 @@
 <template>
   <footer>
     <div class="copy-right col-12 text-center d-flex justify-content-between">
-      <div>
-        powered By <a href="https://www.technomasr.com/"> Tehcnomasr </a>
+      <div class="d-flex">
+        {{ $t('powered') }} <a href="https://www.technomasr.com/" class="mx-2"> {{ $('techno_masr') }} </a>
       </div>
 
       <div>

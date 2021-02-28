@@ -4,7 +4,7 @@
       class="container d-flex flex-column align-items-center justify-content-center"
     >
       <h2 class="sec-header">
-        Featured Courses
+        {{ $t('featured_courses') }}
       </h2>
       <!-- START:: TABS -->
       <ul

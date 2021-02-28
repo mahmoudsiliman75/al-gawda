@@ -2,8 +2,8 @@
   <div>
     <div class="back-drop"></div>
     <dialog open>
-      <h2>
-        You Must Download Our Mobile App To Watch These Videos
+      <h2 class="text-center">
+        {{ $t('preven_message') }}
       </h2>
       <slot> </slot>
     </dialog>
@@ -27,8 +27,9 @@
 dialog {
   padding: 20px !important;
   position: fixed;
-  top: 20vh;
-  left: 5%;
+  top: 25vh;
+  left: 50%;
+  transform: translate(-50%);
   width: 90%;
   z-index: 100;
   border: none;
@@ -40,13 +41,6 @@ dialog {
   h2 {
     color: $mainColor;
     margin: 10px 0;
-  }
-}
-
-@media (min-width: 768px) {
-  dialog {
-    left: calc(50% - 30rem);
-    width: 60rem;
   }
 }
 </style>

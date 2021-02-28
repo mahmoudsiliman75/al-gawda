@@ -3,7 +3,7 @@
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
     >
-      <h2 class="sec-header">What Our Clients Say</h2>
+      <h2 class="sec-header"> {{ $t('testemonials') }} </h2>
 
       <div class="testemonials-box">
         <splide :options="options">
@@ -36,6 +36,10 @@ export default {
         isNavigation: true,
         direction: 'rtl',
         breakpoints: {
+          765: {
+            width: 400,
+            // isNavigation: false
+          },
           767: {
             width: 500
           }

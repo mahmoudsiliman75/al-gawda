@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="sec-header">{{ secTitle }}</h2>
+          <h2 class="sec-header">{{ $t('home_about') }}</h2>
         </div>
 
         <div class="col-12 col-md-6">
@@ -19,7 +19,7 @@
         >
           <p>{{ firstDesc }}</p>
           <p>{{ lastDesc }}</p>
-          <router-link to="/about"> View More </router-link>
+          <router-link to="/about"> {{ $t('view_more') }} </router-link>
         </div>
       </div>
     </div>
@@ -30,7 +30,6 @@
 export default {
   data() {
     return {
-      secTitle: "We Will Give You Future",
       firstDesc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eos voluptatum illo voluptates dolorum cupiditate omnis? Nulla ipsum cumque recusandae commodi tempore, est doloribus accusamus veritatis sed reprehenderit sit rem.",
       lastDesc:

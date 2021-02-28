@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div dir="ltr">
     <!-- START:: HEADER PIC -->
     <div class="header-pic">
       <img :src="courseData.imgSrc" alt="Course Image" />
@@ -443,14 +443,14 @@
             <!-- START:: THE RATING -->
           </div>
 
-          <pop-up v-if="wantToWatsh">
+          <pop-up v-if="wantToWatsh" dir="ltr">
             <template #default>
               <diV class="d-flex justify-content-center my-4">
                 <button class="close-popup mx-2" @click="watchVideo">
-                  Okay
+                  {{ $t('okay') }}
                 </button>
                 <a href="#" class="close-popup" @click="watchVideo">
-                  Download The App
+                  {{ $t('download') }}
                 </a>
               </diV>
             </template>
@@ -488,7 +488,7 @@
             </ul>
 
             <div class="enroll-btn my-3">
-              <router-link to="/"> Enroll Now </router-link>
+              <router-link to="/"> {{ $t('enroll') }} </router-link>
             </div>
           </div>
         </div>

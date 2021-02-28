@@ -12,6 +12,10 @@
             <button @click="changelang('ar')" v-if="this.$i18n.locale == 'en' ">
               <img src="../../assets/media/translate.png" alt="" width="40" height="40">
             </button>
+
+            <button>
+              <icon name="shopping-cart"  />
+            </button>
           </div>
 
           <div class="links-menu-box col-6">

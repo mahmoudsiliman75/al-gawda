@@ -1,6 +1,6 @@
 <template>
   <div class="cat-content">
-    <div class="container">
+    <div class="container d-flex flex-column align-items-center justify-content-center">
       <h2 class="sec-header">{{ catContent.name }}</h2>
       <div class="row justify-content-center">
         <!-- <div class="col-4" v-for="course in catContent.courses" :key="course.id">

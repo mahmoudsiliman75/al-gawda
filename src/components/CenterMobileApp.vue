@@ -27,7 +27,7 @@
           </div>
 
           <div class="col-12 col-md-8 mobile-app-info">
-            <h2>Get Our Mobile App Now</h2>
+            <h2> {{ $t('download_app') }} </h2>
             <div class="links-box d-flex justify-content-between">
               <a href="#">
                 <img src="../assets/media/google-play.png" />

@@ -3,7 +3,7 @@
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
     >
-      <h2 class="sec-header">Get In Touch With Us</h2>
+      <h2 class="sec-header"> {{ $t('contact') }} </h2>
 
       <div class="row">
         <div class="map-box col-12 col-md-6">
@@ -21,45 +21,45 @@
           <form>
             <div class="row">
               <div class="form-controle col-12 col-md-6 mb-3">
-                <label for="name" class="d-block mb-2"> Your Name </label>
+                <label for="name" class="d-block mb-2"> {{ $t('name') }} </label>
                 <input
                   id="name"
                   type="text"
                   name="name"
-                  placeholder="Your Name"
+                  :placeholder="$t('name')"
                 />
               </div>
 
               <div class="form-controle col-12 col-md-6 mb-3">
-                <label for="phone" class="d-block mb-2"> Phone Number </label>
+                <label for="phone" class="d-block mb-2"> {{ $t('phone') }} </label>
                 <input
                   id="phone"
                   type="tele"
                   name="phone"
-                  placeholder="Phone Number"
+                  :placeholder="$t('phone')"
                 />
               </div>
 
               <div class="form-controle col-12 col-md-6 mb-3">
-                <label for="email" class="d-block mb-2"> Email </label>
+                <label for="email" class="d-block mb-2"> {{ $t('email') }} </label>
                 <input
                   id="email"
                   type="text"
                   name="email"
-                  placeholder="Email"
+                  :placeholder="$t('email')"
                 />
               </div>
 
               <div class="form-controle col-12">
-                <label for="email" class="d-block mb-2"> Message </label>
+                <label for="email" class="d-block mb-2"> {{ $t('message') }} </label>
                 <textarea
                   id="message"
-                  placeholder="Write Your Message..."
+                  :placeholder="$t('write_message')"
                 ></textarea>
               </div>
 
               <div class="form-controle col-12 d-flex justify-content-center">
-                <button>Send</button>
+                <button> {{ $t('send') }} </button>
               </div>
             </div>
           </form>

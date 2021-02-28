@@ -5,7 +5,7 @@
         <div
           class="col-12 d-flex flex-column align-items-center justify-content-center"
         >
-          <h2 class="sec-header">Our Team</h2>
+          <h2 class="sec-header">{{ $t('team') }}</h2>
         </div>
 
         <div

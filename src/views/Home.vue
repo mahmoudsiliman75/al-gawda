@@ -15,7 +15,7 @@
     <!-- START:: TEAM WORK  SECTION -->
     <team-work></team-work>
     <div class="col-12 view-more-btn d-flex justify-content-center">
-      <router-link to="/team"> Meet Our Team </router-link>
+      <router-link to="/team"> {{ $t('meet_team') }} </router-link>
     </div>
     <!-- END:: TEAM WORK  SECTION -->
 

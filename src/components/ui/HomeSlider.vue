@@ -3,6 +3,7 @@
     id="carouselExampleCaptions"
     class="carousel slide carousel-fade"
     data-ride="carousel"
+    dir="ltr"
   >
     <div class="carousel-inner">
       <!-- START:: SLIDE CONTENT -->

@@ -1,8 +1,40 @@
 {
-  "about_us"        : "About Us",
-  "blog"            : "Blog",
-  "contact_us"      : "Contact Us",
-  "courses"         : "Courses",
-  "home"            : "Home",
-  "team"            : "Our Team"
+  "about_us"          : "About Us",
+  "blog"              : "Blog",
+  "contact_us"        : "Contact Us",
+  "courses"           : "Courses",
+  "home"              : "Home",
+  "team"              : "Our Team",
+
+  "home_about"        : "We Will Give You Future",
+  "view_more"         : "View More",
+
+  "featured_courses"  : "Featured Courses",
+
+  "meet_team"         : "Meet Our Team",
+
+  "testemonials"      : "What Our Clients Say",
+
+  "download_app"      : "Get Our Mobile App Now",
+
+  "contact"           : "Get In Touch With Us",
+  "name"              : "Your Name",
+  "phone"             : "Your Phone",
+  "email"             : "Email",
+  "message"           : "Message",
+  "write_message"     : "Write Your Message....",
+  "send"              : "Send",
+
+  "target"            : "Our Target",
+
+  "enroll"            : "Enroll Now",
+  "preven_message"    : "You Must Download Our Mobile App To Watch These Videos",
+  "okay"              : "Okay",
+  "download"          : "Download The App",
+
+  "by"                : "By",
+  "posted_in"         : "Posted In",
+
+  "powered"           : " Powered By",
+  "techno_masr"       : "Tehcnomasr"
 }

@@ -3,7 +3,7 @@
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
     >
-      <h2 class="sec-header">Courses Liberary</h2>
+      <h2 class="sec-header"> {{ $t('courses') }} </h2>
       <div class="row justify-content-center">
         <div
           class="col-12 col-md-4 my-3"

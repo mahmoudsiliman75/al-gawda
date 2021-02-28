@@ -3,7 +3,7 @@
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
     >
-      <h2 class="sec-header">Blog</h2>
+      <h2 class="sec-header"> {{ $t('blog') }} </h2>
       <div class="row justify-content-center">
         <div
           class="col-12 col-md-8 my-5 px-4 card-box border-bottom"
@@ -15,9 +15,9 @@
           >
             <h3 class="title">{{ post.title }}</h3>
             <p class="desc">{{ post.desc }}</p>
-            <p class="author"><span> By: </span> {{ post.author }}</p>
-            <p class="date"><span> Posted In: </span> {{ post.date }}</p>
-            <button>Read More</button>
+            <p class="author d-flex"><span> {{ $t('by') }}: </span> {{ post.author }}</p>
+            <p class="date d-flex"><span> {{ $t('posted_in') }}: </span> {{ post.date }}</p>
+            <button> {{ $t('view_more') }} </button>
           </router-link>
         </div>
       </div>
