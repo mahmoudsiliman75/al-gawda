@@ -4,18 +4,38 @@
       <h2 class="sec-header">What Our Clients Say</h2>
 
       <div class="testemonials-box">
-        Testemonials Will go Here
+        <splide :options="options">
+
+          <splide-slide v-for=" slide in slides " :key="slide.id">
+            <div class="testemonial-card">
+              <q> {{slide.testemonial}} </q>
+            </div>
+            <h4> {{slide.clientName}} </h4>
+          </splide-slide>
+
+        </splide>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      transform: "0px",
+      options: {
+        type        : 'loop',
+        autoplay    : 'playing',
+        rewind      : true,
+        width       : 800,
+        perPage     : 1,
+        gap         : '1rem',
+        pagination  : false,
+        fixedHeight : 70,
+        cover       : true,
+        focus       : 'center',
+        isNavigation: true,
+      },
       slides: [
         {
           id: "1",
@@ -49,10 +69,10 @@ export default {
 .testemonuals-sec {
   padding: $sectionPadding;
   padding-bottom: 90px;
-  .carousel {
-    .carousel__viewport {
-      .carousel__track {
-        .carousel__slide {
+  .testemonials-box {
+    .splide__track {
+      .splide__list {
+        .splide__slide {
           min-height: 300px;
           width: 100%;
           color: white;
@@ -63,6 +83,9 @@ export default {
           justify-content: center;
           align-items: center;
           padding: 10px;
+          &.is-active {
+            border: none !important;
+          }
           .testemonial-card {
             width: 80%;
             background-color: #e1e1e1;
