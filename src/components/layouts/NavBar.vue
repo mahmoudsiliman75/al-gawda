@@ -13,9 +13,9 @@
               <img src="../../assets/media/translate.png" alt="" width="40" height="40">
             </button>
 
-            <button>
+            <!-- <button>
               <icon name="shopping-cart"  />
-            </button>
+            </button> -->
           </div>
 
           <div class="links-menu-box col-6">
@@ -47,13 +47,13 @@
       <!-- START:: LARGE SCREENS NAVIGATION BAR -->
       <div class="nav-bar-links">
         <router-link to="/">
-          Home
+          {{ $t('home') }}
           <span></span>
           <span></span>
         </router-link>
 
         <router-link to="/about">
-          About
+          {{ $t('about_us') }}
           <span></span>
           <span></span>
         </router-link>
@@ -73,25 +73,25 @@
         </div> -->
 
         <router-link to="/courses_cats">
-          Courses
+          {{ $t('courses') }}
           <span></span>
           <span></span>
         </router-link>
 
         <router-link to="/team">
-          Our Team
+          {{ $t('team') }}
           <span></span>
           <span></span>
         </router-link>
 
         <router-link to="/blog">
-          Blog
+          {{ $t('blog') }}
           <span></span>
           <span></span>
         </router-link>
 
         <router-link to="/contact">
-          Contact Us
+          {{ $t('contact') }}
           <span></span>
           <span></span>
         </router-link>
@@ -128,23 +128,23 @@
         </li>
 
         <li>
-          <router-link to="/about"> About </router-link>
+          <router-link to="/about"> {{ $t("about_us") }} </router-link>
         </li>
 
         <li>
-          <router-link to="/courses_cats"> Courses </router-link>
+          <router-link to="/courses_cats"> {{ $t("courses") }} </router-link>
         </li>
 
         <li>
-          <router-link to="/team"> Our Team </router-link>
+          <router-link to="/team"> {{ $t("team") }} </router-link>
         </li>
 
         <li>
-          <router-link to="/blog"> Blog </router-link>
+          <router-link to="/blog"> {{ $t("blog") }} </router-link>
         </li>
 
         <li>
-          <router-link to="/contact"> Contact Us </router-link>
+          <router-link to="/contact"> {{ $t("contact_us") }} </router-link>
         </li>
       </ul>
     </div>

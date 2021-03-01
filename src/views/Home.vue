@@ -1,5 +1,10 @@
 <template>
   <div class="home">
+
+    <!-- START:: PRELOADER COMPONENT -->
+    <pre-loader></pre-loader>
+    <!-- END:: PRELOADER COMPONENT -->
+
     <!-- START:: HOME SLIDER -->
     <home-slider></home-slider>
     <!-- END:: HOME SLIDER -->
@@ -41,6 +46,7 @@ import TeamWork from "../components/TeamWork.vue";
 import clientsTestemonials from "../components/ClientsTestemonials.vue";
 import CenterMobileApp from "../components/CenterMobileApp.vue";
 import ContactUs from "../components/ContactUs.vue";
+import PreLoader from "../components/ui/PreLoader.vue";
 
 
 export default {
@@ -54,6 +60,7 @@ export default {
     "clients-testemonials": clientsTestemonials,
     "center-mobile-app": CenterMobileApp,
     "contact-us": ContactUs,
+    "pre-loader": PreLoader,
   },
 
   provide: {
