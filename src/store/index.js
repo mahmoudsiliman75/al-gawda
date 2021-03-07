@@ -16,6 +16,7 @@ export default new Vuex.Store({
           courses: [
             {
               id: "java_1",
+              paymentStat: "free",
               name: "Learn Java",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Sale",
@@ -25,17 +26,49 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "90$",
               rate: "3.5",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'java_1_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: 'https://www.youtube.com/embed/c8vpPwpAc3c',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: 'https://www.youtube.com/embed/1XrKaCrUcLo',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'java_1_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: 'https://www.youtube.com/embed/nggfb4O5Z0Q',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: 'https://www.youtube.com/embed/evsb-WwUskM',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: 'https://www.youtube.com/embed/evsb-WwUskM',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             },
             {
               id: "java_2",
+              paymentStat: "paied",
               name: "Master Java",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Bestseller",
@@ -45,17 +78,49 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "200$",
               rate: "4",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'java_2_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'java_2_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             },
             {
               id: "java_3",
+              paymentStat: "paied",
               name: "Become Java Monster",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Recent",
@@ -65,13 +130,44 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "200$",
               rate: "2.5",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'java_3_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'java_3_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             }
           ]
@@ -85,6 +181,7 @@ export default new Vuex.Store({
             {
               id: "c_1",
               name: "Learn C",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Sale",
               saleAmount: "10",
@@ -93,18 +190,50 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "90$",
               rate: "3.5",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_1_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_1_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             },
             {
               id: "c_2",
               name: "Master C",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Bestseller",
               saleAmount: "0",
@@ -113,18 +242,50 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "200$",
               rate: "4",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_2_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_2_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             },
             {
               id: "c_3",
               name: "Become C Monster",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Recent",
               saleAmount: "0",
@@ -133,13 +294,44 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "200$",
               rate: "2",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_3_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_3_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             }
           ]
@@ -154,6 +346,7 @@ export default new Vuex.Store({
             {
               id: "c_plus_1",
               name: "Learn C++",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Sale",
               saleAmount: "10",
@@ -162,18 +355,50 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "90$",
               rate: "2",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_plus_1_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_plus_1_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             },
             {
               id: "c_plus_2",
               name: "Master C++",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Bestseller",
               saleAmount: "0",
@@ -182,18 +407,50 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "200$",
               rate: "4.5",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_plus_2_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_plus_2_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             },
             {
               id: "c_plus_3",
               name: "Become C++ Monster",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Recent",
               saleAmount: "0",
@@ -202,13 +459,44 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "200$",
               rate: "5",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_plus_3_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_plus_3_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             }
           ]
@@ -222,6 +510,7 @@ export default new Vuex.Store({
             {
               id: "c_sharp_1",
               name: "Learn C#",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Sale",
               saleAmount: "10",
@@ -230,18 +519,50 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "90$",
               rate: "1.5",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_sharp_1_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_sharp_1_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             },
             {
               id: "c_sharp_2",
               name: "Master C#",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Bestseller",
               saleAmount: "0",
@@ -250,18 +571,50 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "200$",
               rate: "3.5",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_sharp_2_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_sharp_2_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             },
             {
               id: "c_sharp_3",
               name: "Become C# Monster",
+              paymentStat: "paied",
               desc: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deleniti, earum eveniet fugiat pariatur explicabo nemo doloremque cumque delectus asperiores distinctio.`,
               status: "Recent",
               saleAmount: "0",
@@ -270,13 +623,44 @@ export default new Vuex.Store({
               instructor: "Eng. Mohamed Eid",
               price: "200$",
               rate: "2",
-              videos: [
-                "First Vidoe Of The Course",
-                "Second Vidoe Of The Course",
-                "Thierd Vidoe Of The Course",
-                "Fourth Vidoe Of The Course",
-                "Fiveth Vidoe Of The Course",
-                "Last Vidoe Of The Course"
+              videosSection: [
+                {
+                  id: 'c_sharp_3_1',
+                  title: 'Setcion 1',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                  ],
+                },
+                {
+                  id: 'c_sharp_3_2',
+                  title: 'Setcion 2',
+                  videos: [
+                    {
+                      id: 'v_1',
+                      link: '',
+                      name: 'Video 1'
+                    },
+                    {
+                      id: 'v_2',
+                      link: '',
+                      name: 'Video 2'
+                    },
+                    {
+                      id: 'v_3',
+                      link: '',
+                      name: 'Video 3'
+                    },
+                  ],
+                },
               ]
             }
           ]

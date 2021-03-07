@@ -5,6 +5,7 @@
       <img :src="courseData.imgSrc" alt="Course Image" />
       <div class="course-demo">
         <iframe
+          class="main-video"
           src="https://www.youtube.com/embed/6sJPb5tIyt4"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -456,36 +457,77 @@
             </template>
           </pop-up>
 
-          <div class="course-videos col-12">
-            <ul class="list-unstyled mt-3">
-              <li
-                v-for="video in courseData.videos"
-                :key="video.id"
-                @click="watchVideo"
-              >
-                <h4>
-                  <span class="play-btn">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="28"
-                      height="28"
-                      fill="currentColor"
-                      class="bi bi-play-circle"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                      />
-                      <path
-                        d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"
-                      />
-                    </svg>
-                  </span>
+          <div class="accordion col-12" id="accordionExample" v-if=" courseData.paymentStat == 'paied' ">
+            <div class="card">
 
-                  <span class="title"> {{ courseData.name }} {{ video }} </span>
-                </h4>
-              </li>
-            </ul>
+              <div 
+                v-for="section in courseData.videosSection"
+                :key="section.id"
+              >
+
+                <div class="card-header" id="headingOne">
+                  <h4 class="mb-0">
+                    <button class="btn-link btn-block text-left" type="button" data-toggle="collapse" :data-target="'#'+section.id" aria-expanded="true" aria-controls="collapseOne">
+                      <icon name="play" color="#9B7C29" size="20px" class="mx-2" />
+                      {{ courseData.name }} {{ section.title }}
+                    </button>
+                  </h4>
+                </div>
+
+                <div :id="section.id" class="collapse" aria-labelledby="headingOne">
+                  <div class="card-body">
+                    <ul class="list-unstyled">
+                      <li                 
+                        v-for="video in section.videos"
+                        :key="video.id" 
+                        @click="watchVideo"
+                      > 
+                        {{ video.name }} 
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="enroll-btn my-3">
+              <router-link to="/"> {{ $t('enroll') }} </router-link>
+            </div>
+          </div>
+
+          <div class="accordion col-12" id="accordionExample" v-if=" courseData.paymentStat == 'free' ">
+            <div class="card">
+
+              <div 
+                v-for="section in courseData.videosSection"
+                :key="section.id"
+              >
+
+                <div class="card-header" id="headingOne">
+                  <h4 class="mb-0">
+                    <button class="btn-link btn-block text-left" type="button" data-toggle="collapse" :data-target="'#'+section.id" aria-expanded="true" aria-controls="collapseOne">
+                      <icon name="play" color="#9B7C29" size="20px" class="mx-2" />
+                      {{ courseData.name }} {{ section.title }}
+                    </button>
+                  </h4>
+                </div>
+
+                <div :id="section.id" class="collapse" aria-labelledby="headingOne">
+                  <div class="card-body">
+                    <ul class="list-unstyled">
+                      <li                 
+                        v-for="video in section.videos"
+                        :key="video.id" 
+                      > 
+                        <button :id="'videos-'+video.id" @click="changeVideoSrc(video.link,'videos-'+video.id )">{{ video.name }}</button> 
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
 
             <div class="enroll-btn my-3">
               <router-link to="/"> {{ $t('enroll') }} </router-link>
@@ -527,6 +569,28 @@ export default {
   },
 
   methods: {
+
+    changeVideoSrc(url , btnId){
+      
+      this.deleteActiveClass("active-video");
+
+
+      document.querySelector("#"+btnId).classList.add("active-video");
+      
+
+      document.querySelector(".main-video").setAttribute("src",url);
+      setTimeout(() => {
+        document.querySelector(".header-pic").scrollIntoView();
+      }, 0);
+
+    },
+
+    deleteActiveClass(className){
+      var lights = document.getElementsByClassName("."+className);
+      while (lights.length)
+          lights[0].classList.remove("."+className);
+    },
+
     watchVideo() {
       this.wantToWatsh = !this.wantToWatsh;
     },
@@ -628,27 +692,48 @@ export default {
     }
   }
 
-  .course-videos {
-    ul {
-      padding-bottom: 0;
-      text-align: start;
-      background-color: $textColor;
-      li {
-        padding: 15px;
-        border-bottom: 1px solid #dbd2b9;
-        cursor: pointer;
+  .accordion {
+    .card {
+      border: none;
+      .card-header {
+        padding: 25px 0;
+        border: none;
+        border-bottom: 1px solid $secondryColor;
+        background-color: #ececec;
         h4 {
-          color: $secondryColor;
-          .play-btn {
-            font-size: 2rem !important;
-          }
-          .title {
+          button {
+            text-decoration: none;
+            border: none;
+            background-color: transparent;
             color: $mainColor;
-            margin-inline-start: 10px;
+          }
+        }
+      }
+
+      .collapse {
+        .card-body {
+          border: none;
+          ul {
+            li {
+              a{
+                text-decoration: none;
+                color: #555;
+              }
+              button {
+                border: none;
+                background-color: transparent;
+                color: #555;
+                font-size: 20px;
+              }
+              color: #555;
+              font-size: 20px;
+              cursor: pointer;
+            }
           }
         }
       }
     }
+
     .enroll-btn {
       display: flex;
       justify-content: center;

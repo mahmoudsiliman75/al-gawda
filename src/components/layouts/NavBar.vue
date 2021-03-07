@@ -5,6 +5,10 @@
       <div class="container-fluid">
         <div class="row d-flex justify-content-between">
           <div class="btns-box col-6 d-flex justify-content-start align-items-center">
+            <button>
+              Login
+            </button>
+
             <button @click="changelang('en')" v-if="this.$i18n.locale == 'ar' ">
               <img src="../../assets/media/translate.png" alt="" width="40" height="40">
             </button>
