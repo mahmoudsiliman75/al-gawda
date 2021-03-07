@@ -50,7 +50,7 @@ const routes = [
     path: "/team/:instructor_id",
     name: "InstructorProfile",
     component: () =>
-      import(/*webpackChunkName: 'ourTeam'*/ "../components/InstructorProfile.vue")
+      import(/*webpackChunkName: 'instructor'*/ "../components/InstructorProfile.vue")
   },
   {
     path: "/blog",
@@ -74,7 +74,13 @@ const routes = [
     path: "/login",
     name: "LoginForm",
     component: () =>
-      import(/*webpackChunkName: 'contact'*/ "../views/LoginForm.vue")
+      import(/*webpackChunkName: 'login'*/ "../views/LoginForm.vue")
+  },
+  {
+    path: "/sign_up",
+    name: "SignUpForm",
+    component: () =>
+      import(/*webpackChunkName: 'signUp'*/ "../views/SignUpForm.vue")
   }
 ];
 
