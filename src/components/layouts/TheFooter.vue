@@ -2,12 +2,11 @@
   <footer>
     <div class="copy-right col-12 text-center d-flex justify-content-between">
       <div class="d-flex">
-        {{ $t('powered') }} <a href="https://www.technomasr.com/" class="mx-2"> {{ $('techno_masr') }} </a>
+        {{ $t('powered') }} <a href="https://www.technomasr.com/" class="mx-2"> {{ $t('techno_masr') }} </a>
       </div>
 
       <div>
         &copy; Al Gawda 2021
-        TTTTTTTESTTTTTTTTT
       </div>
     </div>
   </footer>

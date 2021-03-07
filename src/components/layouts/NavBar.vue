@@ -6,7 +6,9 @@
         <div class="row d-flex justify-content-between">
           <div class="btns-box col-6 d-flex justify-content-start align-items-center">
             <button>
-              Login
+              <router-link to="/">
+                {{ $t('login') }}
+              </router-link>
             </button>
 
             <button @click="changelang('en')" v-if="this.$i18n.locale == 'ar' ">
@@ -95,7 +97,7 @@
         </router-link>
 
         <router-link to="/contact">
-          {{ $t('contact') }}
+          {{ $t('contact_us') }}
           <span></span>
           <span></span>
         </router-link>
@@ -193,7 +195,6 @@ export default {
   padding: 15px 5px;
   .btns-box {
     button {
-      text-decoration: none;
       color: #fff;
       margin: 0 8px;
       padding: 5px 10px;
@@ -202,6 +203,10 @@ export default {
       @include transitioning();
       &:hover {
         background-color: rgba(225, 225, 225, 0.2);
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
       }
     }
   }

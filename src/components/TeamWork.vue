@@ -9,64 +9,68 @@
         </div>
 
         <div
-          class="col-12 col-md-4 px-2 mb-2"
+          class="col-9 col-md-4 px-2 mb-2"
           v-for="member in members"
           :key="member.id"
         >
-          <div
-            class="member-card mb-2 d-flex flex-column justify-content-center align-items-center"
-          >
-            <!-- START:: FIRST SVG -->
-            <svg
-              class="first"
-              viewBox="0 0 250 250"
-              xmlns="http://www.w3.org/2000/svg"
+
+            <div
+              class="member-card mb-2 d-flex flex-column justify-content-center align-items-center"
             >
-              <path
-                d="M20.3,-30.2C30.1,-29.4,44.5,-31.7,56.2,-27.2C67.8,-22.7,76.6,-11.4,80.5,2.2C84.3,15.8,83.2,31.6,71.7,36.3C60.2,41,38.2,34.6,24.5,42.2C10.8,49.9,5.4,71.6,-3.9,78.3C-13.2,85,-26.3,76.7,-31.6,64.2C-36.9,51.7,-34.2,35,-41.9,23.6C-49.7,12.1,-67.8,6.1,-75.9,-4.7C-84.1,-15.5,-82.4,-31,-72.5,-38.7C-62.6,-46.4,-44.6,-46.2,-31.2,-44.9C-17.7,-43.5,-8.9,-41.1,-1.8,-37.9C5.2,-34.7,10.4,-30.9,20.3,-30.2Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-            <!-- END:: FIRST SVG -->
+              <!-- START:: FIRST SVG -->
+              <svg
+                class="first"
+                viewBox="0 0 250 250"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.3,-30.2C30.1,-29.4,44.5,-31.7,56.2,-27.2C67.8,-22.7,76.6,-11.4,80.5,2.2C84.3,15.8,83.2,31.6,71.7,36.3C60.2,41,38.2,34.6,24.5,42.2C10.8,49.9,5.4,71.6,-3.9,78.3C-13.2,85,-26.3,76.7,-31.6,64.2C-36.9,51.7,-34.2,35,-41.9,23.6C-49.7,12.1,-67.8,6.1,-75.9,-4.7C-84.1,-15.5,-82.4,-31,-72.5,-38.7C-62.6,-46.4,-44.6,-46.2,-31.2,-44.9C-17.7,-43.5,-8.9,-41.1,-1.8,-37.9C5.2,-34.7,10.4,-30.9,20.3,-30.2Z"
+                  transform="translate(100 100)"
+                />
+              </svg>
+              <!-- END:: FIRST SVG -->
 
-            <img :src="member.imgUrl" />
+              <router-link :to="{name:'InstructorProfile', params:{instructor_id: member.id} }">
+                <img :src="member.imgUrl" />
 
-            <h4>{{ member.name }}</h4>
-            <h6>{{ member.role }}</h6>
+                <h4>{{ member.name }}</h4>
+                <h6>{{ member.role }}</h6>
+              </router-link>
 
-            <ul class="list-unstyled">
-              <li>
-                <a :href="member.faceUrl" class="member-social">
-                  <icon name="facebook-square" color="#9B7C29" />
-                </a>
-              </li>
+              <ul class="list-unstyled">
+                <li>
+                  <a :href="member.faceUrl" class="member-social">
+                    <icon name="facebook-square" color="#9B7C29" />
+                  </a>
+                </li>
 
-              <li>
-                <a :href="member.twitterUrl" class="member-social">
-                  <icon name="twitter-square" color="#9B7C29" />
-                </a>
-              </li>
+                <li>
+                  <a :href="member.twitterUrl" class="member-social">
+                    <icon name="twitter-square" color="#9B7C29" />
+                  </a>
+                </li>
 
-              <li>
-                <a :href="member.linkedUrl" class="member-social">
-                  <icon name="linkedin" color="#9B7C29" />
-                </a>
-              </li>
-            </ul>
+                <li>
+                  <a :href="member.linkedUrl" class="member-social">
+                    <icon name="linkedin" color="#9B7C29" />
+                  </a>
+                </li>
+              </ul>
 
-            <!-- START:: LAST SVG -->
-            <svg
-              class="last"
-              viewBox="0 0 250 250"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20.3,-30.2C30.1,-29.4,44.5,-31.7,56.2,-27.2C67.8,-22.7,76.6,-11.4,80.5,2.2C84.3,15.8,83.2,31.6,71.7,36.3C60.2,41,38.2,34.6,24.5,42.2C10.8,49.9,5.4,71.6,-3.9,78.3C-13.2,85,-26.3,76.7,-31.6,64.2C-36.9,51.7,-34.2,35,-41.9,23.6C-49.7,12.1,-67.8,6.1,-75.9,-4.7C-84.1,-15.5,-82.4,-31,-72.5,-38.7C-62.6,-46.4,-44.6,-46.2,-31.2,-44.9C-17.7,-43.5,-8.9,-41.1,-1.8,-37.9C5.2,-34.7,10.4,-30.9,20.3,-30.2Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-            <!-- END:: LAST SVG -->
-          </div>
+              <!-- START:: LAST SVG -->
+              <svg
+                class="last"
+                viewBox="0 0 250 250"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.3,-30.2C30.1,-29.4,44.5,-31.7,56.2,-27.2C67.8,-22.7,76.6,-11.4,80.5,2.2C84.3,15.8,83.2,31.6,71.7,36.3C60.2,41,38.2,34.6,24.5,42.2C10.8,49.9,5.4,71.6,-3.9,78.3C-13.2,85,-26.3,76.7,-31.6,64.2C-36.9,51.7,-34.2,35,-41.9,23.6C-49.7,12.1,-67.8,6.1,-75.9,-4.7C-84.1,-15.5,-82.4,-31,-72.5,-38.7C-62.6,-46.4,-44.6,-46.2,-31.2,-44.9C-17.7,-43.5,-8.9,-41.1,-1.8,-37.9C5.2,-34.7,10.4,-30.9,20.3,-30.2Z"
+                  transform="translate(100 100)"
+                />
+              </svg>
+              <!-- END:: LAST SVG -->
+            </div>
+
         </div>
       </div>
     </div>
@@ -75,7 +79,11 @@
 
 <script>
 export default {
-  inject: ["members"]
+  data() {
+    return {
+      members: this.$store.state.members,
+    }
+  }
 };
 </script>
 
@@ -114,14 +122,22 @@ export default {
         }
       }
     }
-    img {
-      min-width: 150px;
-      max-width: 150px;
-      min-height: 150px;
-      max-height: 150px;
-      margin-bottom: 15px;
-      border: 3px solid $mainColor;
-      @include borderRadius(50%);
+    a {
+      text-decoration: none;
+      color: $mainColor;
+      img {
+        min-width: 150px;
+        max-width: 150px;
+        min-height: 150px;
+        max-height: 150px;
+        margin-bottom: 15px;
+        border: 3px solid $mainColor;
+        @include borderRadius(50%);
+      }
+      h4,
+      h6 {
+        text-align: center;
+      }
     }
     ul {
       margin-bottom: 0;

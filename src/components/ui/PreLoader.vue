@@ -33,7 +33,7 @@ export default {
     showToggle () {
       setTimeout(() => {
         this.show = false;
-      }, 3000);
+      }, 2000);
       if ( this.show == true ) {
         document.querySelector('body').style.overflowY = "hidden";
       }
