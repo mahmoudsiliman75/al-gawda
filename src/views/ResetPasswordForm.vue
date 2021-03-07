@@ -1,5 +1,5 @@
 <template>
-  <div class="login_wraper">
+  <div class="sign_up_wraper">
     <section>
       <div class="box">
         
@@ -12,57 +12,22 @@
         
         <div class="form-container"> 
           <div class="form"> 
-            <h2 class="text-center">LOGIN</h2>
+            <h2 class="text-center">Reset Password</h2>
             <form action="">
               <div class="inputBx">
                 <input type="text" required="required">
                 <span>Email</span>
-                <img src="https://www.flaticon.com/svg/static/icons/svg/709/709699.svg" alt="user">
               </div>
-              <div class="inputBx password">
-                <input id="password-input" :type="inputType" name="password" required="required">
-                <span>Password</span>
-                <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828471.svg" alt="lock">
-                <button class="password-control" @click.prevent="togglePassword"> 
-                  <icon name="eye" color="#fff" v-if="inputType == 'password'" size="22px" />
-                </button>
-
-                <button class="password-control" @click.prevent="togglePassword"> 
-                  <icon name="eye-slash" color="#fff" v-if="inputType == 'text'" size="22px" />
-                </button>
-                
-                
-              </div>
-              <label class="remember"><input type="checkbox">
-                Remember</label>
               <div class="inputBx">
-                <input type="submit" value="Login" disabled> 
+                <input type="submit" value="Send Confirmation" disabled> 
               </div>
             </form>
-            <p>Forgot password? <router-link to="/reset"> Click Here </router-link></p>
-            <p>Don't have an account <router-link to="/sign_up"> Sign Up </router-link></p>
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      inputType: 'password',
-    }
-  },
-
-  methods: {
-    togglePassword() {
-      this.inputType = this.inputType == 'password' ? 'text' : 'password';
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 // START:: IMPORT MAIN FILE
@@ -252,7 +217,7 @@ section {
     input[type="submit"] {
       background: #fff;
       color: #111;
-      max-width: 100px;
+      max-width: 165px;
       padding: 8px 10px;
       box-shadow: none;
       letter-spacing: 1px;
