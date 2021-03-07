@@ -6,7 +6,7 @@
         <div class="row d-flex justify-content-between">
           <div class="btns-box col-6 d-flex justify-content-start align-items-center">
             <button>
-              <router-link to="/">
+              <router-link to="/login">
                 {{ $t('login') }}
               </router-link>
             </button>
