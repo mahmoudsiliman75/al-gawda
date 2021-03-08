@@ -84,9 +84,15 @@ const routes = [
   },
   {
     path: "/reset",
-    name: "SignUpForm",
+    name: "ResetPasswordForm",
     component: () =>
-      import(/*webpackChunkName: 'signUp'*/ "../views/ResetPasswordForm.vue")
+      import(/*webpackChunkName: 'reset'*/ "../views/ResetPasswordForm.vue")
+  },
+  {
+    path: "/cart",
+    name: "CoursesCart",
+    component: () =>
+      import(/*webpackChunkName: 'cart'*/ "../views/CoursesCart.vue")
   }
 ];
 

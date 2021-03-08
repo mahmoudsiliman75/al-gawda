@@ -19,9 +19,12 @@
               <img src="../../assets/media/translate.png" alt="" width="40" height="40">
             </button>
 
-            <!-- <button>
-              <icon name="shopping-cart"  />
-            </button> -->
+            <router-link to="/cart" class="cart_button">
+              <icon name="shopping-cart" color="#fff" />
+              <span class="badge badge-pill badge-danger">
+                {{ this.$store.state.cart.length }}
+              </span>
+            </router-link>
           </div>
 
           <div class="links-menu-box col-6">
@@ -207,6 +210,14 @@ export default {
       a {
         text-decoration: none;
         color: #fff;
+      }
+    }
+    a.cart_button {
+      position: relative;
+      .badge-danger {
+        position: absolute;
+        top: -6px;
+        right: -10px;
       }
     }
   }

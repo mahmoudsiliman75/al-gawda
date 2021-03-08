@@ -14,7 +14,20 @@ export default {
   components: {
     "nav-bar": NavBar,
     "the-footer": TheFooter,
-  }
+  },
+
+  methods: {
+    initcart() {
+      if ( ! localStorage.getItem('cart') ) {
+        localStorage.setItem('cart', '[]');
+      }
+    },
+  },
+
+  mounted() {
+    this.initcart();
+
+  },
 };
 </script>
 

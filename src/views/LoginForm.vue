@@ -69,6 +69,10 @@ export default {
 @import "../assets/sass/main.scss";
 // END:: IMPORT MAIN FILE
 
+.login_wraper {
+  overflow-x: hidden;
+}
+
 img {
   width: 32px;
 }

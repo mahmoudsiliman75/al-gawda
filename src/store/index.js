@@ -7,6 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state() {
     return {
+      cart: [],
+
       coursesCategories: [
         {
           id: "java",
@@ -24,7 +26,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://www.anbilarabi.com/wp-content/uploads/2018/03/Java-Logo.jpg",
               instructor: "Eng. Mohamed Eid",
-              price: "90$",
+              price: "90",
               rate: "3.5",
               videosSection: [
                 {
@@ -76,7 +78,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://gorillalogic.com/wp-content/uploads/2018/02/Java-9-Modules-1024x640.gif",
               instructor: "Eng. Mohamed Eid",
-              price: "200$",
+              price: "20 ",
               rate: "4",
               videosSection: [
                 {
@@ -128,7 +130,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://gorillalogic.com/wp-content/uploads/2018/02/Java-9-Modules-1024x640.gif",
               instructor: "Eng. Mohamed Eid",
-              price: "200$",
+              price: "20 ",
               rate: "2.5",
               videosSection: [
                 {
@@ -188,7 +190,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://nareshit.com/wp-content/uploads/2018/08/C-Programming-online-training-nareshit.jpg",
               instructor: "Eng. Mohamed Eid",
-              price: "90$",
+              price: "90",
               rate: "3.5",
               videosSection: [
                 {
@@ -240,7 +242,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://nareshit.com/wp-content/uploads/2018/08/C-Programming-online-training-nareshit.jpg",
               instructor: "Eng. Mohamed Eid",
-              price: "200$",
+              price: "20 ",
               rate: "4",
               videosSection: [
                 {
@@ -292,7 +294,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://nareshit.com/wp-content/uploads/2018/08/C-Programming-online-training-nareshit.jpg",
               instructor: "Eng. Mohamed Eid",
-              price: "200$",
+              price: "20 ",
               rate: "2",
               videosSection: [
                 {
@@ -353,7 +355,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://www.educative.io/v2api/editorpage/5393602882568192/image/6038586442907648",
               instructor: "Eng. Mohamed Eid",
-              price: "90$",
+              price: "90",
               rate: "2",
               videosSection: [
                 {
@@ -405,7 +407,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://www.educative.io/v2api/editorpage/5393602882568192/image/6038586442907648",
               instructor: "Eng. Mohamed Eid",
-              price: "200$",
+              price: "20 ",
               rate: "4.5",
               videosSection: [
                 {
@@ -457,7 +459,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://www.educative.io/v2api/editorpage/5393602882568192/image/6038586442907648",
               instructor: "Eng. Mohamed Eid",
-              price: "200$",
+              price: "20 ",
               rate: "5",
               videosSection: [
                 {
@@ -517,7 +519,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png",
               instructor: "Eng. Mohamed Eid",
-              price: "90$",
+              price: "90",
               rate: "1.5",
               videosSection: [
                 {
@@ -569,7 +571,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png",
               instructor: "Eng. Mohamed Eid",
-              price: "200$",
+              price: "20 ",
               rate: "3.5",
               videosSection: [
                 {
@@ -621,7 +623,7 @@ export default new Vuex.Store({
               imgSrc:
                 "https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png",
               instructor: "Eng. Mohamed Eid",
-              price: "200$",
+              price: "20 ",
               rate: "2",
               videosSection: [
                 {

@@ -2,14 +2,14 @@
   <div class="sign_up_wraper">
     <section>
       <div class="box">
-        
+
         <div class="square" style="--i:0;"></div>
         <div class="square" style="--i:1;"></div>
         <div class="square" style="--i:2;"></div>
         <div class="square" style="--i:3;"></div>
         <div class="square" style="--i:4;"></div>
         <div class="square" style="--i:5;"></div>
-        
+
         <div class="form-container"> 
           <div class="form"> 
             <h2 class="text-center">Reset Password</h2>
@@ -33,6 +33,9 @@
 // START:: IMPORT MAIN FILE
 @import "../assets/sass/main.scss";
 // END:: IMPORT MAIN FILE
+.sign_up_wraper {
+  overflow-x: hidden;
+}
 
 img {
   width: 32px;
@@ -49,14 +52,14 @@ section {
 }
 
 @keyframes gradient {
-0% {
-  background-position: 0% 50%;
+  0% {
+    background-position: 0% 50%;
   }
-50% {
-  background-position: 100% 50%;
+  50% {
+    background-position: 100% 50%;
   }
-100% {
-  background-position: 0% 50%;
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -73,7 +76,7 @@ section {
     animation: square 10s linear infinite;
     animation-delay: calc(-1s * var(--i));
   }
-  
+
   @keyframes square {
     0%,100% {
       transform: translateY(-20px);
@@ -204,8 +207,6 @@ section {
     transition: 0.5s;
   }
 
-    
-  
     img {
       position: absolute;
       top: 6px;

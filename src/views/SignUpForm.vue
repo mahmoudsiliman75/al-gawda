@@ -49,6 +49,9 @@
 // START:: IMPORT MAIN FILE
 @import "../assets/sass/main.scss";
 // END:: IMPORT MAIN FILE
+.sign_up_wraper {
+  overflow-x: hidden;
+}
 
 img {
   width: 32px;
