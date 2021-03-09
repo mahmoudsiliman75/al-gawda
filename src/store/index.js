@@ -686,6 +686,7 @@ export default new Vuex.Store({
           twitterUrl: "#",
           linkedUrl: "#",
         },
+
         {
           id: "2",
           imgUrl: "http://unitedthemes.com/wp-content/uploads/2018/09/team1.jpg",

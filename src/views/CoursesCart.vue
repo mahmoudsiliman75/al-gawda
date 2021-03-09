@@ -73,7 +73,8 @@ export default {
 
   methods: {
     clearCart() {
-      this.$store.state.cart = []
+      this.$store.state.cart = [];
+      localStorage.setItem('cart', JSON.stringify( [] ));
     },
 
     deleteItem(courseId) {
@@ -82,6 +83,16 @@ export default {
         return course.id != courseId;
       });
       this.$store.state.cart = newCart;
+
+      this.deleteItemFromLocalStorage(courseId);
+    },
+
+    deleteItemFromLocalStorage(courseId) {
+      var newCart = JSON.parse(localStorage.getItem('cart'));
+      newCart = newCart.filter( function ( course ) {
+        return course.id != courseId;
+      });
+      localStorage.setItem('cart', JSON.stringify(newCart));
     }
   },
 }

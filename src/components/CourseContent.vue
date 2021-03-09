@@ -175,7 +175,10 @@ export default {
 
   methods: {
     addToCart() {
-      this.$store.state.cart.push(this.courseData);
+      var localStorageArr = JSON.parse(localStorage.getItem('cart'));
+      localStorageArr.push(this.courseData);
+      localStorage.setItem('cart', JSON.stringify(localStorageArr));
+      this.$store.state.cart = localStorageArr;
     },
 
     changeVideoSrc(url , btnId){

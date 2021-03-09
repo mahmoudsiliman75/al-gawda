@@ -19,14 +19,16 @@ export default {
   methods: {
     initcart() {
       if ( ! localStorage.getItem('cart') ) {
-        localStorage.setItem('cart', '[]');
+        var cart = this.$store.state.cart;
+        localStorage.setItem('cart', JSON.stringify(cart));
+      } else {
+        this.$store.state.cart = JSON.parse( localStorage.getItem('cart') );
       }
     },
   },
 
   mounted() {
     this.initcart();
-
   },
 };
 </script>
