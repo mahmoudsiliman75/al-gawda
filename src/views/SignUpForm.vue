@@ -13,29 +13,33 @@
         <div class="form-container"> 
           <div class="form"> 
             <h2 class="text-center">Sign Up</h2>
-            <form action="">
+            <form action="" @submit.prevent="submitData()">
               <div class="inputBx">
-                <input type="text" required="required">
+                <input type="text" required="required" v-model="signupData.name" >
                 <span>Full Name</span>
               </div>
+
               <div class="inputBx">
-                <input type="tele" required="required">
+                <input type="tele" required="required" v-model="signupData.mobile" >
                 <span>Phone Number</span>
               </div>
+
               <div class="inputBx">
-                <input type="text" required="required">
+                <input type="text" required="required" v-model="signupData.email" >
                 <span>Email</span>
               </div>
+
               <div class="inputBx password">
-                <input id="password-input" :type="inputType" name="password" required="required">
+                <input id="password-input" type="password" name="password" required="required" v-model="signupData.password" >
                 <span>Password</span>
               </div>
+
               <div class="inputBx password">
-                <input id="password-input" :type="inputType" name="password" required="required">
+                <input id="password_confirmation_input" type="password" name="password_confirmation" required="required" v-model="signupData.password_confirmation" >
                 <span>Confirm Password</span>
               </div>
               <div class="inputBx">
-                <input type="submit" value="Sign Up" disabled> 
+                <input type="submit" value="Sign Up" > 
               </div>
             </form>
           </div>
@@ -44,6 +48,36 @@
     </section>
   </div>
 </template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      signupData: {
+        name: "",
+        email: "",
+        mobile: "",
+        password: "",
+        password_confirmation: "",
+      }
+    }
+  },
+
+  methods: {
+    submitData() {
+      axios.post('http://jawda-academy.com/api/clients/register', this.signupData)
+      .then ( res => console.log(res) )
+      .catch( error => console.log(error) )
+    }
+  },
+
+  mounted() {
+    console.log();
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 // START:: IMPORT MAIN FILE

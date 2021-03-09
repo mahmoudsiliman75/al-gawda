@@ -6,10 +6,10 @@
         <!-- START:: PROFILE HEADER SECTION -->
         <div class="col-12 col-md-6">
           <div class="profile_header">
-            <img :src="selectedMember.imgUrl">
-            <h3> {{ selectedMember.name }} </h3>
-            <h5> {{ selectedMember.role }} </h5>
-            <p class="lead"> {{ selectedMember.bio }} </p>
+            <img :src="instructor.image_path">
+            <h3> {{ instructor.name }} </h3>
+            <h5> {{ instructor.role }} </h5>
+            <p class="lead"> {{ instructor.bio }} </p>
           </div>
         </div>
         <!-- END:: PROFILE HEADER SECTION -->
@@ -21,40 +21,25 @@
               <h2 class="sec-header"> Courses </h2>
             </div>
             <div class="row">
-              <div class="col-12 col-md-6 my-2">
-                <router-link to="/">
-                  <div class="card Recent">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Fs_f3agjurjdvTra8sPiiNyjoq84_iL9kA&usqp=CAU" class="card-img-top" alt="Course Img" />
+              <div class="col-12 col-md-6 my-2"
+                v-for="course in instructor.courses"
+                :key="course.id"
+              >
+                <router-link 
+                  :to="{ name: 'CourseContent', params: { course_id: course.id } }"
+                >
+                  <div class="card" :class="course.badges">
+                    <img :src="course.image_path" class="card-img-top" alt="Course Img" />
                     <div class="card-body">
-                      <h4 class="card-title">Learn Java</h4>
-                      <p class="instructor mb-1">Mohamed Eid</p>
+                      <h4 class="card-title">{{course.name}}</h4>
+                      <p class="instructor mb-1">{{ instructor.name }}</p>
 
                       <!-- START:: THE RATING -->
-                      <rating-starts rate="2"></rating-starts>
+                      <rating-starts :rate="course.rate"></rating-starts>
                       <!-- START:: THE RATING -->
 
                       <div class="d-flex justify-content-between">
-                        <span class="badge Recent">Recent</span>
-                      </div>
-                    </div>
-                  </div>
-                </router-link>
-              </div>
-
-              <div class="col-12 col-md-6 my-2">
-                <router-link to="/">
-                  <div class="card Bestseller">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Fs_f3agjurjdvTra8sPiiNyjoq84_iL9kA&usqp=CAU" class="card-img-top" alt="Course Img" />
-                    <div class="card-body">
-                      <h4 class="card-title">Master Java</h4>
-                      <p class="instructor mb-1">Mohamed Eid</p>
-
-                      <!-- START:: THE RATING -->
-                      <rating-starts rate="4"></rating-starts>
-                      <!-- START:: THE RATING -->
-
-                      <div class="d-flex justify-content-between">
-                        <span class="badge Bestseller">Bestseller</span>
+                        <span class="badge" :class="course.badges">{{course.badges}}</span>
                       </div>
                     </div>
                   </div>
@@ -72,6 +57,7 @@
 
 <script>
 import RatingStars from "./ui/RatingStars.vue";
+import axios from "axios";
 
 export default {
   components: {
@@ -80,20 +66,22 @@ export default {
 
   data() {
     return {
+      // members: this.$store.state.members,
+      instructor: {},
       theId: this.$route.params.instructor_id,
-      members: this.$store.state.members,
+    };
+  },
+
+  methods: {
+    getSingleInstructor() {
+      axios.get("http://jawda-academy.com/api/instructors/"+this.theId )
+      .then( res => this.instructor = res.data.data);
     }
   },
 
-  computed: {
-    selectedMember() {
-      var theMember
-      theMember = this.$store.state.members.find( 
-        member => member.id == this.theId 
-      );
-      return theMember
-    },
-  },
+  mounted() {
+    this.getSingleInstructor();
+  }
 }
 </script>
 

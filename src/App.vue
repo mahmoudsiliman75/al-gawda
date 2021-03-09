@@ -1,7 +1,10 @@
 <template>
   <div>
     <nav-bar></nav-bar>
-    <router-view />
+      <!-- START:: PRELOADER COMPONENT -->
+      <pre-loader></pre-loader>
+      <!-- END:: PRELOADER COMPONENT -->
+      <router-view />
     <the-footer></the-footer>
   </div>
 </template>
@@ -9,11 +12,13 @@
 <script>
 import NavBar from "./components/layouts/NavBar.vue";
 import TheFooter from "./components/layouts/TheFooter";
+import PreLoader from "./components/ui/PreLoader.vue";
 
 export default {
   components: {
     "nav-bar": NavBar,
     "the-footer": TheFooter,
+    "pre-loader": PreLoader,
   },
 
   methods: {

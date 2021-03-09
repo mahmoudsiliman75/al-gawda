@@ -27,7 +27,7 @@
         <div class="row justify-content-center">
           <div class="col-12 col-md-9 article-card">
             <div class="article-pic">
-              <img :src="article.imgSrc" alt="Article Image" />
+              <img :src="article.image_path" alt="Article Image" />
             </div>
 
             <div
@@ -40,7 +40,7 @@
               </span>
             </div>
 
-            <p class="article-subject">{{ article.subject }}</p>
+            <p class="article-subject" v-html="article.desc"></p>
           </div>
         </div>
       </div>
@@ -49,22 +49,26 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
   data() {
     return {
-      articleId: this.$route.params.articleId
+      article: {},
+      articleId: this.$route.params.articleId,
     };
   },
 
-  computed: {
-    allBlogs() {
-      return this.$store.state.blogs;
-    },
-
-    article() {
-      return this.allBlogs.find(article => article.id == this.articleId);
+  methods: {
+    getSinglePost() {
+      axios.get("http://jawda-academy.com/api/articles/"+this.articleId )
+      .then( res => this.article = res.data.data )
     }
-  }
+  },
+
+  mounted() {
+    this.getSinglePost();
+  },
 };
 </script>
 
@@ -89,7 +93,7 @@ export default {
 
   .custom-shape-divider-bottom-1613755709 {
     position: absolute;
-    top: 500px;
+    top: 525px;
     left: 0;
     width: 100%;
     overflow: hidden;

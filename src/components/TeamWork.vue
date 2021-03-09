@@ -10,7 +10,7 @@
 
         <div
           class="col-9 col-md-4 px-2 mb-2"
-          v-for="member in members"
+          v-for="member in instructors"
           :key="member.id"
         >
 
@@ -31,7 +31,7 @@
               <!-- END:: FIRST SVG -->
 
               <router-link :to="{name:'InstructorProfile', params:{instructor_id: member.id} }">
-                <img :src="member.imgUrl" />
+                <img :src="member.image_path" />
 
                 <h4>{{ member.name }}</h4>
                 <h6>{{ member.role }}</h6>
@@ -39,19 +39,19 @@
 
               <ul class="list-unstyled">
                 <li>
-                  <a :href="member.faceUrl" class="member-social">
+                  <a :href="member.facebook" class="member-social">
                     <icon name="facebook-square" color="#9B7C29" />
                   </a>
                 </li>
 
                 <li>
-                  <a :href="member.twitterUrl" class="member-social">
+                  <a :href="member.twitter" class="member-social">
                     <icon name="twitter-square" color="#9B7C29" />
                   </a>
                 </li>
 
                 <li>
-                  <a :href="member.linkedUrl" class="member-social">
+                  <a :href="member.linkedin" class="member-social">
                     <icon name="linkedin" color="#9B7C29" />
                   </a>
                 </li>
@@ -78,11 +78,24 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
-      members: this.$store.state.members,
+      // members: this.$store.state.members,
+      instructors: [],
     }
+  },
+
+  methods: {
+    getMemberData() {
+      axios.get('http://jawda-academy.com/api/instructors')
+      .then( res => this.instructors = res.data.data )
+    }
+  },
+
+  mounted() {
+    this.getMemberData();
   }
 };
 </script>
