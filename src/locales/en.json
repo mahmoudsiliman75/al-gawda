@@ -1,5 +1,6 @@
 {
   "login"             : "Login",
+  "logout"             : "Sign Out",
 
   "about_us"          : "About Us",
   "blog"              : "Blog",
@@ -7,6 +8,7 @@
   "courses"           : "Courses",
   "home"              : "Home",
   "team"              : "Our Team",
+  "my_profile"        : "My Profile",
 
   "home_about"        : "We Will Give You Future",
   "view_more"         : "View More",

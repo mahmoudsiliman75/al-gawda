@@ -13,14 +13,21 @@
         <div class="form-container"> 
           <div class="form"> 
             <h2 class="text-center">LOGIN</h2>
-            <form action="">
+            <form action="" @submit.prevent="submitLogin()">
               <div class="inputBx">
-                <input type="text" required="required">
+                <input type="email" required="required" v-model="loginData.email">
                 <span>Email</span>
                 <img src="https://www.flaticon.com/svg/static/icons/svg/709/709699.svg" alt="user">
               </div>
               <div class="inputBx password">
-                <input id="password-input" :type="inputType" name="password" required="required">
+                <input 
+                  id="password-input" 
+                  :type="inputType" 
+                  name="password" 
+                  required="required"
+                  v-model="loginData.password"
+                >
+
                 <span>Password</span>
                 <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828471.svg" alt="lock">
                 <button class="password-control" @click.prevent="togglePassword"> 
@@ -33,10 +40,9 @@
                 
                 
               </div>
-              <label class="remember"><input type="checkbox">
-                Remember</label>
+
               <div class="inputBx">
-                <input type="submit" value="Login" disabled> 
+                <input type="submit" value="Login"> 
               </div>
             </form>
             <p>Forgot password? <router-link to="/reset"> Click Here </router-link></p>
@@ -49,18 +55,53 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
       inputType: 'password',
+      loginData: {
+        email: '',
+        password: '',
+      }
     }
   },
 
   methods: {
+    sweetAlert(messages) {
+      this.$swal( "", messages.toString(), "error" );
+    },
+
     togglePassword() {
       this.inputType = this.inputType == 'password' ? 'text' : 'password';
+    },
+
+    submitLogin() {
+      axios.post('http://jawda-academy.com/api/clients/login', this.loginData)
+      .then( res => {
+        if ( res.data.success == true ) {
+          this.saveUserDataAtLocalStorage(res);
+          this.$router.push('/');
+        } else {
+          this.sweetAlert(res.data.message)
+        }
+      })
+      .catch( error => console.log( error ) )
+    },
+
+    saveUserDataAtLocalStorage(res) {
+      localStorage.setItem('user_token', res.data.data.api_token);
+      localStorage.setItem('user', JSON.stringify(res.data.data));
+      this.$store.state.api_token = localStorage.getItem('user_token');
     }
-  }
+  },
+
+  beforeCreate() {
+    if ( localStorage.getItem("user_token") ) {
+      this.$router.push('/')
+      // TODO: validate token
+    }
+  },
 }
 </script>
 

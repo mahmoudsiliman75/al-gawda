@@ -66,10 +66,35 @@ export default {
   },
 
   methods: {
+    sweetAlert(messages) {
+      this.$swal( "", messages.toString(), "error" );
+    },
+
     submitData() {
       axios.post('http://jawda-academy.com/api/clients/register', this.signupData)
-      .then ( res => console.log(res) )
-      .catch( error => console.log(error) )
+      .then ( res => {
+        //TODO: Handile Validation Error
+        if ( res.data.success == true ) {
+          this.saveUserDataAtLocalStorage(res)
+          this.$router.push('/')
+        } else {
+          this.sweetAlert(res.data.message)
+        }
+        })
+      .catch( error => console.log(error) );
+    },
+
+    saveUserDataAtLocalStorage(res) {
+      localStorage.setItem('user_token', res.data.data.api_token);
+      localStorage.setItem('user', JSON.stringify(res.data.data));
+      this.$store.state.api_token = localStorage.getItem('user_token');
+    }
+  },
+
+  beforeCreate() {
+    if ( localStorage.getItem("user_token") ) {
+      this.$router.push('/')
+      // TODO: validate token
     }
   },
 

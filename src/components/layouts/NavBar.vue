@@ -5,9 +5,18 @@
       <div class="container-fluid">
         <div class="row d-flex justify-content-between">
           <div class="btns-box col-6 d-flex justify-content-start align-items-center">
-            <button>
+            <button v-if=" checkIfthetokenIsExist ">
               <router-link to="/login">
                 {{ $t('login') }}
+              </router-link>
+            </button>
+
+            <button 
+              v-if=" !checkIfthetokenIsExist " 
+              @click="deleteUserDataFromLocalStorage()"
+            >
+              <router-link to="/login">
+                {{ $t('logout') }}
               </router-link>
             </button>
 
@@ -19,7 +28,9 @@
               <img src="../../assets/media/translate.png" alt="" width="40" height="40">
             </button>
 
-            <router-link to="/cart" class="cart_button">
+            <router-link 
+              to="/cart" class="cart_button" 
+              v-if=" !checkIfthetokenIsExist ">
               <icon name="shopping-cart" color="#fff" />
               <span class="badge badge-pill badge-danger">
                 {{ this.$store.state.cart.length }}
@@ -104,6 +115,12 @@
           <span></span>
           <span></span>
         </router-link>
+
+        <router-link to="/profile">
+          {{ $t('my_profile') }}
+          <span></span>
+          <span></span>
+        </router-link>
       </div>
       <!-- END:: LARGE SCREENS NAVIGATION BAR -->
 
@@ -155,6 +172,10 @@
         <li>
           <router-link to="/contact"> {{ $t("contact_us") }} </router-link>
         </li>
+
+        <li>
+          <router-link to="/profile"> {{ $t("my_profile") }} </router-link>
+        </li>
       </ul>
     </div>
     <!-- END:: SMALL SCREENS NAVIGATION MENU -->
@@ -167,6 +188,13 @@ export default {
     return {
       menuIsVisible: false
     };
+  },
+
+  computed: {
+    checkIfthetokenIsExist() {
+      // return localStorage.getItem('user_token') == ''
+      return this.$store.state.api_token == ''
+    }
   },
 
   methods: {
@@ -182,6 +210,19 @@ export default {
       } else if ( locale == 'ar' ) {
         document.querySelector("body").style.direction = "rtl";
       }
+    },
+
+    deleteUserDataFromLocalStorage() {
+      var userData = localStorage.getItem('user');
+      var useToken = localStorage.getItem('user_token');
+
+      userData = '';
+      useToken = ''; 
+
+      localStorage.setItem('user', userData );
+      localStorage.setItem('user_token', useToken );
+
+      location.reload();
     }
   }
 };
@@ -251,6 +292,7 @@ export default {
 .nav-bar {
   background-color: #f1f1f1;
   padding: 15px 30px;
+  border-bottom: 2px solid $mainColor;
   .site-logo {
     img {
       min-height: 80px;

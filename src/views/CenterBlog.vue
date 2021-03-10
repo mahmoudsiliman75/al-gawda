@@ -15,8 +15,8 @@
           >
             <h3 class="title">{{ post.title }}</h3>
             <p class="desc">{{ post.subject }}</p>
-            <p class="author d-flex"><span> {{ $t('by') }}: </span> {{ post.author }}</p>
-            <p class="date d-flex"><span> {{ $t('posted_in') }}: </span> {{ post.date }}</p>
+            <p v-if="post.author != '' " class="author d-flex"><span> {{ $t('by') }}: </span> {{ post.author }}</p>
+            <p v-if="post.date != '' " class="date d-flex"><span> {{ $t('posted_in') }}: </span> {{ post.date }}</p>
             <button> {{ $t('view_more') }} </button>
           </router-link>
         </div>

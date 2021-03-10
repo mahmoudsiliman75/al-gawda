@@ -22,7 +22,7 @@ const routes = [
     component: () =>
       import(
         /*webpackChunkName: 'coursesCats'*/ "../views/CoursesCategories.vue"
-      )
+      ),
   },
   {
     path: "/cat_content/:id",
@@ -69,6 +69,12 @@ const routes = [
     name: "ContactUs",
     component: () =>
       import(/*webpackChunkName: 'contact'*/ "../components/ContactUs.vue")
+  },
+  {
+    path: "/profile",
+    name: "UserProfile",
+    component: () =>
+      import(/*webpackChunkName: 'profile'*/ "../views/UserProfile.vue")
   },
   {
     path: "/login",

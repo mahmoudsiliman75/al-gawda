@@ -35,7 +35,7 @@
 
                 <h4>{{ member.name }}</h4>
                 <h6>{{ member.role }}</h6>
-              </router-link>
+              </router-link> 
 
               <ul class="list-unstyled">
                 <li>

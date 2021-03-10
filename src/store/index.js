@@ -9,6 +9,8 @@ export default new Vuex.Store({
     return {
       cart: [],
 
+      api_token: localStorage.getItem('user_token'),
+
       coursesCategories: [
         {
           id: "java",

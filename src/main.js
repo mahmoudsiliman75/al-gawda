@@ -13,12 +13,14 @@ import icons from "v-svg-icons";
 
 import VueSplide from "@splidejs/vue-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+import VueSwal from 'vue-swal';
 
 import i18n from "./i18n";
 
 Vue.config.productionTip = false;
 Vue.component("icon", icons);
 Vue.use(VueSplide);
+Vue.use(VueSwal)
 
 new Vue({
   router,

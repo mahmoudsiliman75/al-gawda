@@ -19,7 +19,7 @@
                 <span>Email</span>
               </div>
               <div class="inputBx">
-                <input type="submit" value="Send Confirmation" disabled> 
+                <input type="submit" value="Send Confirmation"> 
               </div>
             </form>
           </div>

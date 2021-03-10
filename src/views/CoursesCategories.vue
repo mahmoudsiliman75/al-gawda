@@ -7,14 +7,14 @@
       <div class="row justify-content-center">
         <div
           class="col-12 col-md-4 my-3"
-          v-for="category in categories"
+          v-for="category in Thecategories"
           :key="category.id"
         >
           <router-link
             :to="{ name: 'CategoryContent', params: { id: category.id } }"
           >
             <div class="card category-card">
-              <img :src="category.imgUrl" class="card-img-top" alt="..." />
+              <img :src="category.image" class="card-img-top" alt="..." />
               <div class="card-body text-center">
                 <h5 class="card-title">{{ category.name }}</h5>
               </div>
@@ -27,11 +27,29 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+  data() {
+    return {
+      Thecategories: [],
+    }
+  },
+
   computed: {
     categories() {
       return this.$store.state.coursesCategories;
     }
+  },
+
+  methods: {
+    getCategoryData() {
+      axios.get("http://jawda-academy.com/api/categories/")
+      .then( res => this.Thecategories = res.data.data )
+    }
+  },
+
+  mounted() {
+    this.getCategoryData();
   }
 };
 </script>

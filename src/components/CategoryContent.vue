@@ -1,7 +1,7 @@
 <template>
   <div class="cat-content">
     <div class="container d-flex flex-column align-items-center justify-content-center">
-      <h2 class="sec-header">{{ catContent.name }}</h2>
+      <h2 class="sec-header">{{ categoryContent.name }}</h2>
       <div class="row justify-content-center">
         <!-- <div class="col-4" v-for="course in catContent.courses" :key="course.id">
           <h2> {{course.id}} </h2>
@@ -11,14 +11,14 @@
         <!-- START:: CARD MARKUP -->
         <div
           class="col-12 col-md-4 px-2 mb-3"
-          v-for="course in catContent.courses"
+          v-for="course in categoryContent.courses"
           :key="course.id"
         >
           <router-link
             :to="{ name: 'CourseContent', params: { course_id: course.id } }"
           >
             <div class="card" :class="course.status">
-              <img :src="course.imgSrc" class="card-img-top" alt="Course Img" />
+              <img :src="course.image_path" class="card-img-top" alt="Course Img" />
               <div class="card-body">
                 <h4 class="card-title">{{ course.name }}</h4>
                 <p class="instructor mb-1">{{ course.instructor }}</p>
@@ -39,10 +39,10 @@
                         parseInt(course.saleAmount) > 0 ? 'sale-price' : ''
                       "
                     >
-                      {{ course.price }}
+                      {{ course.price }} KWD
                     </span>
                     <span class="mx-2" v-if="parseInt(course.saleAmount) > 0">
-                      {{ calcSale(course.price, course.saleAmount) }}$
+                      {{ calcSale(course.price, course.saleAmount) }} KWD
                     </span>
                   </div>
                 </div>
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import RatingStars from "./ui/RatingStars.vue";
 
 export default {
@@ -66,7 +67,8 @@ export default {
 
   data() {
     return {
-      categoryId: this.$route.params.id
+      categoryId: this.$route.params.id,
+      categoryContent: []
     };
   },
 
@@ -77,22 +79,31 @@ export default {
   },
 
   computed: {
-    catContent() {
-      return this.$store.state.coursesCategories.find(
-        category => category.id == this.categoryId
-      );
-    },
+    // catContent() {
+    //   return this.$store.state.coursesCategories.find(
+    //     category => category.id == this.categoryId
+    //   );
+    // },
 
-    categoryCourses() {
-      return this.$store.state.coursesCategories;
-    }
+    // categoryCourses() {
+    //   return this.$store.state.coursesCategories;
+    // }
   },
 
   methods: {
+    getCatContent() {
+      axios.get('http://jawda-academy.com/api/categories/'+this.categoryId)
+      .then( res => this.categoryContent = res.data.data )
+    },
+
     calcSale(price, discount) {
       return parseInt(price) - (parseInt(price) * parseInt(discount)) / 100;
-    }
-  }
+    },
+  },
+
+  mounted() {
+    this.getCatContent();
+  },
 };
 </script>
 

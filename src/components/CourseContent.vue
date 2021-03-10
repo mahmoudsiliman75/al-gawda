@@ -2,13 +2,21 @@
   <div dir="ltr">
     <!-- START:: HEADER PIC -->
     <div class="header-pic">
-      <img :src="courseData.imgSrc" alt="Course Image" />
+      <img :src="singleCourseData.image_path" alt="Course Image" />
       <div class="course-demo">
-        <iframe
+        <!-- <iframe
           class="main-video"
           src="https://www.youtube.com/embed/6sJPb5tIyt4"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe> -->
+
+        <iframe
+          class="main-video"
+          :src="singleCourseData.video_embeded"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
         ></iframe>
       </div>
@@ -18,36 +26,40 @@
     <div
       class="course-content d-flex flex-column align-items-center justify-content-center"
     >
-      <h2 class="sec-header">{{ courseData.name }}</h2>
+      <h2 class="sec-header">{{ singleCourseData.name }}</h2>
       <div class="container">
         <div class="row">
           <div class="course-details col-12">
             <h3>
               <span> By: </span>
-              {{ courseData.instructor }}
-              <span class="badge" :class="courseData.status">
-                {{ courseData.status }}
+              {{ singleCourseData.instructor }}
+              <span class="badge" :class="singleCourseData.badges">
+                {{ singleCourseData.badges }}
               </span>
             </h3>
-            <h4 class="lead">{{ courseData.desc }}</h4>
+            <!-- <h4 class="lead">{{ singleCourseData.desc }}</h4> -->
             <h5>
               <span> Price: </span>
               <span
                 class="price mx-2"
-                :class="parseInt(courseData.saleAmount) > 0 ? 'sale-price' : ''"
+                :class="
+                  parseInt(singleCourseData.discount) > 0 ? 'sale-price' : ''
+                "
               >
-                {{ courseData.price }}
+                {{ singleCourseData.price }} KWD
               </span>
               <span
                 class="price mx-2"
-                v-if="parseInt(courseData.saleAmount) > 0"
+                v-if="parseInt(singleCourseData.discount) > 0"
               >
-                {{ calcSale(courseData.price, courseData.saleAmount) }}$
+                {{
+                  calcSale(singleCourseData.price, singleCourseData.discount)
+                }} KWD
               </span>
             </h5>
 
             <!-- START:: THE RATING -->
-            <rating-stars :rate="courseData.rate"></rating-stars>
+            <rating-stars :rate="singleCourseData.rate"></rating-stars>
             <!-- START:: THE RATING -->
           </div>
 
@@ -55,85 +67,123 @@
             <template #default>
               <diV class="d-flex justify-content-center my-4">
                 <button class="close-popup mx-2" @click="watchVideo">
-                  {{ $t('okay') }}
+                  {{ $t("okay") }}
                 </button>
                 <a href="#" class="close-popup" @click="watchVideo">
-                  {{ $t('download') }}
+                  {{ $t("download") }}
                 </a>
               </diV>
             </template>
           </pop-up>
 
-          <div class="accordion col-12" id="accordionExample" v-if=" courseData.paymentStat == 'paied' ">
+          <div
+            class="accordion col-12"
+            id="accordionExample"
+            v-if="singleCourseData.paymentStat == 'paid'"
+          >
             <div class="card">
-
-              <div 
-                v-for="section in courseData.videosSection"
+              <div
+                v-for="section in singleCourseData.sections"
                 :key="section.id"
               >
-
                 <div class="card-header" id="headingOne">
                   <h4 class="mb-0">
-                    <button class="btn-link btn-block text-left" type="button" data-toggle="collapse" :data-target="'#'+section.id" aria-expanded="true" aria-controls="collapseOne">
-                      <icon name="play" color="#9B7C29" size="20px" class="mx-2" />
-                      {{ courseData.name }} {{ section.title }}
+                    <button
+                      class="btn-link btn-block text-left"
+                      type="button"
+                      data-toggle="collapse"
+                      :data-target="'#sec' + section.id"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      <icon
+                        name="play"
+                        color="#9B7C29"
+                        size="20px"
+                        class="mx-2"
+                      />
+                      {{ section.name }}
                     </button>
                   </h4>
                 </div>
 
-                <div :id="section.id" class="collapse" aria-labelledby="headingOne">
+                <div
+                  :id="'sec'+section.id"
+                  class="collapse"
+                  aria-labelledby="headingOne"
+                >
                   <div class="card-body">
                     <ul class="list-unstyled">
-                      <li                 
-                        v-for="video in section.videos"
-                        :key="video.id" 
+                      <li
+                        v-for="lesson in section.lessons"
+                        :key="lesson.id"
                         @click="watchVideo"
-                      > 
-                        {{ video.name }} 
+                      >
+                        {{ lesson.name }}
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-
             </div>
 
             <div class="enroll-btn my-3">
-              <button @click="addToCart"> {{ $t('add_to_cart') }} </button>
+              <button @click="addToCart">{{ $t("add_to_cart") }}</button>
             </div>
           </div>
 
-          <div class="accordion col-12" id="accordionExample" v-if=" courseData.paymentStat == 'free' ">
+          <div
+            class="accordion col-12"
+            id="accordionExample"
+            v-if="singleCourseData.paymentStat == 'free'"
+          >
             <div class="card">
-
-              <div 
-                v-for="section in courseData.videosSection"
+              <div
+                v-for="section in singleCourseData.sections"
                 :key="section.id"
               >
-
                 <div class="card-header" id="headingOne">
                   <h4 class="mb-0">
-                    <button class="btn-link btn-block text-left" type="button" data-toggle="collapse" :data-target="'#'+section.id" aria-expanded="true" aria-controls="collapseOne">
-                      <icon name="play" color="#9B7C29" size="20px" class="mx-2" />
-                      {{ courseData.name }} {{ section.title }}
+                    <button
+                      class="btn-link btn-block text-left"
+                      type="button"
+                      data-toggle="collapse"
+                      :data-target="'#sec' + section.id"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      <icon
+                        name="play"
+                        color="#9B7C29"
+                        size="20px"
+                        class="mx-2"
+                      />
+                      {{ section.name }}
                     </button>
                   </h4>
                 </div>
 
-                <div :id="section.id" class="collapse" aria-labelledby="headingOne">
+                <div
+                  :id="'sec'+section.id"
+                  class="collapse"
+                  aria-labelledby="headingOne"
+                >
                   <div class="card-body">
                     <ul class="list-unstyled">
-                      <li                 
-                        v-for="video in section.videos"
-                        :key="video.id" 
-                      > 
-                        <h4 :id="'videos-'+video.id" @click="changeVideoSrc(video.link,'videos-'+video.id )">{{ video.name }}</h4> 
+                      <li v-for="video in section.lessons" :key="video.id">
+                        <h4
+                          :id="'videos-' + video.id"
+                          @click="
+                            changeVideoSrc(video.url, 'videos-' + video.id)
+                          "
+                        >
+                          {{ video.name }}
+                        </h4>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -143,8 +193,9 @@
 </template>
 
 <script>
+import axios from "axios";
 import BasePopUp from "../components/ui/BasePopUp.vue";
-import RatingStars from './ui/RatingStars.vue';
+import RatingStars from "./ui/RatingStars.vue";
 
 export default {
   components: {
@@ -156,50 +207,52 @@ export default {
     return {
       wantToWatsh: false,
       theCatId: this.$route.params.id,
-      theCourse: this.$route.params.course_id
+      theCourse: this.$route.params.course_id,
+      singleCourseData: {}
     };
   },
 
   computed: {
-    selectedCat() {
-      return this.$store.state.coursesCategories.find(
-        theCaat => theCaat.id == this.theCatId
-      );
-    },
-    courseData() {
-      return this.selectedCat.courses.find(
-        singleCourse => singleCourse.id == this.theCourse
-      );
-    }
+    // selectedCat() {
+    //   return this.$store.state.coursesCategories.find(
+    //     theCaat => theCaat.id == this.theCatId
+    //   );
+    // },
+    // courseData() {
+    //   return this.selectedCat.courses.find(
+    //     singleCourse => singleCourse.id == this.theCourse
+    //   );
+    // }
   },
 
   methods: {
+    getCourseData() {
+      axios
+        .get("http://jawda-academy.com/api/courses/" + this.theCourse)
+        .then(res => (this.singleCourseData = res.data.data));
+    },
+
     addToCart() {
-      var localStorageArr = JSON.parse(localStorage.getItem('cart'));
+      var localStorageArr = JSON.parse(localStorage.getItem("cart"));
       localStorageArr.push(this.courseData);
-      localStorage.setItem('cart', JSON.stringify(localStorageArr));
+      localStorage.setItem("cart", JSON.stringify(localStorageArr));
       this.$store.state.cart = localStorageArr;
     },
 
-    changeVideoSrc(url , btnId){
-      
+    changeVideoSrc(url, btnId) {
       this.deleteActiveClass("active-video");
 
+      document.querySelector("#" + btnId).classList.add("active-video");
 
-      document.querySelector("#"+btnId).classList.add("active-video");
-      
-
-      document.querySelector(".main-video").setAttribute("src",url);
+      document.querySelector(".main-video").setAttribute("src", url);
       setTimeout(() => {
         document.querySelector(".header-pic").scrollIntoView();
       }, 0);
-
     },
 
-    deleteActiveClass(className){
-      var lights = document.getElementsByClassName("."+className);
-      while (lights.length)
-          lights[0].classList.remove("."+className);
+    deleteActiveClass(className) {
+      var lights = document.getElementsByClassName("." + className);
+      while (lights.length) lights[0].classList.remove("." + className);
     },
 
     watchVideo() {
@@ -210,6 +263,10 @@ export default {
       return parseInt(price) - (parseInt(price) * parseInt(discount)) / 100;
     }
   },
+
+  mounted() {
+    this.getCourseData();
+  }
 };
 </script>
 
@@ -326,7 +383,7 @@ export default {
           border: none;
           ul {
             li {
-              a{
+              a {
                 text-decoration: none;
                 color: #555;
               }
