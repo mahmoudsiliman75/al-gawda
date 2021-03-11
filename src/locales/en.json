@@ -26,7 +26,11 @@
   "phone"             : "Your Phone",
   "email"             : "Email",
   "message"           : "Message",
+  "password"          : "Password",
+  "new_password"      : "New Password",
+  "confirm_password"  : "Confirm Password",
   "write_message"     : "Write Your Message....",
+  "save"              : "save",
   "send"              : "Send",
 
   "target"            : "Our Target",

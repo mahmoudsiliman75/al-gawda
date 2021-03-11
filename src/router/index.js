@@ -83,6 +83,12 @@ const routes = [
       import(/*webpackChunkName: 'payments'*/ "../views/UserPayments.vue")
   },
   {
+    path: "/edit_user",
+    name: "EditUserInfo",
+    component: () =>
+      import(/*webpackChunkName: 'edit_user'*/ "../views/EditUserInfo.vue")
+  },
+  {
     path: "/login",
     name: "LoginForm",
     component: () =>

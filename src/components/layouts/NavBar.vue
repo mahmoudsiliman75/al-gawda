@@ -177,7 +177,12 @@
         </li>
 
         <li>
-          <router-link to="/profile"> {{ $t("my_profile") }} </router-link>
+          <router-link 
+            to="/profile"
+            v-if=" !checkIfthetokenIsExist "
+          > 
+            {{ $t("my_profile") }} 
+          </router-link>
         </li>
       </ul>
     </div>
