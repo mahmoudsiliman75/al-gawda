@@ -56,6 +56,7 @@
   "my_payments"       : "الدفعات المالية",
   "payment_amount"    : "الحساب",
   "date"              : "التاريخ",
+  "payment_method"    : "طريقة الدفع",
 
   "edit_info"         : "تعديل البيانات الشخصية",
 

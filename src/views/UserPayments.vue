@@ -17,16 +17,25 @@
                 <th scope="col">#</th>
                 <th scope="col"> {{ $t('payment_amount') }} </th>
                 <th scope="col"> {{ $t('date') }} </th>
+                <th scope="col"> {{ $t('payment_method') }} </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td> 200 KWD </td>
-                <td> 21 - 3 -2021 </td>
+              <tr 
+                v-for="(order, index) in ordersList" 
+                :key="order.id"
+              >
+                <th scope="row"> {{index+1}} </th>
+                <td> {{ order.total }} KWD </td>
+                <td> {{ order.created_at }} </td>
+                <td> {{ order.payment_method }} </td>
               </tr>
             </tbody>
           </table>
+
+          <div class="total_wraper d-flex justify-content-center mt-3">
+            <h4> Total: <span> {{clcTotal}} KWD </span> </h4>
+          </div>
         </div>
       </div>
     </div>
@@ -34,12 +43,45 @@
 </template>
 
 <script>
+import axios from 'axios';
 import UserMenu from "../components/layouts/UserProfileMenu";
 
 export default {
   components: {
     "user-menu": UserMenu,
-  }
+  },
+
+  data() {
+    return {
+      ordersList: [],
+    }
+  },
+
+  computed: {
+    clcTotal() {
+      var total = 0;
+      this.ordersList.forEach(order => {
+        total += parseInt(order.total)
+      });
+      return total
+    }
+  },
+
+  methods: {
+    getOrderData() {
+      var theToken = localStorage.getItem('user_token');
+      axios.get('http://jawda-academy.com/api/orders', {
+        headers: {
+          "x-api-key": theToken,
+        }
+      })
+      .then( res => this.ordersList = res.data.data );
+    }
+  },
+
+  mounted() {
+    this.getOrderData();
+  },
 }
 </script>
 
@@ -78,6 +120,18 @@ export default {
         font-weight: 600;
       }
 
+    }
+
+    .total_wraper {
+      h4 {
+        color: $secondryColor;
+        font-weight: 700;
+        span {
+          color: $mainColor;
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
     }
   }
 }
