@@ -6,12 +6,12 @@
         <user-menu></user-menu>
         <!-- END:: INCLUDING USER MENU -->
 
-        <div class="col-11 content_wraper">
+        <div class="col-11 d-flex flex-column align-items-center justify-content-center content_wraper">
           <div class="header_wraper">
-            <h2 class="sec-header"> Edit My Info </h2>
+            <h2 class="sec-header"> {{ $t('edit_info') }} </h2>
           </div>
 
-          <div class="form_wraper">
+          <div class="form_wraper col-12 col-md-6">
             <form>
               <div class="row">
                 <div class="form-controle col-12 mb-3">

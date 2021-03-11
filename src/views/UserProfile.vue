@@ -8,16 +8,16 @@
 
         <div class="col-11 content_wraper">
           <div class="header_wraper">
-            <h2 class="sec-header"> My Courses </h2>
+            <h2 class="sec-header"> {{ $t('my_courses') }} </h2>
           </div>
 
           <table class="table text-center">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Course Image</th>
-                <th scope="col">Course Name</th>
-                <th scope="col">Course Link</th>
+                <th scope="col"> {{ $t('course_img') }} </th>
+                <th scope="col"> {{ $t('course_name') }} </th>
+                <th scope="col"> {{ $t('course_link') }} </th>
               </tr>
             </thead>
             <tbody>
@@ -28,7 +28,7 @@
                 </td>
                 <td> Learn Java </td>
                 <td>
-                  <router-link to="/"> Go To The Course </router-link>
+                  <router-link to="/"> {{ $t('go_to_course') }} </router-link>
                 </td>
               </tr>
             </tbody>

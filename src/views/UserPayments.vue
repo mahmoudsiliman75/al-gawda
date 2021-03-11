@@ -8,15 +8,15 @@
 
         <div class="col-11 content_wraper">
           <div class="header_wraper">
-            <h2 class="sec-header"> My Payments </h2>
+            <h2 class="sec-header"> {{ $t('my_payments') }} </h2>
           </div>
 
           <table class="table text-center">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Payment Amount</th>
-                <th scope="col">Date</th>
+                <th scope="col"> {{ $t('payment_amount') }} </th>
+                <th scope="col"> {{ $t('date') }} </th>
               </tr>
             </thead>
             <tbody>

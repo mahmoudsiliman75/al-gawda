@@ -2,43 +2,28 @@
   <div class="col-12 user_menu_wraper p-0">
     <div class="user_profile_menu">
       <ul class="list-unstyled">
-        <li class="active"> 
-          <!-- <router-link to="/profile"> 
-            <icon name="pencil-alt" size="20px"/>
-            My Courses 
-          </router-link> -->
-
+        <li> 
           <router-link to="/profile">
             <icon name="pencil-alt" size="20px"/>
-            My Courses 
+            {{ $t('my_courses') }}
             <span></span>
             <span></span>
           </router-link>
         </li>
 
         <li> 
-          <!-- <router-link to="/payments"> 
-            <icon name="dollar-sign" size="20px"/>
-            My Payments 
-          </router-link> -->
-
           <router-link to="/payments">
             <icon name="dollar-sign" size="20px"/>
-            My Payments 
+            {{ $t('my_payments') }}
             <span></span>
             <span></span>
           </router-link>
         </li>
 
         <li> 
-          <!-- <router-link to="/edit_user">
-            <icon name="user-cog" size="20px"/> 
-            Edit My Info 
-          </router-link> -->
-
           <router-link to="/edit_user">
             <icon name="user-cog" size="20px"/>
-            Edit My Info 
+            {{ $t('edit_info') }}
             <span></span>
             <span></span>
           </router-link>
@@ -166,12 +151,7 @@
 }
 
 @media ( max-width: 767px) {
-  .page_content_wraper {
-    order: 2;
-  }
-
   .user_menu_wraper {
-    order: 1;
     .user_profile_menu {
       min-height: auto !important;
       padding-top: 20px;

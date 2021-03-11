@@ -41,6 +41,18 @@
   "okay"              : "Okay",
   "download"          : "Download The App",
 
+  "my_courses"        : "My Courses",
+  "course_img"        : "Course Image",
+  "course_name"       : "Course Name",
+  "course_link"       : "Course Link",
+  "go_to_course"      : "Go To The Course",
+
+  "my_payments"       : "My Payments",
+  "payment_amount"    : "Payment Amount",
+  "date"              : "Date",
+
+  "edit_info"         : "Edit My Info",
+
   "by"                : "By",
   "posted_in"         : "Posted In",
 
