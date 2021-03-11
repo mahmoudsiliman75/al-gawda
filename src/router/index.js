@@ -77,6 +77,12 @@ const routes = [
       import(/*webpackChunkName: 'profile'*/ "../views/UserProfile.vue")
   },
   {
+    path: "/payments",
+    name: "UserPayments",
+    component: () =>
+      import(/*webpackChunkName: 'payments'*/ "../views/UserPayments.vue")
+  },
+  {
     path: "/login",
     name: "LoginForm",
     component: () =>

@@ -10,7 +10,7 @@
         </li>
 
         <li> 
-          <router-link to="/"> 
+          <router-link to="/payments"> 
             <icon name="dollar-sign" size="20px"/>
             My Payments 
           </router-link>
