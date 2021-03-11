@@ -4,14 +4,6 @@
     <div class="header-pic">
       <img :src="singleCourseData.image_path" alt="Course Image" />
       <div class="course-demo">
-        <!-- <iframe
-          class="main-video"
-          src="https://www.youtube.com/embed/6sJPb5tIyt4"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
-
         <iframe
           class="main-video"
           :src="singleCourseData.video_embeded"
@@ -234,7 +226,7 @@ export default {
 
     addToCart() {
       var localStorageArr = JSON.parse(localStorage.getItem("cart"));
-      localStorageArr.push(this.courseData);
+      localStorageArr.push(this.singleCourseData);
       localStorage.setItem("cart", JSON.stringify(localStorageArr));
       this.$store.state.cart = localStorageArr;
     },

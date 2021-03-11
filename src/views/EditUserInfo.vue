@@ -12,7 +12,7 @@
           </div>
 
           <div class="form_wraper col-12 col-md-6">
-            <form>
+            <form @submit.prevent="submitNewdata()">
               <div class="row">
                 <div class="form-controle col-12 mb-3">
                   <label for="name" class="d-block mb-2"> {{ $t('name') }} </label>
@@ -20,6 +20,7 @@
                     id="name"
                     type="text"
                     name="name"
+                    v-model="oldData.name"
                     :placeholder="$t('name')"
                   />
                 </div>
@@ -30,6 +31,7 @@
                     id="phone"
                     type="tele"
                     name="phone"
+                    v-model="oldData.mobile"
                     :placeholder="$t('phone')"
                   />
                 </div>
@@ -40,11 +42,12 @@
                     id="email"
                     type="text"
                     name="email"
+                    v-model="oldData.email"
                     :placeholder="$t('email')"
                   />
                 </div>
 
-                <div class="form-controle col-12 mb-3">
+                <!-- <div class="form-controle col-12 mb-3">
                   <label for="new_pass" class="d-block mb-2"> {{ $t('new_password') }} </label>
                   <input
                     id="new_pass"
@@ -52,9 +55,9 @@
                     name="new_pass"
                     :placeholder="$t('new_password')"
                   />
-                </div>
+                </div> -->
 
-                <div class="form-controle col-12 mb-3">
+                <!-- <div class="form-controle col-12 mb-3">
                   <label for="email" class="d-block mb-2"> {{ $t('confirm_password') }} </label>
                   <input
                     id="email"
@@ -62,7 +65,7 @@
                     name="email"
                     :placeholder="$t('confirm_password')"
                   />
-                </div>
+                </div> -->
 
                 <div class="form-controle col-12 d-flex justify-content-center">
                   <button> {{ $t('save') }} </button>
@@ -77,10 +80,48 @@
 </template>
 
 <script>
+import axios from 'axios';
 import UserMenu from "../components/layouts/UserProfileMenu";
 export default {
   components: {
     "user-menu": UserMenu,
+  },
+
+  data() {
+    return {
+      oldData: {},
+      // newData: {},
+    }
+  },
+
+  methods: {
+    getEditFormData() {
+      var localStorageToken = localStorage.getItem('user_token');
+      axios.get('http://jawda-academy.com/api/clients/profile', {
+        headers: {
+          "x-api-key": localStorageToken, 
+        }
+      })
+      .then( res => this.oldData = res.data.data )
+    },
+
+    submitNewdata() {
+      // this.newData = this.oldData; 
+      var dataToSubmit = this.oldData;
+      var theToken = localStorage.getItem('user_token');
+      localStorage.setItem('user', JSON.stringify(dataToSubmit));
+      axios.post('http://jawda-academy.com/api/clients/update', dataToSubmit, {
+        headers: {
+          "x-api-key": theToken, 
+        }
+      })
+      this.oldData = JSON.parse(localStorage.getItem('user'));
+      console.log(this.oldData);
+    }
+  },
+
+  mounted() {
+    this.getEditFormData();
   }
 }
 </script>

@@ -34,13 +34,15 @@
   "forgert_pass"      : "Forgot password?",
   "click_here"        : "Click Here",
   "no_accout"         : "Don't have an account?",
-  "save"              : "save",
+  "save"              : "Save",
   "send"              : "Send",
+  "clear"             : "Cleare",
   
 
   "target"            : "Our Target",
 
   "add_to_cart"       : "Add To Cart",
+  "check_out"         : "Check Out",
   "enroll"            : "Enroll Now",
   "preven_message"    : "You Must Download Our Mobile App To Watch These Videos",
   "okay"              : "Okay",

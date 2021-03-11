@@ -16,7 +16,7 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
-              <th scope="col"> Image </th>
+              <th scope="col"> {{ $t('course_img') }} </th>
               <th scope="col"> Course Name </th>
               <th scope="col"> Price </th>
               <th scope="col"> Action </th>
@@ -30,7 +30,7 @@
             >
               <th scope="row"> {{index+1}} </th>
               <td> 
-                <img :src="single_course.imgSrc">
+                <img :src="single_course.image_path">
               </td>
               <td> {{ single_course.name }} </td>
               <td> {{ single_course.price }} </td>
@@ -48,7 +48,22 @@
             <span> Total Price: </span>
             {{clcTotal}}
           </div>
-          <button class="btn btn-danger mt-3" @click="clearCart"> Clear </button>
+
+          <div>
+            <button 
+              class="btn btn-danger mx-2" 
+              @click="clearCart()"
+            > 
+              {{ $t('clear') }}
+            </button>
+
+            <button 
+              class="btn btn-success mx-2" 
+              @click="checkOut()"
+            > 
+              {{ $t('check_out') }}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -56,6 +71,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   computed: {
     cartData() {
@@ -72,6 +88,10 @@ export default {
   },
 
   methods: {
+    sweetAlert() {
+      this.$swal( "", "Paied Successfuly", "success" );
+    },
+
     clearCart() {
       this.$store.state.cart = [];
       localStorage.setItem('cart', JSON.stringify( [] ));
@@ -93,7 +113,38 @@ export default {
         return course.id != courseId;
       });
       localStorage.setItem('cart', JSON.stringify(newCart));
-    }
+    },
+
+    getCartCourses() {
+      var coursesIds = [];
+      var localStorageCart = JSON.parse(localStorage.getItem('cart'));
+      
+      localStorageCart.forEach(el => {
+        coursesIds.push(el.id);
+      });
+
+      return coursesIds
+    },
+
+    checkOut() {
+      var localStorageToken = localStorage.getItem('user_token');
+      var data = {
+        courses: this.getCartCourses(),
+        payment_method: 'cash',
+      };
+      axios.post('http://jawda-academy.com/api/orders/checkout', data, {
+        headers: {
+          'x-api-key': localStorageToken,
+        }
+      })
+      .then( res => {
+        if ( data.payment_method == 'credit' ) {
+          window.location.href = res.data.data.payment_url
+        }
+      });
+      this.clearCart();
+      this.sweetAlert();
+    },
   },
 }
 </script>
