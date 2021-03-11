@@ -12,11 +12,11 @@
         
         <div class="form-container"> 
           <div class="form"> 
-            <h2 class="text-center">LOGIN</h2>
+            <h2 class="text-center"> {{ $t('login') }} </h2>
             <form action="" @submit.prevent="submitLogin()">
               <div class="inputBx">
                 <input type="email" required="required" v-model="loginData.email">
-                <span>Email</span>
+                <span> {{ $t('email') }} </span>
                 <img src="https://www.flaticon.com/svg/static/icons/svg/709/709699.svg" alt="user">
               </div>
               <div class="inputBx password">
@@ -28,7 +28,7 @@
                   v-model="loginData.password"
                 >
 
-                <span>Password</span>
+                <span>{{ $t('password') }}</span>
                 <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828471.svg" alt="lock">
                 <button class="password-control" @click.prevent="togglePassword"> 
                   <icon name="eye" color="#fff" v-if="inputType == 'password'" size="22px" />
@@ -41,12 +41,12 @@
                 
               </div>
 
-              <div class="inputBx">
-                <input type="submit" value="Login"> 
+              <div class="inputBx d-flex">
+                <input type="submit" :value=" $t('login') "> 
               </div>
             </form>
-            <p>Forgot password? <router-link to="/reset"> Click Here </router-link></p>
-            <p>Don't have an account <router-link to="/sign_up"> Sign Up </router-link></p>
+            <p> {{ $t('forgert_pass') }} <router-link to="/reset"> {{ $t('click_here') }} </router-link></p>
+            <p> {{ $t('no_accout') }} <router-link to="/sign_up"> {{ $t('sign_up') }} </router-link></p>
           </div>
         </div>
       </div>
@@ -297,7 +297,7 @@ section {
     input[type="submit"] {
       background: #fff;
       color: #111;
-      max-width: 100px;
+      width: auto;
       padding: 8px 10px;
       box-shadow: none;
       letter-spacing: 1px;
@@ -335,6 +335,7 @@ section {
   }
   
   p {
+    text-align: start;
     color: #fff;
     font-size: 15px;
     margin-top: 5px;

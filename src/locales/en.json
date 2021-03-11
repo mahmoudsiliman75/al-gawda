@@ -1,6 +1,7 @@
 {
   "login"             : "Login",
-  "logout"             : "Sign Out",
+  "sign_up"           : "Sign Up",
+  "logout"            : "Sign Out",
 
   "about_us"          : "About Us",
   "blog"              : "Blog",
@@ -30,8 +31,12 @@
   "new_password"      : "New Password",
   "confirm_password"  : "Confirm Password",
   "write_message"     : "Write Your Message....",
+  "forgert_pass"      : "Forgot password?",
+  "click_here"        : "Click Here",
+  "no_accout"         : "Don't have an account?",
   "save"              : "save",
   "send"              : "Send",
+  
 
   "target"            : "Our Target",
 
