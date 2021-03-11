@@ -116,7 +116,10 @@
           <span></span>
         </router-link>
 
-        <router-link to="/profile">
+        <router-link 
+          to="/profile"
+          
+        >
           {{ $t('my_profile') }}
           <span></span>
           <span></span>

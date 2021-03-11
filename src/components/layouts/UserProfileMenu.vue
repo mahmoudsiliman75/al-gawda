@@ -1,21 +1,26 @@
 <template>
-  <div class="col-12 col-md-2 user_menu_wraper p-0">
+  <div class="col-12 user_menu_wraper p-0">
     <div class="user_profile_menu">
       <ul class="list-unstyled">
         <li class="active"> 
-          <a href="UserProfile.php"> My Books </a>
+          <router-link to="/profile"> 
+            <icon name="pencil-alt" size="20px"/>
+            My Courses 
+          </router-link>
         </li>
 
         <li> 
-          <a href="UserPayments.php"> My Payments </a>
+          <router-link to="/"> 
+            <icon name="dollar-sign" size="20px"/>
+            My Payments 
+          </router-link>
         </li>
 
         <li> 
-          <a href="UserCart.php"> My Cart </a>
-        </li>
-
-        <li> 
-          <a href="EditUserInfo.php"> Edit Your Info </a>
+          <router-link to="/">
+            <icon name="user-cog" size="20px"/> 
+            Edit My Info 
+          </router-link>
         </li>
       </ul>
     </div>
@@ -28,36 +33,29 @@
 // END:: IMPORTING MAIN FILE
 
 .user_profile_menu {
-  padding: 30px;
+  padding: 20px;
   padding-inline-end: 0;
-  border-left: 2px solid $mainColor;
+  border-bottom: 2px solid $mainColor;
   background-color: #1f8dff14;
-  height: 100%;
-  min-height: 80vh;
   ul {
     padding: 0;
+    margin: 0;
     display: flex;
-    flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     li {
       font-size: 18px;
-      margin: 8px 0;
+      margin: 0 15px;
       color: #555;
       border-bottom: 2px solid transparent;
-      &.active,
-      &:hover {
-        a {
-          border-bottom: 2px solid $secondryColor;
-          color: $secondryColor;
-        }
-      }
       a {
         text-decoration: none;
         color: #555;
-      }
-      button {
-        color: #555;
+        &.router-link-exact-active,
+        &:hover {
+          border-bottom: 2px solid $secondryColor;
+          color: $secondryColor;
+        }
       }
     }
   }
