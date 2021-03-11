@@ -21,14 +21,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
+              <tr 
+                v-for=" (course, index) in myCourses "
+                :key="course.id"
+              >
+                <th scope="row"> {{ index+1 }} </th>
                 <td>
-                  <img src="https://studio.uxpincdn.com/studio/wp-content/uploads/2020/02/BlogpostHeader_CodingLanguages_1200x600-1024x512.png">
+                  <img :src="course.image_path">
                 </td>
-                <td> Learn Java </td>
+                <td> {{ course.name }} </td>
                 <td>
-                  <router-link to="/"> {{ $t('go_to_course') }} </router-link>
+                  <router-link 
+                    :to="{ name: 'CourseContent', params: { id: course.category_id, course_id: course.id } }"
+                  > {{ $t('go_to_course') }} </router-link>
                 </td>
               </tr>
             </tbody>
@@ -40,10 +45,34 @@
 </template>
 
 <script>
+import axios from 'axios';
 import UserMenu from "../components/layouts/UserProfileMenu";
+
 export default {
   components: {
     "user-menu": UserMenu,
+  },
+
+  data() {
+    return {
+      myCourses: [],
+    }
+  },
+
+  methods: {
+    getCoursesData() {
+      var theToken = localStorage.getItem('user_token');
+      axios.get('http://jawda-academy.com/api/clients/courses', {
+        headers:{
+          "x-api-key": theToken,
+        }
+      })
+      .then( res => this.myCourses = res.data.data );
+    },
+  },
+
+  mounted() {
+    this.getCoursesData();
   }
 }
 </script>

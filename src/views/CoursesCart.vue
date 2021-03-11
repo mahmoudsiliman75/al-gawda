@@ -46,7 +46,7 @@
         <div class="btn_box">
           <div class="total">
             <span> Total Price: </span>
-            {{clcTotal}}
+            {{clcTotal}} KWD
           </div>
 
           <div>
