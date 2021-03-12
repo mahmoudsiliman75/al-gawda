@@ -4,7 +4,7 @@
     <div class="intro-bar">
       <div class="container-fluid">
         <div class="row d-flex justify-content-between">
-          <div class="btns-box col-6 d-flex justify-content-start align-items-center">
+          <div class="btns-box col-12 col-md-6 d-flex justify-content-center justify-content-md-start align-items-center">
             <button v-if=" checkIfthetokenIsExist ">
               <router-link to="/login">
                 {{ $t('login') }}
@@ -38,8 +38,8 @@
             </router-link>
           </div>
 
-          <div class="links-menu-box col-6">
-            <ul class="list-unstyled d-flex justify-content-end m-0">
+          <div class="links-menu-box col-12 col-md-6">
+            <ul class="list-unstyled d-flex justify-content-center justify-content-md-end mt-3 m-md-0">
               <li>
                 <a href="#"> <icon name="facebook-square" color="#fff" /> </a>
               </li>
