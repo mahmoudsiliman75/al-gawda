@@ -5,7 +5,7 @@
       <img src="../assets/media/svg/blog.svg" alt="" />
 
       <!-- START:: SECTION CURVE -->
-      <div class="custom-shape-divider-bottom-1613755709">
+      <div class="curve">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -91,9 +91,9 @@ export default {
     max-height: 400px;
   }
 
-  .custom-shape-divider-bottom-1613755709 {
+  .curve {
     position: absolute;
-    top: 525px;
+    top: 535px;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -101,14 +101,14 @@ export default {
     transform: rotate(180deg);
   }
 
-  .custom-shape-divider-bottom-1613755709 svg {
+  .curve svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
     height: 115px;
   }
 
-  .custom-shape-divider-bottom-1613755709 .shape-fill {
+  .curve .shape-fill {
     fill: #ffffff;
   }
 }
@@ -159,7 +159,7 @@ export default {
   .header-pic {
     min-height: 400px;
     max-height: 400px;
-    .custom-shape-divider-bottom-1613755709 {
+    .curve {
       display: none !important;
     }
   }
