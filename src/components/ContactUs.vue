@@ -100,8 +100,9 @@
           input,
           textarea {
             width: 100%;
-            padding: 3px 10px;
-            border: 1px solid $mainColor;
+            padding: 10px;
+            border: none;
+            box-shadow: 0 0 15px 2px #888;
             border-radius: 8px;
             &:focus {
               outline: none;

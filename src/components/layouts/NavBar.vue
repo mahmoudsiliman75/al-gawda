@@ -20,11 +20,11 @@
               </router-link>
             </button>
 
-            <button @click="changelang('en')" v-if="this.$i18n.locale == 'ar' ">
+            <button @click="changelang('en')" v-if=" this.$i18n.locale == 'ar' ">
               <img src="../../assets/media/translate.png" alt="" width="40" height="40">
             </button>
 
-            <button @click="changelang('ar')" v-if="this.$i18n.locale == 'en' ">
+            <button @click="changelang('ar')" v-if=" this.$i18n.locale == 'en' ">
               <img src="../../assets/media/translate.png" alt="" width="40" height="40">
             </button>
 
@@ -61,7 +61,9 @@
     <!-- START:: NAVIGATION BAR -->
     <div class="nav-bar d-flex align-items-center justify-content-between">
       <div class="site-logo">
-        <img alt="logo" src="../../assets/media/logo.png" />
+        <router-link to="/">
+          <img alt="logo" src="../../assets/media/logo.png" />
+        </router-link>
       </div>
 
       <!-- START:: LARGE SCREENS NAVIGATION BAR -->
@@ -77,20 +79,6 @@
           <span></span>
           <span></span>
         </router-link>
-
-        <!-- <div class="courses-menu-box d-flex">
-          <a href="#">
-            Courses
-            <span></span> 
-            <span></span>
-          </a>
-
-          <ul class="courses-dd-menu list-unstyled">
-            <li class="menu-item my-2" v-for="tab in tabInfo" :key="tab.tadId">
-              <router-link :to="'/courses/' + tab.tadId "> {{tab.tabText}} Courses </router-link> 
-            </li>
-          </ul>
-        </div> -->
 
         <router-link to="/courses_cats">
           {{ $t('courses') }}
@@ -118,7 +106,7 @@
 
         <router-link 
           to="/profile"
-          
+          v-if=" !checkIfthetokenIsExist "
         >
           {{ $t('my_profile') }}
           <span></span>
@@ -202,7 +190,11 @@ export default {
     checkIfthetokenIsExist() {
       // return localStorage.getItem('user_token') == ''
       return this.$store.state.api_token == ''
-    }
+    },
+
+    getSiteLocal() {
+      return localStorage.getItem('site_local')
+    },
   },
 
   methods: {
@@ -212,12 +204,8 @@ export default {
 
     changelang(locale) {
       this.$i18n.locale = locale;
-
-      if ( locale == 'en' ) {
-        document.querySelector('body').style.direction = "ltr";
-      } else if ( locale == 'ar' ) {
-        document.querySelector("body").style.direction = "rtl";
-      }
+      localStorage.setItem('site_locale', locale);
+      location.reload();
     },
 
     deleteUserDataFromLocalStorage() {

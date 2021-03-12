@@ -12,34 +12,34 @@
         
         <div class="form-container"> 
           <div class="form"> 
-            <h2 class="text-center">Sign Up</h2>
+            <h2 class="text-center"> {{ $t('sign_up') }} </h2>
             <form action="" @submit.prevent="submitData()">
               <div class="inputBx">
                 <input type="text" required="required" v-model="signupData.name" >
-                <span>Full Name</span>
+                <span>{{ $t('name') }}</span>
               </div>
 
               <div class="inputBx">
                 <input type="tele" required="required" v-model="signupData.mobile" >
-                <span>Phone Number</span>
+                <span>{{ $t('phone') }}</span>
               </div>
 
               <div class="inputBx">
                 <input type="text" required="required" v-model="signupData.email" >
-                <span>Email</span>
+                <span> {{ $t('email') }} </span>
               </div>
 
               <div class="inputBx password">
                 <input id="password-input" type="password" name="password" required="required" v-model="signupData.password" >
-                <span>Password</span>
+                <span>{{ $t('password') }}</span>
               </div>
 
               <div class="inputBx password">
                 <input id="password_confirmation_input" type="password" name="password_confirmation" required="required" v-model="signupData.password_confirmation" >
-                <span>Confirm Password</span>
+                <span>{{ $t('confirm_password') }}</span>
               </div>
-              <div class="inputBx">
-                <input type="submit" value="Sign Up" > 
+              <div class="inputBx d-flex">
+                <input type="submit" :value="$t('save')" > 
               </div>
             </form>
           </div>
@@ -140,6 +140,7 @@ section {
 
 .box {
   position: relative;
+  padding: 50px 0;
 
   .square {
     position: absolute;

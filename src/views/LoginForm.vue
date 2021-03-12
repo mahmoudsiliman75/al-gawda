@@ -142,6 +142,7 @@ section {
 
 .box {
   position: relative;
+  padding: 50px 0;
 
   .square {
     position: absolute;

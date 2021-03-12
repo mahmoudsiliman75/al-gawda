@@ -1,6 +1,7 @@
 {
   "login"             : "Login",
   "sign_up"           : "Sign Up",
+  "reset_pass"        : "Reset Password",
   "logout"            : "Sign Out",
 
   "about_us"          : "About Us",

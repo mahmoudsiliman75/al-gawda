@@ -12,14 +12,14 @@
 
         <div class="form-container"> 
           <div class="form"> 
-            <h2 class="text-center">Reset Password</h2>
+            <h2 class="text-center"> {{ $t('reset_pass') }} </h2>
             <form action="">
               <div class="inputBx">
                 <input type="text" required="required">
-                <span>Email</span>
+                <span> {{ $t('email') }} </span>
               </div>
-              <div class="inputBx">
-                <input type="submit" value="Send Confirmation"> 
+              <div class="inputBx d-flex">
+                <input type="submit" :value=" $t('send') "> 
               </div>
             </form>
           </div>
