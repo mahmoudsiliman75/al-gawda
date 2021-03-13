@@ -1,5 +1,9 @@
 <template>
   <div class="blog">
+    <!-- START:: PRELOADER COMPONENT -->
+    <pre-loader></pre-loader>
+    <!-- END:: PRELOADER COMPONENT -->
+
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
     >
@@ -27,8 +31,13 @@
 
 <script>
 import axios from 'axios';
+import PreLoader from "../components/ui/PreLoader.vue";
 
 export default {
+  components: {
+    "pre-loader": PreLoader,
+  },
+
   data() {
     return {
       posts: [],

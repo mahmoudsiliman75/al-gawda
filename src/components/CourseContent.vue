@@ -1,5 +1,9 @@
 <template>
   <div dir="ltr">
+    <!-- START:: PRELOADER COMPONENT -->
+    <pre-loader></pre-loader>
+    <!-- END:: PRELOADER COMPONENT -->
+
     <!-- START:: HEADER PIC -->
     <div class="header-pic">
       <img :src="singleCourseData.image_path" alt="Course Image" />
@@ -24,7 +28,15 @@
           <div class="course-details col-12">
             <h3>
               <span> By: </span>
-              {{ singleCourseData.instructor }}
+              <router-link
+                :to="{
+                  name: 'InstructorProfile',
+                  params: { instructor_id: singleCourseData.instructor.id },
+                }"
+              >
+                {{ singleCourseData.instructor.name }}
+              </router-link>
+
               <span class="badge" :class="singleCourseData.badges">
                 {{ singleCourseData.badges }}
               </span>
@@ -46,7 +58,8 @@
               >
                 {{
                   calcSale(singleCourseData.price, singleCourseData.discount)
-                }} KWD
+                }}
+                KWD
               </span>
             </h5>
 
@@ -54,19 +67,6 @@
             <rating-stars :rate="singleCourseData.rate"></rating-stars>
             <!-- START:: THE RATING -->
           </div>
-
-          <pop-up v-if="wantToWatsh" dir="ltr">
-            <template #default>
-              <diV class="d-flex justify-content-center my-4">
-                <button class="close-popup mx-2" @click="watchVideo">
-                  {{ $t("okay") }}
-                </button>
-                <a href="#" class="close-popup" @click="watchVideo">
-                  {{ $t("download") }}
-                </a>
-              </diV>
-            </template>
-          </pop-up>
 
           <div
             class="accordion col-12"
@@ -100,7 +100,7 @@
                 </div>
 
                 <div
-                  :id="'sec'+section.id"
+                  :id="'sec' + section.id"
                   class="collapse"
                   aria-labelledby="headingOne"
                 >
@@ -109,9 +109,18 @@
                       <li
                         v-for="lesson in section.lessons"
                         :key="lesson.id"
-                        @click="watchVideo"
+                        @click="
+                          sweetAlert(
+                            $t('preven_message'),
+                            $t('android_download'),
+                            singleCourseData.download.google_play,
+                            $t('ios_download'),
+                            singleCourseData.download.app_store,
+                            $t('okay'),
+                          )
+                        "
                       >
-                        {{ lesson.name }}
+                        <h4>{{ lesson.name }}</h4>
                       </li>
                     </ul>
                   </div>
@@ -156,7 +165,7 @@
                 </div>
 
                 <div
-                  :id="'sec'+section.id"
+                  :id="'sec' + section.id"
                   class="collapse"
                   aria-labelledby="headingOne"
                 >
@@ -186,12 +195,12 @@
 
 <script>
 import axios from "axios";
-import BasePopUp from "../components/ui/BasePopUp.vue";
+import PreLoader from "../components/ui/PreLoader.vue";
 import RatingStars from "./ui/RatingStars.vue";
 
 export default {
   components: {
-    "pop-up": BasePopUp,
+    "pre-loader": PreLoader,
     RatingStars
   },
 
@@ -204,20 +213,38 @@ export default {
     };
   },
 
-  computed: {
-    // selectedCat() {
-    //   return this.$store.state.coursesCategories.find(
-    //     theCaat => theCaat.id == this.theCatId
-    //   );
-    // },
-    // courseData() {
-    //   return this.selectedCat.courses.find(
-    //     singleCourse => singleCourse.id == this.theCourse
-    //   );
-    // }
-  },
-
   methods: {
+    sweetAlert(message, anroidBtnText, anroidDownloadLink, iosBtnText, iosDownloadLink, cancleBtnText) {
+      this.$swal({
+        title: message,
+        text: "",
+        icon: "warning",
+        customClass: 'swal-wide',
+        buttons: {
+          cancel: cancleBtnText,
+          catch: {
+            text: anroidBtnText,
+            value: "android download",
+          },
+          catch2: {
+            text: iosBtnText,
+            value: "ios download",
+          },
+        },
+      })
+        .then((value) => {
+          switch (value) {
+            case "android download":
+              window.location.href = anroidDownloadLink;
+              break;
+
+            case "ios download":
+              window.location.href = iosDownloadLink;
+              break;
+          }
+      });
+    },
+
     getCourseData() {
       axios
         .get("http://jawda-academy.com/api/courses/" + this.theCourse)
@@ -293,6 +320,12 @@ export default {
   }
 }
 
+.swal-overlay--show-modal {
+  .swal-modal {
+    width:850px !important;
+  }
+}
+
 .course-content {
   min-height: 80vh;
   margin-top: 300px;
@@ -318,6 +351,10 @@ export default {
     h4,
     h5 {
       color: $mainColor;
+      a {
+        text-decoration: none;
+        color: $mainColor;
+      }
       span {
         color: $secondryColor;
         &.price {

@@ -1,12 +1,11 @@
 <template>
   <div class="cat-content">
+    <!-- START:: PRELOADER COMPONENT -->
+    <pre-loader></pre-loader>
+    <!-- END:: PRELOADER COMPONENT -->
     <div class="container d-flex flex-column align-items-center justify-content-center">
       <h2 class="sec-header">{{ categoryContent.name }}</h2>
       <div class="row justify-content-center">
-        <!-- <div class="col-4" v-for="course in catContent.courses" :key="course.id">
-          <h2> {{course.id}} </h2>
-          <h2> {{course.name}} </h2>
-        </div> -->
 
         <!-- START:: CARD MARKUP -->
         <div
@@ -21,7 +20,7 @@
               <img :src="course.image_path" class="card-img-top" alt="Course Img" />
               <div class="card-body">
                 <h4 class="card-title">{{ course.name }}</h4>
-                <p class="instructor mb-1">{{ course.instructor }}</p>
+                <p class="instructor mb-1">{{ course.instructor.name }}</p>
 
                 <!-- START:: THE RATING -->
                 <rating-stars :rate="course.rate"></rating-stars>
@@ -58,10 +57,12 @@
 
 <script>
 import axios from 'axios';
+import PreLoader from "../components/ui/PreLoader.vue";
 import RatingStars from "./ui/RatingStars.vue";
 
 export default {
   components: {
+    "pre-loader": PreLoader,
     "rating-stars": RatingStars,
   },
 

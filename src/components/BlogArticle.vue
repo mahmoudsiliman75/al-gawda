@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!-- START:: PRELOADER COMPONENT -->
+    <pre-loader></pre-loader>
+    <!-- END:: PRELOADER COMPONENT -->
+
     <!-- START:: HEADER PIC -->
     <div class="header-pic">
       <img src="../assets/media/svg/blog.svg" alt="" />
@@ -49,9 +53,14 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
+import PreLoader from "../components/ui/PreLoader.vue";
 
 export default {
+  components: {
+    "pre-loader": PreLoader,
+  },
+
   data() {
     return {
       article: {},

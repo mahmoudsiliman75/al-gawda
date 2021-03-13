@@ -1,5 +1,8 @@
 <template>
   <div class="teamwork-sec">
+    <!-- START:: PRELOADER COMPONENT -->
+    <pre-loader></pre-loader>
+    <!-- END:: PRELOADER COMPONENT -->
     <div class="container ">
       <div class="row justify-content-center">
         <div
@@ -79,7 +82,13 @@
 
 <script>
 import axios from 'axios';
+import PreLoader from "../components/ui/PreLoader.vue";
+
 export default {
+  components: {
+    "pre-loader": PreLoader,
+  },
+
   data() {
     return {
       // members: this.$store.state.members,

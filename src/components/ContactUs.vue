@@ -1,5 +1,9 @@
 <template>
   <div class="contact-us">
+    <!-- START:: PRELOADER COMPONENT -->
+    <pre-loader></pre-loader>
+    <!-- END:: PRELOADER COMPONENT -->
+
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
     >
@@ -8,7 +12,7 @@
       <div class="row">
         <div class="map-box col-12 col-md-6">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d16261.614781627883!2d31.37979608834165!3d31.037854809698906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2seg!4v1613205394061!5m2!1sar!2seg"
+            :src="theMap"
             frameborder="0"
             style="border:0;"
             allowfullscreen=""
@@ -18,7 +22,7 @@
         </div>
 
         <div class="form-box col-12 col-md-6">
-          <form>
+          <form @submit.prevent="submitContactForm()">
             <div class="row">
               <div class="form-controle col-12 col-md-6 mb-3">
                 <label for="name" class="d-block mb-2"> {{ $t('name') }} </label>
@@ -27,6 +31,7 @@
                   type="text"
                   name="name"
                   :placeholder="$t('name')"
+                  v-model="contactFormData.name"
                 />
               </div>
 
@@ -37,6 +42,7 @@
                   type="tele"
                   name="phone"
                   :placeholder="$t('phone')"
+                  v-model="contactFormData.mobile"
                 />
               </div>
 
@@ -47,6 +53,7 @@
                   type="text"
                   name="email"
                   :placeholder="$t('email')"
+                  v-model="contactFormData.email"
                 />
               </div>
 
@@ -55,6 +62,7 @@
                 <textarea
                   id="message"
                   :placeholder="$t('write_message')"
+                  v-model="contactFormData.message"
                 ></textarea>
               </div>
 
@@ -68,6 +76,67 @@
     </div>
   </div>
 </template>
+
+<script>
+import axios from 'axios';
+import PreLoader from "../components/ui/PreLoader.vue";
+
+export default {
+  components: {
+    "pre-loader": PreLoader,
+  },
+
+  data() {
+    return {
+      theMap: null,
+      contactFormData: {
+        name: '',
+        mobile: '',
+        email: '',
+        message: ''
+      }
+    }
+  },
+
+  methods: {
+    errorSweetAlert(messages) {
+      var box = '';
+      messages.forEach(el => {
+        box+= (el+'\n')
+      });
+      this.$swal( "", box, "error" );
+    },
+
+    successSweetAlert(message) {
+      this.$swal( "", message , "success" );
+    },
+
+    getMapData() {
+      axios.get('http://jawda-academy.com/api/setting/map')
+      .then( res => this.theMap = res.data.data.map )
+    },
+
+    submitContactForm() {
+      axios.post('http://jawda-academy.com/api/contact', this.contactFormData)
+      .then( res => {
+        if ( res.data.success ) {
+          this.successSweetAlert( this.$t('successfuly_sent') );
+          this.contactFormData.name = '';
+          this.contactFormData.mobile = '';
+          this.contactFormData.email = '';
+          this.contactFormData.message = '';
+          return
+        }
+        this.errorSweetAlert( res.data.message )
+      })
+    }
+  },
+
+  mounted() {
+    this.getMapData();
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 // START:: IMPORTING MAIN FILE

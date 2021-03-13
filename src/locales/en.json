@@ -35,10 +35,10 @@
   "forgert_pass"      : "Forgot password?",
   "click_here"        : "Click Here",
   "no_accout"         : "Don't have an account?",
+  "successfuly_sent"  : "Message Sent Successfuly",
   "save"              : "Save",
   "send"              : "Send",
   "clear"             : "Cleare",
-  
 
   "target"            : "Our Target",
 
@@ -47,7 +47,8 @@
   "enroll"            : "Enroll Now",
   "preven_message"    : "You Must Download Our Mobile App To Watch These Videos",
   "okay"              : "Okay",
-  "download"          : "Download The App",
+  "android_download"  : "Download The Android App",
+  "ios_download"      : "Download The Ios App",
 
   "my_courses"        : "My Courses",
   "course_img"        : "Course Image",

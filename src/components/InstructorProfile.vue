@@ -1,5 +1,9 @@
 <template>
   <div class="instructor_profile">
+    <!-- START:: PRELOADER COMPONENT -->
+    <pre-loader></pre-loader>
+    <!-- END:: PRELOADER COMPONENT -->
+
     <div class="container">
       <div class="row justify-content-center">
         
@@ -56,11 +60,13 @@
 </template>
 
 <script>
+import PreLoader from "../components/ui/PreLoader.vue";
 import RatingStars from "./ui/RatingStars.vue";
 import axios from "axios";
 
 export default {
   components: {
+    "pre-loader": PreLoader,
     "rating-starts": RatingStars,
   },
 
