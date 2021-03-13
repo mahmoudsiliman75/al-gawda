@@ -86,6 +86,7 @@ export default {
 
 .about {
   padding: $sectionPadding;
+  min-height: 80vh;
   h2 {
     margin-bottom: -17px;
   }

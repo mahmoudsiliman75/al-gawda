@@ -93,6 +93,7 @@ export default {
 .instructor_profile {
   padding-top: 50px;
   padding-bottom: 50px;
+  min-height: 80vh;
   .profile_header {
     text-align: center;
     img {

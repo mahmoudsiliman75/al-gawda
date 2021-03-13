@@ -62,6 +62,7 @@ export default {
 .courses-cats {
   padding: $sectionPadding;
   padding-bottom: 50px;
+  min-height: 80vh;
   a {
     text-decoration: none;
     .category-card {

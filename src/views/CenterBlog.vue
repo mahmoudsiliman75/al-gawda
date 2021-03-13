@@ -62,6 +62,7 @@ export default {
 .blog {
   padding: $sectionPadding;
   padding-bottom: 50px;
+  min-height: 80vh;
   .card-box {
     padding-bottom: 15px;
     text-align: start;
