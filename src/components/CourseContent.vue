@@ -247,7 +247,11 @@ export default {
 
     getCourseData() {
       axios
-        .get("http://jawda-academy.com/api/courses/" + this.theCourse)
+        .get("http://jawda-academy.com/api/courses/" + this.theCourse,{
+          headers: {
+            lang: localStorage.getItem('site_locale')
+          }
+        })
         .then(res => (this.singleCourseData = res.data.data));
     },
 

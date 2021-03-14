@@ -10,16 +10,16 @@
       <div
         class="carousel-item d-flex justfy-content-center align-items-center"
         :class="index == 0 ? 'active' : ''"
-        v-for="(slide, index) in slides"
+        v-for="(slide, index) in data.slider"
         :key="slide.id"
       >
-        <img :src="slide.imgUrl" alt="Slide Img" />
+        <img :src="slide.image_path" alt="Slide Img" />
         <div class="carousel-caption d-block">
           <div
             class="d-flex flex-column justify-content-center align-items-center"
           >
             <h3 class="mb-4">{{ slide.title }}</h3>
-            <p class="text-justify text-md-center">{{ slide.desc }}</p>
+            <p class="text-justify text-md-center" v-html="slide.body"></p>
           </div>
         </div>
       </div>
@@ -46,36 +46,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      slides: [
-        {
-          id: "1",
-          imgUrl:
-            "https://images.pexels.com/photos/4491461/pexels-photo-4491461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          title: "Perfect Education Courses",
-          desc:
-            "New Skills And Knowledge Can Spark A Lifetime Of Change. Algawda Training Center, has designed and delivered programs in education, health"
-        },
-        {
-          id: "2",
-          imgUrl:
-            "https://images.pexels.com/photos/6517233/pexels-photo-6517233.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          title: "Perfect Education Courses",
-          desc:
-            "New Skills And Knowledge Can Spark A Lifetime Of Change. Algawda Training Center, has designed and delivered programs in education, health"
-        },
-        {
-          id: "3",
-          imgUrl:
-            "https://images.pexels.com/photos/6517081/pexels-photo-6517081.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-          title: "Perfect Education Courses",
-          desc:
-            "New Skills And Knowledge Can Spark A Lifetime Of Change. Algawda Training Center, has designed and delivered programs in education, health"
-        }
-      ]
-    };
-  }
+  props: ['data'],
 };
 </script>
 

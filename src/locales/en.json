@@ -4,6 +4,9 @@
   "reset_pass"        : "Reset Password",
   "logout"            : "Sign Out",
 
+  "cart"              : "My Cart",
+  "cart_message"      : "Your Cart Is Empty! Add Some courses",
+
   "about_us"          : "About Us",
   "blog"              : "Blog",
   "contact_us"        : "Contact Us",
@@ -53,8 +56,11 @@
   "my_courses"        : "My Courses",
   "course_img"        : "Course Image",
   "course_name"       : "Course Name",
+  "course_price"      : "Course Price",
   "course_link"       : "Course Link",
   "go_to_course"      : "Go To The Course",
+  "action"            : "Action",
+  "total"             : "Toatl",
 
   "my_payments"       : "My Payments",
   "payment_amount"    : "Payment Amount",

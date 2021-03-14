@@ -34,7 +34,7 @@
           </table>
 
           <div class="total_wraper d-flex justify-content-center mt-3">
-            <h4> Total: <span> {{clcTotal}} KWD </span> </h4>
+            <h4> {{$t('total')}}: <span> {{clcTotal}} KWD </span> </h4>
           </div>
         </div>
       </div>

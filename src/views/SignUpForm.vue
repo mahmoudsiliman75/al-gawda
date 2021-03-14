@@ -254,6 +254,7 @@ section {
     margin-bottom: 35px;
     
     input {
+      direction: ltr;
       width: 100%;
       outline: none;
       border: none;

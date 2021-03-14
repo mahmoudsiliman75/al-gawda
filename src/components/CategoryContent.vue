@@ -79,21 +79,13 @@ export default {
     };
   },
 
-  computed: {
-    // catContent() {
-    //   return this.$store.state.coursesCategories.find(
-    //     category => category.id == this.categoryId
-    //   );
-    // },
-
-    // categoryCourses() {
-    //   return this.$store.state.coursesCategories;
-    // }
-  },
-
   methods: {
     getCatContent() {
-      axios.get('http://jawda-academy.com/api/categories/'+this.categoryId)
+      axios.get('http://jawda-academy.com/api/categories/'+this.categoryId, {
+        headers: {
+          lang: localStorage.getItem('site_locale')
+        }
+      })
       .then( res => this.categoryContent = res.data.data )
     },
 

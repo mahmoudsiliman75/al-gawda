@@ -2,12 +2,12 @@
   <div class="cart">
     <div class="container">
       <div class="text-center">
-        <h2 class="sec-header"> Your Cart </h2>
+        <h2 class="sec-header"> {{ $t('cart') }} </h2>
       </div>
 
       <div class="impty_cart_message" v-if="cartData.length == 0">
         <h2> 
-          Your Cart Is Empty! Add Some courses 
+          {{ $('cart_message') }}
         </h2>
       </div>
       
@@ -17,9 +17,9 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col"> {{ $t('course_img') }} </th>
-              <th scope="col"> Course Name </th>
-              <th scope="col"> Price </th>
-              <th scope="col"> Action </th>
+              <th scope="col"> {{ $t('course_name') }} </th>
+              <th scope="col"> {{ $t('course_price') }} </th>
+              <th scope="col"> {{ $t('action') }} </th>
             </tr>
           </thead>
 
@@ -45,7 +45,7 @@
 
         <div class="btn_box">
           <div class="total">
-            <span> Total Price: </span>
+            <span> {{$t('total')}}: </span>
             {{clcTotal}} KWD
           </div>
 

@@ -15,20 +15,20 @@
         <li
           class="nav-item mx-3"
           role="presentation"
-          v-for="(tab, index) in tabInfo"
-          :key="tab.tadId"
+          v-for="(tab, index) in data"
+          :key="tab.id"
         >
           <a
             class="nav-link"
             :class="index == 0 ? 'active ' : ''"
-            :id="tab.tabId"
+            :id="'tab-'+tab.id"
             data-toggle="pill"
-            :href="`${tab.tabHref}`"
+            :href='"#tab-"+tab.id+"-box"'
             role="tab"
-            :aria-controls="`${tab.tabAriaControls}`"
+            :aria-controls='"tab-"+tab.id+"-box"'
             aria-selected="true"
           >
-            {{ tab.tabText }}
+            {{ tab.name }}
           </a>
         </li>
       </ul>
@@ -38,32 +38,35 @@
     <!-- START:: TABS SHEET -->
     <div class="tab-content" id="pills-tabContent">
       <div
-        v-for="(tab, index) in tabInfo"
-        :key="tab.tadId"
+        v-for="(tab, index) in data"
+        :key="tab.id"
         class="tab-pane fade"
         :class="index == 0 ? 'show active' : ''"
-        :id="`${tab.sheet.sheetId}`"
-        :role="`${tab.sheet.sheetRole}`"
-        :aria-labelledby="`${tab.sheet.sheetAriaLabelledby}`"
+        :id='"tab-"+tab.id+"-box"'
+        role="tabpanel"
+        :aria-labelledby="'tab-'+tab.id"
       >
         <div class="container">
           <div class="row justify-content-center">
             <!-- START:: CARD MARKUP -->
             <div
               class="col-12 col-md-4 px-2 mb-3"
-              v-for="course in tab.courseDetails"
-              :key="course.courseId"
+              v-for="course in tab.courses"
+              :key="course.id"
             >
-              <router-link to="/">
+              <router-link
+                :to="{ name: 'CourseContent', params: { course_id: course.id } }"
+              >
                 <div class="card" :class="course.status">
-                  <img
-                    :src="course.courseImgSrc"
-                    class="card-img-top"
-                    alt="Course Img"
-                  />
+                  <img :src="course.image_path" class="card-img-top" alt="Course Img" />
                   <div class="card-body">
-                    <h4 class="card-title">{{ course.courseTitle }}</h4>
-                    <p class="instructor">{{ course.instructor }}</p>
+                    <h4 class="card-title">{{ course.name }}</h4>
+                    <p class="instructor mb-1">{{ course.instructor.name }}</p>
+
+                    <!-- START:: THE RATING -->
+                    <rating-stars :rate="course.rate"></rating-stars>
+                    <!-- END:: THE RATING -->
+
                     <div class="d-flex justify-content-between">
                       <span class="badge" :class="course.status">{{
                         course.status
@@ -76,13 +79,10 @@
                             parseInt(course.saleAmount) > 0 ? 'sale-price' : ''
                           "
                         >
-                          {{ course.coursePrice }}
+                          {{ course.price }} KWD
                         </span>
-                        <span
-                          class="mx-2"
-                          v-if="parseInt(course.saleAmount) > 0"
-                        >
-                          {{ calcSale(course.coursePrice, course.saleAmount) }}$
+                        <span class="mx-2" v-if="parseInt(course.saleAmount) > 0">
+                          {{ calcSale(course.price, course.saleAmount) }} KWD
                         </span>
                       </div>
                     </div>
@@ -101,6 +101,8 @@
 
 <script>
 export default {
+  props: ['data'],
+
   data() {
     return {
       tabInfo: [

@@ -29,11 +29,11 @@
           <div class="col-12 col-md-8 mobile-app-info">
             <h2> {{ $t('download_app') }} </h2>
             <div class="links-box d-flex justify-content-between">
-              <a href="#">
+              <a :href="data.google_play">
                 <img src="../assets/media/google-play.png" />
               </a>
 
-              <a href="#">
+              <a :href="data.app_store">
                 <img src="../assets/media/app-store.png" />
               </a>
             </div>
@@ -44,6 +44,12 @@
     <!-- END:: OVERLAY -->
   </div>
 </template>
+
+<script>
+export default {
+  props: ['data'],
+}
+</script>
 
 <style lang="scss" scoped>
 // START:: IMPORT MAIN FILE
@@ -75,7 +81,7 @@
   }
   .section-svg {
     position: absolute;
-    top: 0;
+    top: -3px;
     left: 0;
     width: 100%;
     overflow: hidden;

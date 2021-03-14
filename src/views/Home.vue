@@ -6,30 +6,30 @@
     <!-- END:: PRELOADER COMPONENT -->
 
     <!-- START:: HOME SLIDER -->
-    <home-slider></home-slider>
+    <home-slider :data="pageData"></home-slider>
     <!-- END:: HOME SLIDER -->
 
     <!-- START:: OUR BRIEF SECTION -->
-    <our-brief></our-brief>
+    <our-brief :data="pageData"></our-brief>
     <!-- END:: OUR BRIEF SECTION -->
 
     <!-- START:: COURSE SELECTION SECTION -->
-    <courses-selection></courses-selection>
+    <courses-selection :data="pageData.categorires"></courses-selection>
     <!-- END:: COURSE SELECTION SECTION -->
 
     <!-- START:: TEAM WORK  SECTION -->
-    <team-work></team-work>
+    <team-work :allInstructors="pageData.instructors"></team-work>
     <div class="col-12 view-more-btn d-flex justify-content-center">
       <router-link to="/team"> {{ $t('meet_team') }} </router-link>
     </div>
     <!-- END:: TEAM WORK  SECTION -->
 
     <!-- START:: TESTEMONIALS SECTION -->
-    <clients-testemonials></clients-testemonials>
+    <clients-testemonials :data="pageData"></clients-testemonials>
     <!-- END:: TESTEMONIALS SECTION -->
 
     <!-- STRAT:: MOBILE APP SECTION -->
-    <center-mobile-app></center-mobile-app>
+    <center-mobile-app :data="pageData.download"></center-mobile-app>
     <!-- END:: MOBILE APP SECTION -->
 
     <!-- START:: CONTACT US SECTION -->
@@ -47,7 +47,7 @@ import clientsTestemonials from "../components/ClientsTestemonials.vue";
 import CenterMobileApp from "../components/CenterMobileApp.vue";
 import ContactUs from "../components/ContactUs.vue";
 import PreLoader from "../components/ui/PreLoader.vue";
-
+import axios from 'axios';
 
 export default {
   name: "Home",
@@ -62,6 +62,29 @@ export default {
     "contact-us": ContactUs,
     "pre-loader": PreLoader,
   },
+
+  data() {
+    return {
+      pageData: {},
+    }
+  },
+
+  methods: {
+    getHomePageData() {
+      axios.get('http://jawda-academy.com/api/setting/home',{
+        headers: {
+          lang: localStorage.getItem('site_locale') ?? 'en',
+        }
+      })
+      .then( res => this.pageData = res.data.data )
+      .catch( error => console.log(error) )
+    },
+  },
+
+  mounted() {
+    this.getHomePageData();
+  }
+
 };
 </script>
 

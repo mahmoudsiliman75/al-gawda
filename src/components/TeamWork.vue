@@ -13,7 +13,7 @@
 
         <div
           class="col-9 col-md-4 px-2 mb-2"
-          v-for="member in instructors"
+          v-for="member in allInstructors"
           :key="member.id"
         >
 
@@ -89,9 +89,10 @@ export default {
     "pre-loader": PreLoader,
   },
 
+  props: [ 'allInstructors' ],
+
   data() {
     return {
-      // members: this.$store.state.members,
       instructors: [],
     }
   },

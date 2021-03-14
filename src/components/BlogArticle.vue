@@ -38,9 +38,18 @@
               class="article-head d-flex flex-column justify-content-center align-items-center"
             >
               <h3 class="mt-3 mb-0 text-center">{{ article.title }}</h3>
-              <span class="mb-3 auther">
+              <span 
+                v-if="article.author != '' "  
+                class="mb-3 auther"
+              >
                 {{ article.author }}
-                <span class="mb-3 date"> " {{ article.date }} " </span>
+              </span>
+
+              <span 
+                v-if="article.date != '' " 
+                class="mb-3 date"
+              > 
+                " {{ article.date }} "
               </span>
             </div>
 

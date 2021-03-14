@@ -41,15 +41,15 @@
           <div class="links-menu-box col-12 col-md-6">
             <ul class="list-unstyled d-flex justify-content-center justify-content-md-end mt-3 m-md-0">
               <li>
-                <a href="#"> <icon name="facebook-square" color="#fff" /> </a>
+                <a :href="pageData.social.facebook"> <icon name="facebook-square" color="#fff" /> </a>
               </li>
 
               <li>
-                <a href="#"> <icon name="twitter-square" color="#fff" /> </a>
+                <a :href="pageData.social.twitter"> <icon name="twitter-square" color="#fff" /> </a>
               </li>
 
               <li>
-                <a href="#"> <icon name="linkedin" color="#fff" /> </a>
+                <a :href="pageData.social.linked_in"> <icon name="linkedin" color="#fff" /> </a>
               </li>
             </ul>
           </div>
@@ -179,10 +179,13 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      menuIsVisible: false
+      menuIsVisible: false,
+      pageData: {}
     };
   },
 
@@ -198,6 +201,18 @@ export default {
   },
 
   methods: {
+    getHomePageData() {
+      axios.get('http://jawda-academy.com/api/setting/home',{
+        headers: {
+          lang: localStorage.getItem('site_locale') ?? 'en',
+        }
+      })
+      .then( res => {
+        // console.log(res.data.data);
+        this.pageData = res.data.data })
+      .catch( error => console.log(error) )
+    },
+
     toggleMobileMenu() {
       this.menuIsVisible = !this.menuIsVisible;
     },
@@ -220,6 +235,10 @@ export default {
 
       location.reload();
     }
+  },
+
+  mounted() {
+    this.getHomePageData();
   }
 };
 </script>

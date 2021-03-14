@@ -1,16 +1,34 @@
 <template>
   <div class="our-team">
-    <team-work></team-work>
+    <team-work :allInstructors="instructors"></team-work>
   </div>
 </template>
 
 <script>
 import TeamWork from "../components/TeamWork.vue";
+import axios from "axios";
 
 export default {
   components: {
     "team-work": TeamWork
   },
+
+  data() {
+    return {
+      instructors: [],
+    }
+  },
+
+  methods: {
+    getMemberData() {
+      axios.get('http://jawda-academy.com/api/instructors')
+      .then( res => this.instructors = res.data.data )
+    }
+  },
+
+  mounted() {
+    this.getMemberData();
+  }
 };
 </script>
 

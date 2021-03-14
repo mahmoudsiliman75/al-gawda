@@ -2,7 +2,7 @@
   <div class="col-12 user_menu_wraper p-0">
     <div class="user_profile_menu">
       <ul class="list-unstyled">
-        <li> 
+        <li class="my-2"> 
           <router-link to="/profile">
             <icon name="pencil-alt" size="20px"/>
             {{ $t('my_courses') }}
@@ -11,7 +11,7 @@
           </router-link>
         </li>
 
-        <li> 
+        <li class="my-2"> 
           <router-link to="/payments">
             <icon name="dollar-sign" size="20px"/>
             {{ $t('my_payments') }}
@@ -20,7 +20,7 @@
           </router-link>
         </li>
 
-        <li> 
+        <li class="my-2"> 
           <router-link to="/edit_user">
             <icon name="user-cog" size="20px"/>
             {{ $t('edit_info') }}
