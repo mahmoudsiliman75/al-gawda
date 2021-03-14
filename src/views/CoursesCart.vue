@@ -7,7 +7,7 @@
 
       <div class="impty_cart_message" v-if="cartData.length == 0">
         <h2> 
-          {{ $('cart_message') }}
+          {{ $t('cart_message') }}
         </h2>
       </div>
       
@@ -45,7 +45,7 @@
 
         <div class="btn_box">
           <div class="total">
-            <span> {{$t('total')}}: </span>
+            <span> {{ $t('total') }} : </span>
             {{clcTotal}} KWD
           </div>
 

@@ -8,47 +8,32 @@
 
         <div class="col-11 d-flex flex-column align-items-center justify-content-center content_wraper">
           <div class="header_wraper">
-            <h2 class="sec-header"> {{ $t('edit_info') }} </h2>
+            <h2 class="sec-header"> {{ $t('reset_pass') }} </h2>
           </div>
 
           <div class="form_wraper col-12 col-md-6">
-            <form @submit.prevent="submitNewdata()">
+            <form @submit.prevent="submitrResestData()">
               <div class="row">
                 <div class="form-controle col-12 mb-3">
-                  <label for="name" class="d-block mb-2"> {{ $t('name') }} </label>
+                  <label for="recent_password" class="d-block mb-2"> {{ $t('recent_password') }} </label>
                   <input
-                    id="name"
-                    type="text"
-                    name="name"
-                    v-model="oldData.name"
-                    :placeholder="$t('name')"
+                    id="recent_password"
+                    type="password"
+                    name="pasrecent_passwordsword"
+                    v-model="formData.old_password"
+                    :placeholder="$t('recent_password')"
                   />
                 </div>
 
                 <div class="form-controle col-12 mb-3">
-                  <label for="phone" class="d-block mb-2"> {{ $t('phone') }} </label>
+                  <label for="new_password" class="d-block mb-2"> {{ $t('new_password') }} </label>
                   <input
-                    id="phone"
-                    type="tele"
-                    name="phone"
-                    v-model="oldData.mobile"
-                    :placeholder="$t('phone')"
+                    id="new_password"
+                    type="password"
+                    name="new_password"
+                    v-model="formData.new_password"
+                    :placeholder="$t('new_password')"
                   />
-                </div>
-
-                <div class="form-controle col-12 mb-3">
-                  <label for="email" class="d-block mb-2"> {{ $t('email') }} </label>
-                  <input
-                    id="email"
-                    type="text"
-                    name="email"
-                    v-model="oldData.email"
-                    :placeholder="$t('email')"
-                  />
-                </div>
-
-                <div class="form-controle col-12 d-flex justify-content-start">
-                  <router-link to="/change_pass"> {{ $t('reset_pass') }} </router-link>
                 </div>
 
                 <div class="form-controle col-12 d-flex justify-content-center">
@@ -73,38 +58,43 @@ export default {
 
   data() {
     return {
-      oldData: {},
+      formData: {
+        old_password: '',
+        new_password: '',
+      },
     }
   },
 
   methods: {
-    getEditFormData() {
-      var localStorageToken = localStorage.getItem('user_token');
-      axios.get('http://jawda-academy.com/api/clients/profile', {
-        headers: {
-          "x-api-key": localStorageToken, 
-        }
-      })
-      .then( res => this.oldData = res.data.data )
+    successSweetAlert(message) {
+      this.$swal( "", message , "success" );
     },
 
-    submitNewdata() {
-      var dataToSubmit = this.oldData;
-      var theToken = localStorage.getItem('user_token');
-      localStorage.setItem('user', JSON.stringify(dataToSubmit));
-      axios.post('http://jawda-academy.com/api/clients/update', dataToSubmit, {
+    errorSweetAlert(messages) {
+      var box = '';
+      messages.forEach(el => {
+        box+= (el+'\n')
+      });
+      this.$swal( "", box, "error" );
+    },
+
+    submitrResestData() {
+      axios.post('http://jawda-academy.com/api/clients/change_password', this.formData, {
         headers: {
-          "x-api-key": theToken, 
+          'x-api-key': localStorage.getItem('user_token')
         }
       })
-      this.oldData = JSON.parse(localStorage.getItem('user'));
-      console.log(this.oldData);
-    }
+      .then( res => {
+        if ( res.data.success ) {
+          this.successSweetAlert(this.$t('successfuly_saved'));
+          this.formData.old_password = "";
+          this.formData.new_password = "";
+          return
+        }
+        this.errorSweetAlert( res.data.message )
+      })
+    },
   },
-
-  mounted() {
-    this.getEditFormData();
-  }
 }
 </script>
 

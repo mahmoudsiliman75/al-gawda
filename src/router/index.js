@@ -89,6 +89,12 @@ const routes = [
       import(/*webpackChunkName: 'edit_user'*/ "../views/EditUserInfo.vue")
   },
   {
+    path: "/change_pass",
+    name: "ChangePassword",
+    component: () =>
+      import(/*webpackChunkName: 'edit_user'*/ "../views/ChangePassword.vue")
+  },
+  {
     path: "/login",
     name: "LoginForm",
     component: () =>
