@@ -92,6 +92,10 @@ export default {
 // START:: IMPORTING MAIN FILE
 @import "../assets/sass/main.scss";
 // END:: IMPORTING MAIN FILE
+.home {
+  min-height: 80vh;
+}
+
 .view-more-btn {
   a {
     text-decoration: none;

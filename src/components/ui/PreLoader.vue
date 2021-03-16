@@ -33,7 +33,7 @@ export default {
     showToggle () {
       setTimeout(() => {
         this.show = false;
-      }, 500);
+      }, 800);
       if ( this.show == true ) {
         document.querySelector('body').style.overflowY = "hidden";
       }
@@ -42,7 +42,7 @@ export default {
     restoreBodyHeight() {
       setTimeout(() => {
         document.querySelector('body').style.overflowY = "scroll";
-      }, 800);
+      }, 1200);
     }
   }
 }

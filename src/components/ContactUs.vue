@@ -112,7 +112,7 @@ export default {
     },
 
     getMapData() {
-      axios.get('http://jawda-academy.com/api/setting/map')
+      axios.get(this.$store.state.api_link+'api/setting/map')
       .then( res => this.theMap = res.data.data.map )
     },
 
