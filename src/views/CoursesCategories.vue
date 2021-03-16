@@ -5,6 +5,7 @@
     <!-- END:: PRELOADER COMPONENT -->
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
+      v-if=" Thecategories.length != 0 "
     >
       <h2 class="sec-header"> {{ $t('courses') }} </h2>
       <div class="row justify-content-center">

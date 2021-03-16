@@ -6,6 +6,7 @@
 
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
+      v-if=" posts.length != 0 "
     >
       <h2 class="sec-header"> {{ $t('blog') }} </h2>
       <div class="row justify-content-center">

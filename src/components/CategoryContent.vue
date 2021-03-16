@@ -3,7 +3,10 @@
     <!-- START:: PRELOADER COMPONENT -->
     <pre-loader></pre-loader>
     <!-- END:: PRELOADER COMPONENT -->
-    <div class="container d-flex flex-column align-items-center justify-content-center">
+    <div 
+      class="container d-flex flex-column align-items-center justify-content-center"
+      v-if=" categoryContent.length != 0 "
+    >
       <h2 class="sec-header">{{ categoryContent.name }}</h2>
       <div class="row justify-content-center">
 
