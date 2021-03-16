@@ -49,7 +49,7 @@
             {{clcTotal}} KWD
           </div>
 
-          <div>
+          <div class="d-flex align-items-center">
             <button 
               class="btn btn-danger mx-2" 
               @click="clearCart()"
@@ -57,12 +57,20 @@
               {{ $t('clear') }}
             </button>
 
+            <div class="form-group mt-3">
+              <select class="form-control" v-model="payment_method">
+                <option value="cash"> {{ $t('cash') }} </option>
+                <option value="credit"> {{ $t('credit') }} </option>
+              </select>
+            </div>
+
             <button 
               class="btn btn-success mx-2" 
               @click="checkOut()"
             > 
               {{ $t('check_out') }}
             </button>
+
           </div>
         </div>
       </div>
@@ -73,6 +81,13 @@
 <script>
 import axios from 'axios';
 export default {
+
+  data() {
+    return {
+        payment_method: '',
+    }
+  },
+
   computed: {
     cartData() {
       return this.$store.state.cart;
@@ -127,10 +142,14 @@ export default {
     },
 
     checkOut() {
+
+      // var pay_method = this.payment_method;
+
       var localStorageToken = localStorage.getItem('user_token');
       var data = {
         courses: this.getCartCourses(),
-        payment_method: 'cash',
+        // payment_method: 'cash',
+        payment_method: this.payment_method,
       };
       axios.post('http://jawda-academy.com/api/orders/checkout', data, {
         headers: {
@@ -141,9 +160,10 @@ export default {
         if ( data.payment_method == 'credit' ) {
           window.location.href = res.data.data.payment_url
         }
+        this.clearCart();
+        this.sweetAlert();
       });
-      this.clearCart();
-      this.sweetAlert();
+
     },
   },
 }

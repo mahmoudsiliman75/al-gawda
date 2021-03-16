@@ -21,7 +21,7 @@ export default {
 
   methods: {
     getMemberData() {
-      axios.get('http://jawda-academy.com/api/instructors')
+      axios.get(this.$store.state.api_link+'api/instructors')
       .then( res => this.instructors = res.data.data )
     }
   },

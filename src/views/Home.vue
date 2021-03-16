@@ -20,7 +20,7 @@
     <!-- START:: TEAM WORK  SECTION -->
     <team-work :allInstructors="pageData.instructors"></team-work>
     <div class="col-12 view-more-btn d-flex justify-content-center">
-      <router-link to="/team"> {{ $t('meet_team') }} </router-link>
+      <router-link to="/team" v-if=" pageData.instructors.length != 0 "> {{ $t('meet_team') }} </router-link>
     </div>
     <!-- END:: TEAM WORK  SECTION -->
 
@@ -71,7 +71,7 @@ export default {
 
   methods: {
     getHomePageData() {
-      axios.get('http://jawda-academy.com/api/setting/home',{
+      axios.get(this.$store.state.api_link+'api/setting/home',{
         headers: {
           lang: localStorage.getItem('site_locale') ?? 'en',
         }

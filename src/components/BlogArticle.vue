@@ -79,7 +79,7 @@ export default {
 
   methods: {
     getSinglePost() {
-      axios.get("http://jawda-academy.com/api/articles/"+this.articleId )
+      axios.get(this.$store.state.api_link+"api/articles/"+this.articleId )
       .then( res => this.article = res.data.data )
     }
   },

@@ -81,7 +81,7 @@ export default {
 
   methods: {
     getCatContent() {
-      axios.get('http://jawda-academy.com/api/categories/'+this.categoryId, {
+      axios.get(this.$store.state.api_link+'api/categories/'+this.categoryId, {
         headers: {
           lang: localStorage.getItem('site_locale')
         }

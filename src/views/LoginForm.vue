@@ -77,7 +77,7 @@ export default {
     },
 
     submitLogin() {
-      axios.post('http://jawda-academy.com/api/clients/login', this.loginData)
+      axios.post(this.$store.state.api_link+'api/clients/login', this.loginData)
       .then( res => {
         if ( res.data.success == true ) {
           this.saveUserDataAtLocalStorage(res);

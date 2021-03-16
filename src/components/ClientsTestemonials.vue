@@ -2,6 +2,7 @@
   <div class="testemonuals-sec">
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
+      v-if=" data.testimoials.length != 0 "
     >
       <h2 class="sec-header"> {{ $t('testemonials') }} </h2>
         <div id="testemonials" class="testemonials-box carousel slide" data-ride="carousel" dir="ltr">

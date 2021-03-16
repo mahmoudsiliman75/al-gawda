@@ -2,6 +2,7 @@
   <div class="our-courses">
     <div
       class="container d-flex flex-column align-items-center justify-content-center"
+      v-if=" data.categorires.length != 0 "
     >
       <h2 class="sec-header">
         {{ $t('featured_courses') }}

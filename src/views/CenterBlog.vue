@@ -52,7 +52,7 @@ export default {
 
   methods: {
     getPosts() {
-      axios.get("http://jawda-academy.com/api/articles")
+      axios.get(this.$store.state.api_link+"/api/articles")
       .then( res => this.posts = res.data.data )
     }
   },

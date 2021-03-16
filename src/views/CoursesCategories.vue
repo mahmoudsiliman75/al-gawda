@@ -52,7 +52,7 @@ export default {
 
   methods: {
     getCategoryData() {
-      axios.get("http://jawda-academy.com/api/categories/")
+      axios.get(this.$store.state.api_link+"api/categories/")
       .then( res => this.Thecategories = res.data.data )
     }
   },

@@ -191,8 +191,7 @@ export default {
 
   computed: {
     checkIfthetokenIsExist() {
-      // return localStorage.getItem('user_token') == ''
-      return this.$store.state.api_token == ''
+      return localStorage.getItem('user_token') == '' || localStorage.getItem('user_token') == null
     },
 
     getSiteLocal() {
@@ -202,13 +201,12 @@ export default {
 
   methods: {
     getHomePageData() {
-      axios.get('http://jawda-academy.com/api/setting/home',{
+      axios.get(this.$store.state.api_link+'api/setting/home',{
         headers: {
           lang: localStorage.getItem('site_locale') ?? 'en',
         }
       })
       .then( res => {
-        // console.log(res.data.data);
         this.pageData = res.data.data })
       .catch( error => console.log(error) )
     },

@@ -214,6 +214,10 @@ export default {
   },
 
   methods: {
+    setSwalWidth() {
+      document.querySelector('.swal-modal').style.width = 'auto';
+    },
+
     sweetAlert(message, anroidBtnText, anroidDownloadLink, iosBtnText, iosDownloadLink, cancleBtnText) {
       this.$swal({
         title: message,
@@ -243,6 +247,7 @@ export default {
               break;
           }
       });
+      this.setSwalWidth();
     },
 
     getCourseData() {
@@ -324,10 +329,8 @@ export default {
   }
 }
 
-.swal-overlay--show-modal {
-  .swal-modal {
-    width:850px !important;
-  }
+.swal-modal {
+  width:850px !important;
 }
 
 .course-content {

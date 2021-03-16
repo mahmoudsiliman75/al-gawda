@@ -117,7 +117,7 @@ export default {
     },
 
     submitContactForm() {
-      axios.post('http://jawda-academy.com/api/contact', this.contactFormData)
+      axios.post(this.$store.state.api_link+'api/contact', this.contactFormData)
       .then( res => {
         if ( res.data.success ) {
           this.successSweetAlert( this.$t('successfuly_sent') );

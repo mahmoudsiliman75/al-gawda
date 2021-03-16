@@ -20,7 +20,10 @@
       </div>
     </div>
 
-    <div class="target mt-5 mt-md-0">
+    <div 
+      class="target mt-5 mt-md-0"
+      v-if=" pageData.goals.length != 0 "
+    >
       <div
         class="container d-flex flex-column align-items-center justify-content-center"
       >
@@ -68,7 +71,7 @@ export default {
 
   methods: {
     getaboutUsData() {
-      axios.get('http://jawda-academy.com/api/setting/about', {
+      axios.get(this.$store.state.api_link+'api/setting/about', {
         headers: {
           lang: localStorage.getItem("site_locale")
         }

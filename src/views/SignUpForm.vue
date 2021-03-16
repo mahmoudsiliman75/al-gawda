@@ -71,9 +71,8 @@ export default {
     },
 
     submitData() {
-      axios.post('http://jawda-academy.com/api/clients/register', this.signupData)
+      axios.post(this.$store.state.api_link+'api/clients/register', this.signupData)
       .then ( res => {
-        //TODO: Handile Validation Error
         if ( res.data.success == true ) {
           this.saveUserDataAtLocalStorage(res)
           this.$router.push('/')
@@ -94,7 +93,6 @@ export default {
   beforeCreate() {
     if ( localStorage.getItem("user_token") ) {
       this.$router.push('/')
-      // TODO: validate token
     }
   },
 

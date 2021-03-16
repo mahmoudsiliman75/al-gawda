@@ -80,7 +80,7 @@ export default {
 
   methods: {
     getSingleInstructor() {
-      axios.get("http://jawda-academy.com/api/instructors/"+this.theId )
+      axios.get(this.$store.state.api_link+"api/instructors/"+this.theId )
       .then( res => this.instructor = res.data.data);
     }
   },

@@ -3,7 +3,10 @@
     <!-- START:: PRELOADER COMPONENT -->
     <pre-loader></pre-loader>
     <!-- END:: PRELOADER COMPONENT -->
-    <div class="container ">
+    <div 
+      class="container"
+      v-if=" allInstructors.length != 0 "
+    >
       <div class="row justify-content-center">
         <div
           class="col-12 d-flex flex-column align-items-center justify-content-center"
@@ -81,7 +84,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import PreLoader from "../components/ui/PreLoader.vue";
 
 export default {
@@ -91,22 +94,6 @@ export default {
 
   props: [ 'allInstructors' ],
 
-  data() {
-    return {
-      instructors: [],
-    }
-  },
-
-  methods: {
-    getMemberData() {
-      axios.get('http://jawda-academy.com/api/instructors')
-      .then( res => this.instructors = res.data.data )
-    }
-  },
-
-  mounted() {
-    this.getMemberData();
-  }
 };
 </script>
 

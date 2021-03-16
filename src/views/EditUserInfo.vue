@@ -80,7 +80,7 @@ export default {
   methods: {
     getEditFormData() {
       var localStorageToken = localStorage.getItem('user_token');
-      axios.get('http://jawda-academy.com/api/clients/profile', {
+      axios.get(this.$store.state.api_link+'api/clients/profile', {
         headers: {
           "x-api-key": localStorageToken, 
         }

@@ -79,7 +79,7 @@ export default {
     },
 
     submitrResestData() {
-      axios.post('http://jawda-academy.com/api/clients/change_password', this.formData, {
+      axios.post(this.$store.state.api_link+'api/clients/change_password', this.formData, {
         headers: {
           'x-api-key': localStorage.getItem('user_token')
         }

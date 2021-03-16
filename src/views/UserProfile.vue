@@ -62,7 +62,7 @@ export default {
   methods: {
     getCoursesData() {
       var theToken = localStorage.getItem('user_token');
-      axios.get('http://jawda-academy.com/api/clients/courses', {
+      axios.get(this.$store.state.api_link+'api/clients/courses', {
         headers:{
           "x-api-key": theToken,
         }
