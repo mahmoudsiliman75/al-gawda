@@ -12,7 +12,7 @@
       <div class="row">
         <div class="map-box col-12 col-md-6">
           <iframe
-            :src="theMap"
+            :src="branchesData.main.map"
             frameborder="0"
             style="border:0;"
             allowfullscreen=""
@@ -20,19 +20,24 @@
             tabindex="0"
           ></iframe>
           <div class="branch_info">
-            <h4> {{ $t('main_branch') }} </h4>
+            <h4> {{branchesData.main.name}} </h4>
             <ul class="list-unstyled">
               <li> 
                 <icon name="map-marker" size="25px"/>
-                <span> Main Branch Address - Main Branch Region </span>
+                <span> {{branchesData.main.address}} - {{branchesData.main.regoin}} </span>
               </li>
               <li> 
                 <icon name="mobile-alt" size="25px"/>
-                <a href="tele:01000000001"> 01000000001 </a>
+                <a :href="'tele:'+branchesData.main.phone"> {{branchesData.main.phone}} </a>
               </li>
               <li> 
                 <icon name="whatsapp" size="25px"/>
-                <a href="https://wa.me/01000000022"> 01000000022 </a>
+                <a 
+                  :href="'https://wa.me/'+branchesData.main.whats_app"
+                  target="_blanck"
+                > 
+                  {{branchesData.main.whats_app}} 
+                </a>
               </li>
             </ul>
           </div>
@@ -101,9 +106,13 @@
         class="row justify-content-center" 
         style="box-shadow: none"
       >
-        <div class="map-box col-12 col-md-4 p-2 mb-4">
+        <div 
+          class="map-box col-12 col-md-4 p-2 mb-4"
+          v-for="branch in branchesData.branches"
+          :key="branch.id"
+        >
           <iframe
-            :src="theMap"
+            :src="branch.map"
             frameborder="0"
             style="border:0;"
             allowfullscreen=""
@@ -111,75 +120,24 @@
             tabindex="0"
           ></iframe>
           <div class="branch_info">
-            <h4> Branch Name </h4>
+            <h4> {{branch.name}} </h4>
             <ul class="list-unstyled">
               <li> 
                 <icon name="map-marker" size="25px"/>
-                <span> Branch Address - Branch Region </span>
+                <span> {{branch.address}} - {{branch.regoin}} </span>
               </li>
               <li> 
                 <icon name="mobile-alt" size="25px"/>
-                <a href="tele:01000000001"> 01000000001 </a>
+                <a :href="'tele:'+branch.phone"> {{branch.phone}} </a>
               </li>
               <li> 
                 <icon name="whatsapp" size="25px"/>
-                <a href="https://wa.me/01000000022"> 01000000022 </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="map-box col-12 col-md-4 p-2 mb-4">
-          <iframe
-            :src="theMap"
-            frameborder="0"
-            style="border:0;"
-            allowfullscreen=""
-            aria-hidden="false"
-            tabindex="0"
-          ></iframe>
-          <div class="branch_info">
-            <h4> Branch Name </h4>
-            <ul class="list-unstyled">
-              <li> 
-                <icon name="map-marker" size="25px"/>
-                <span> Branch Address - Branch Region </span>
-              </li>
-              <li> 
-                <icon name="mobile-alt" size="25px"/>
-                <a href="tele:01000000001"> 01000000001 </a>
-              </li>
-              <li> 
-                <icon name="whatsapp" size="25px"/>
-                <a href="https://wa.me/01000000022"> 01000000022 </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="map-box col-12 col-md-4 p-2 mb-4">
-          <iframe
-            :src="theMap"
-            frameborder="0"
-            style="border:0;"
-            allowfullscreen=""
-            aria-hidden="false"
-            tabindex="0"
-          ></iframe>
-          <div class="branch_info">
-            <h4> Branch Name </h4>
-            <ul class="list-unstyled">
-              <li> 
-                <icon name="map-marker" size="25px"/>
-                <span> Branch Address - Branch Region </span>
-              </li>
-              <li> 
-                <icon name="mobile-alt" size="25px"/>
-                <a href="tele:01000000001"> 01000000001 </a>
-              </li>
-              <li> 
-                <icon name="whatsapp" size="25px"/>
-                <a href="https://wa.me/01000000022"> 01000000022 </a>
+                <a 
+                  :href="'https://wa.me/'+branch.whats_app"
+                  target="_blanck"
+                > 
+                  {{branch.whats_app}} 
+                </a>
               </li>
             </ul>
           </div>
@@ -200,7 +158,7 @@ export default {
 
   data() {
     return {
-      theMap: null,
+      branchesData: {},
       contactFormData: {
         name: '',
         mobile: '',
@@ -224,8 +182,12 @@ export default {
     },
 
     getMapData() {
-      axios.get(this.$store.state.api_link+'api/setting/map')
-      .then( res => this.theMap = res.data.data.map )
+      axios.get(this.$store.state.api_link+'api/setting/map', {
+        headers: {
+          lang: localStorage.getItem('site_locale'),
+        }
+      })
+      .then( res => this.branchesData = res.data.data )
     },
 
     submitContactForm() {
