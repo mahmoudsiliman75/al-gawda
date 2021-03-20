@@ -19,11 +19,28 @@
             aria-hidden="false"
             tabindex="0"
           ></iframe>
+          <div class="branch_info">
+            <h4> {{ $t('main_branch') }} </h4>
+            <ul class="list-unstyled">
+              <li> 
+                <icon name="map-marker" size="25px"/>
+                <span> Main Branch Address - Main Branch Region </span>
+              </li>
+              <li> 
+                <icon name="mobile-alt" size="25px"/>
+                <a href="tele:01000000001"> 01000000001 </a>
+              </li>
+              <li> 
+                <icon name="whatsapp" size="25px"/>
+                <a href="https://wa.me/01000000022"> 01000000022 </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="form-box col-12 col-md-6">
           <form @submit.prevent="submitContactForm()">
-            <div class="row">
+            <div class="row p-3">
               <div class="form-controle col-12 col-md-6 mb-3">
                 <label for="name" class="d-block mb-2"> {{ $t('name') }} </label>
                 <input
@@ -71,6 +88,101 @@
               </div>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="header_wraper d-flex justify-content-center align-items-center mt-5">
+        <h2 class="sec-header"> {{ $t('our_branches') }} </h2>
+      </div>
+
+      <div 
+        class="row justify-content-center" 
+        style="box-shadow: none"
+      >
+        <div class="map-box col-12 col-md-4 p-2 mb-4">
+          <iframe
+            :src="theMap"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
+          <div class="branch_info">
+            <h4> Branch Name </h4>
+            <ul class="list-unstyled">
+              <li> 
+                <icon name="map-marker" size="25px"/>
+                <span> Branch Address - Branch Region </span>
+              </li>
+              <li> 
+                <icon name="mobile-alt" size="25px"/>
+                <a href="tele:01000000001"> 01000000001 </a>
+              </li>
+              <li> 
+                <icon name="whatsapp" size="25px"/>
+                <a href="https://wa.me/01000000022"> 01000000022 </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="map-box col-12 col-md-4 p-2 mb-4">
+          <iframe
+            :src="theMap"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
+          <div class="branch_info">
+            <h4> Branch Name </h4>
+            <ul class="list-unstyled">
+              <li> 
+                <icon name="map-marker" size="25px"/>
+                <span> Branch Address - Branch Region </span>
+              </li>
+              <li> 
+                <icon name="mobile-alt" size="25px"/>
+                <a href="tele:01000000001"> 01000000001 </a>
+              </li>
+              <li> 
+                <icon name="whatsapp" size="25px"/>
+                <a href="https://wa.me/01000000022"> 01000000022 </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="map-box col-12 col-md-4 p-2 mb-4">
+          <iframe
+            :src="theMap"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
+          <div class="branch_info">
+            <h4> Branch Name </h4>
+            <ul class="list-unstyled">
+              <li> 
+                <icon name="map-marker" size="25px"/>
+                <span> Branch Address - Branch Region </span>
+              </li>
+              <li> 
+                <icon name="mobile-alt" size="25px"/>
+                <a href="tele:01000000001"> 01000000001 </a>
+              </li>
+              <li> 
+                <icon name="whatsapp" size="25px"/>
+                <a href="https://wa.me/01000000022"> 01000000022 </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -147,11 +259,43 @@ export default {
   padding: $sectionPadding;
   padding-bottom: 50px;
   .row {
+    box-shadow: 0 0 15px #c2c2c2;
     .map-box {
       padding: 0;
+      padding-bottom: 25px;
       iframe {
         width: 100%;
-        height: 100%;
+        height: 70%;
+        min-height: 335px;
+      }
+
+      .branch_info {
+        padding-bottom: 20px;
+        h4 {
+          color: $mainColor;
+          font-weight: 600;
+          margin: 8px 0;
+          text-align: center;
+        }
+
+        ul {
+          padding: 0 20px;
+          li {
+            display: flex;
+            margin-bottom: 10px;
+            svg {
+              margin-inline-end: 8px;
+              color: $secondryColor;
+            }
+            a {
+              text-decoration: none;
+            }
+            a,
+            span {
+              color: #888
+            }
+          }
+        }
       }
     }
     .form-box {
@@ -160,7 +304,10 @@ export default {
       background-color: #f1f1f1;
       border-right: 2px solid $mainColor;
       form {
-        padding: 8px;
+        // padding: 8px;
+        .row {
+          box-shadow: none;
+        }
         .form-controle {
           label {
             text-align: start;
