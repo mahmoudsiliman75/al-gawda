@@ -22,11 +22,18 @@
     <div
       class="course-content d-flex flex-column align-items-center justify-content-center"
     >
-      <h2 class="sec-header">{{ singleCourseData.name }}</h2>
+      <h2 class="sec-header">
+        {{ singleCourseData.name }}
+        <span class="badge" :class="singleCourseData.badges">
+          {{ singleCourseData.badges }}
+        </span>
+      </h2>
       <div class="container">
         <div class="row">
           <div class="course-details col-12">
-            <h3>
+            <h3 
+              v-if="singleCourseData.instructor.name != null"
+            >
               <span> By: </span>
               <router-link
                 :to="{
@@ -37,9 +44,6 @@
                 {{ singleCourseData.instructor.name }}
               </router-link>
 
-              <span class="badge" :class="singleCourseData.badges">
-                {{ singleCourseData.badges }}
-              </span>
             </h3>
             <!-- <h4 class="lead">{{ singleCourseData.desc }}</h4> -->
             <h5>
@@ -252,7 +256,7 @@ export default {
 
     getCourseData() {
       axios
-        .get("http://jawda-academy.com/api/courses/" + this.theCourse,{
+        .get(this.$store.state.api_link+"api/courses/" + this.theCourse,{
           headers: {
             lang: localStorage.getItem('site_locale')
           }
@@ -329,14 +333,27 @@ export default {
   }
 }
 
-.swal-modal {
-  width:850px !important;
-}
-
 .course-content {
   min-height: 80vh;
   margin-top: 300px;
   padding: $sectionPadding;
+  .sec-header {
+    span {
+      color: $secondryColor;
+      &.badge {
+        color: #fff;
+        &.Recent {
+          background-color: $secondryColor;
+        }
+        &.Bestseller {
+          background-color: $bestSellerCourse;
+        }
+        &.Sale {
+          background-color: $saleCourse;
+        }
+      }
+    }
+  }
   .close-popup {
     border: 2px solid $mainColor;
     @include borderRadius(25px);

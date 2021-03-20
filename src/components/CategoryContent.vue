@@ -19,7 +19,7 @@
           <router-link
             :to="{ name: 'CourseContent', params: { course_id: course.id } }"
           >
-            <div class="card" :class="course.status">
+            <div class="card" :class="course.badges">
               <img :src="course.image_path" class="card-img-top" alt="Course Img" />
               <div class="card-body">
                 <h4 class="card-title">{{ course.name }}</h4>
@@ -30,8 +30,8 @@
                 <!-- END:: THE RATING -->
 
                 <div class="d-flex justify-content-between">
-                  <span class="badge" :class="course.status">{{
-                    course.status
+                  <span class="badge" :class="course.badges">{{
+                    course.badges
                   }}</span>
 
                   <div class="price-box">
