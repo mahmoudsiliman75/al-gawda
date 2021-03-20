@@ -6,6 +6,7 @@
     <div class="about">
       <div
         class="container d-flex flex-column align-items-center justify-content-center"
+        v-if="pageData.text != ''"
       >
         <h2 class="sec-header"> {{ $t('about_us') }} </h2>
         <div class="row">

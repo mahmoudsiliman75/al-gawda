@@ -40,15 +40,21 @@
 
           <div class="links-menu-box col-12 col-md-6">
             <ul class="list-unstyled d-flex justify-content-center justify-content-md-end mt-3 m-md-0">
-              <li>
+              <li 
+                v-if="pageData.social.facebook != ''"
+              >
                 <a :href="pageData.social.facebook"> <icon name="facebook-square" color="#fff" /> </a>
               </li>
 
-              <li>
+              <li
+                v-if="pageData.social.twitter != ''"
+              >
                 <a :href="pageData.social.twitter"> <icon name="twitter-square" color="#fff" /> </a>
               </li>
 
-              <li>
+              <li
+                v-if="pageData.social.linked_in != ''"
+              >
                 <a :href="pageData.social.linked_in"> <icon name="linkedin" color="#fff" /> </a>
               </li>
             </ul>
