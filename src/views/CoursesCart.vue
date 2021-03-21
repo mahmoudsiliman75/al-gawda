@@ -161,7 +161,9 @@ export default {
           window.location.href = res.data.data.payment_url
         }
         this.clearCart();
-        this.sweetAlert( this.$t('paid') );
+        if ( data.payment_method == 'cash' ) {
+          this.sweetAlert( this.$t('cash_message') );
+        }
       });
 
     },
