@@ -9,9 +9,9 @@
         v-if="pageData.text != ''"
       >
         <h2 class="sec-header"> {{ $t('about_us') }} </h2>
-        <div class="row">
-          <div class="svg-box col-12 col-md-7">
-            <img src="../assets/media/svg/about-us.svg" alt="" />
+        <div class="row mt-5">
+          <div class="svg-box col-12 col-md-7 mb-3">
+            <img :src="pageData.image" alt="" />
           </div>
 
           <div class=" info col-12 col-md-5">

@@ -6,9 +6,9 @@
           <h2 class="sec-header">{{ $t('home_about') }}</h2>
         </div>
 
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mb-3">
           <img
-            src="../assets/media/svg/coding.svg"
+            :src="data.brief.image_path"
             alt="About Us Image"
             class="about-sec-img"
           />
