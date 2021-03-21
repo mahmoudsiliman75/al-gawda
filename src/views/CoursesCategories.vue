@@ -76,6 +76,7 @@ export default {
   a {
     text-decoration: none;
     .category-card {
+      min-width: 340px;
       img {
         width: 100%;
         min-height: 195px;

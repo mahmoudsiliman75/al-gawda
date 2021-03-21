@@ -53,9 +53,17 @@
                 :class="
                   parseInt(singleCourseData.discount) > 0 ? 'sale-price' : ''
                 "
+                v-if="singleCourseData.price > 0"
               >
                 {{ singleCourseData.price }} KWD
               </span>
+
+                <span 
+                  class="free_span" 
+                  v-else
+                >
+                  {{ $t('free') }}
+                </span>
               <span
                 class="price mx-2"
                 v-if="parseInt(singleCourseData.discount) > 0"
@@ -110,21 +118,59 @@
                 >
                   <div class="card-body">
                     <ul class="list-unstyled">
+                      <li> 
+                        <h3> {{ $t('lessons') }} </h3> 
+                      </li>
                       <li
+                        class="d-flex align-items-center mb-3"
                         v-for="lesson in section.lessons"
                         :key="lesson.id"
-                        @click="
-                          sweetAlert(
-                            $t('preven_message'),
-                            $t('android_download'),
-                            singleCourseData.download.google_play,
-                            $t('ios_download'),
-                            singleCourseData.download.app_store,
-                            $t('okay'),
-                          )
-                        "
                       >
-                        <h4>{{ lesson.name }}</h4>
+                        <icon class="mx-2" name="bookmark" color="#9B7C29" size="18px"/>
+                        <h4
+                          @click="
+                            sweetAlert(
+                              $t('preven_message'),
+                              $t('android_download'),
+                              singleCourseData.download.google_play,
+                              $t('ios_download'),
+                              singleCourseData.download.app_store,
+                              $t('okay'),
+                            )
+                          "
+                        >
+                          {{ lesson.name }}
+                        </h4>
+                        <div 
+                          class="dropdown mx-3"
+                          v-if="lesson.resources.length > 0"
+                        >
+                          <a class="dropdown_btn btn btn-sm dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ $t('attachments') }}
+                          </a>
+
+                          <div class="dropdown-menu">
+                            <ul 
+                              class="list-unstyled"
+                            >
+                              <li 
+                                v-for="lesson in section.lessons"
+                                :key="lesson.id"
+                              >
+                                <ul class="list-unstyled">
+                                  <li
+                                    class="d-flex align-items-center"
+                                    v-for="resorse in lesson.resources"
+                                    :key="resorse.id"
+                                  >
+                                    <icon class="mx-2" name="file-invoice" color="#21496C" size="18px"/>
+                                    <h6> {{resorse.name}} </h6>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -179,15 +225,59 @@
                 >
                   <div class="card-body">
                     <ul class="list-unstyled">
-                      <li v-for="video in section.lessons" :key="video.id">
+                      <li> 
+                        <h3> {{ $t('lessons') }} </h3> 
+                      </li>
+                      <li
+                        class="d-flex align-items-center mb-3"
+                        v-for="lesson in section.lessons"
+                        :key="lesson.id"
+                      >
+                        <icon class="mx-2" name="bookmark" color="#9B7C29" size="18px"/>
                         <h4
-                          :id="'videos-' + video.id"
                           @click="
-                            changeVideoSrc(video.url, 'videos-' + video.id)
+                            sweetAlert(
+                              $t('preven_message'),
+                              $t('android_download'),
+                              singleCourseData.download.google_play,
+                              $t('ios_download'),
+                              singleCourseData.download.app_store,
+                              $t('okay'),
+                            )
                           "
                         >
-                          {{ video.name }}
+                          {{ lesson.name }}
                         </h4>
+                        <div 
+                          class="dropdown mx-3"
+                          v-if="lesson.resources.length > 0"
+                        >
+                          <a class="dropdown_btn btn btn-sm dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ $t('attachments') }}
+                          </a>
+
+                          <div class="dropdown-menu">
+                            <ul 
+                              class="list-unstyled"
+                            >
+                              <li 
+                                v-for="lesson in section.lessons"
+                                :key="lesson.id"
+                              >
+                                <ul class="list-unstyled">
+                                  <li
+                                    class="d-flex align-items-center"
+                                    v-for="resorse in lesson.resources"
+                                    :key="resorse.id"
+                                  >
+                                    <icon class="mx-2" name="file-invoice" color="#21496C" size="18px"/>
+                                    <h6> {{resorse.name}} </h6>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -396,6 +486,9 @@ export default {
             text-decoration: line-through;
           }
         }
+        &.free_span {
+          color: $mainColor;
+        }
         &.badge {
           color: #fff;
           &.Recent {
@@ -444,6 +537,9 @@ export default {
           border: none;
           ul {
             li {
+              color: #555;
+              font-size: 20px;
+              cursor: pointer;
               a {
                 text-decoration: none;
                 color: #555;
@@ -454,9 +550,13 @@ export default {
                 color: #555;
                 font-size: 20px;
               }
-              color: #555;
-              font-size: 20px;
-              cursor: pointer;
+              .dropdown {
+                .dropdown_btn {
+                  color: #fff;
+                  background-color: $mainColor;
+                  border-color: $mainColor;
+                }
+              }
             }
           }
         }

@@ -117,6 +117,7 @@ export default {
     text-decoration: none;
     color: $darkColor;
     .card {
+      min-width: 200px;
       &.Bestseller {
         border-bottom: 2px solid $bestSellerCourse;
       }
