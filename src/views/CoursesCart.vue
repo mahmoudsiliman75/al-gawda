@@ -52,7 +52,7 @@
           <div class="d-flex align-items-center">
             <button 
               class="btn btn-danger mx-2" 
-              @click="clearCart()"
+              @click="clearCart(); sweetAlert( $t('clear_cart') );"
             > 
               {{ $t('clear') }}
             </button>
@@ -84,7 +84,7 @@ export default {
 
   data() {
     return {
-        payment_method: '',
+      payment_method: '',
     }
   },
 
@@ -103,8 +103,8 @@ export default {
   },
 
   methods: {
-    sweetAlert() {
-      this.$swal( "", "Paied Successfuly", "success" );
+    sweetAlert(messsage) {
+      this.$swal( "", messsage, "success" );
     },
 
     clearCart() {
@@ -151,7 +151,7 @@ export default {
         // payment_method: 'cash',
         payment_method: this.payment_method,
       };
-      axios.post('http://jawda-academy.com/api/orders/checkout', data, {
+      axios.post(this.$store.state.api_link+'api/orders/checkout', data, {
         headers: {
           'x-api-key': localStorageToken,
         }
@@ -161,7 +161,7 @@ export default {
           window.location.href = res.data.data.payment_url
         }
         this.clearCart();
-        this.sweetAlert();
+        this.sweetAlert( this.$t('paid') );
       });
 
     },

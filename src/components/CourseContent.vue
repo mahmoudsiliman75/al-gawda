@@ -133,7 +133,11 @@
             </div>
 
             <div class="enroll-btn my-3">
-              <button @click="addToCart">{{ $t("add_to_cart") }}</button>
+              <button 
+                @click="addToCart(); cartSweetAlert( $t('cart_added_message') );"
+              >
+                {{ $t("add_to_cart") }}
+              </button>
             </div>
           </div>
 
@@ -252,6 +256,10 @@ export default {
           }
       });
       this.setSwalWidth();
+    },
+
+    cartSweetAlert(messsage) {
+      this.$swal( "", messsage, "success" );
     },
 
     getCourseData() {
