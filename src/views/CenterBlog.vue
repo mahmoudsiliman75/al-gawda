@@ -53,7 +53,11 @@ export default {
 
   methods: {
     getPosts() {
-      axios.get(this.$store.state.api_link+"api/articles")
+      axios.get(this.$store.state.api_link+"api/articles", {
+        headers: {
+          lang: localStorage.getItem("site_locale")
+        }
+      })
       .then( res => this.posts = res.data.data )
     }
   },

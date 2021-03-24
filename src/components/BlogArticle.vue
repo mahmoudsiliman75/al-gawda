@@ -79,7 +79,11 @@ export default {
 
   methods: {
     getSinglePost() {
-      axios.get(this.$store.state.api_link+"api/articles/"+this.articleId )
+      axios.get(this.$store.state.api_link+"api/articles/"+this.articleId, {
+        headers: {
+          lang: localStorage.getItem("site_locale")
+        }
+      } )
       .then( res => this.article = res.data.data )
     }
   },

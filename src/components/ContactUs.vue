@@ -107,7 +107,7 @@
         style="box-shadow: none"
       >
         <div 
-          class="map-box col-12 col-md-4 p-2 mb-4"
+          class="map-box col-12 col-md-6 p-2 mb-4"
           v-for="branch in branchesData.branches"
           :key="branch.id"
         >
