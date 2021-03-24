@@ -150,7 +150,6 @@
 <script>
 import axios from 'axios';
 import PreLoader from "../components/ui/PreLoader.vue";
-
 export default {
   components: {
     "pre-loader": PreLoader,
