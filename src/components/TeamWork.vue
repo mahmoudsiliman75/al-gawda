@@ -118,7 +118,7 @@ export default {
         z-index: -1;
         transform: rotate(90deg);
         path {
-          fill: $mainColor;
+          fill: #5a8cb7;
         }
       }
       &.last {
@@ -128,13 +128,14 @@ export default {
         z-index: -1;
         transform: rotate(259deg);
         path {
-          fill: $mainColor;
+          fill: #5a8cb7;
         }
       }
     }
     a {
       text-decoration: none;
       color: $mainColor;
+      text-align: center;
       img {
         min-width: 150px;
         max-width: 150px;
