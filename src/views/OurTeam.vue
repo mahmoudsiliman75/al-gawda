@@ -21,7 +21,11 @@ export default {
 
   methods: {
     getMemberData() {
-      axios.get(this.$store.state.api_link+'api/instructors')
+      axios.get(this.$store.state.api_link+'api/instructors', {
+        headers: {
+          lang: localStorage.getItem("site_locale")
+        }
+      })
       .then( res => this.instructors = res.data.data )
     }
   },

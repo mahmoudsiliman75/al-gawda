@@ -19,12 +19,12 @@
         <!-- END:: PROFILE HEADER SECTION -->
 
         <!-- START:: PROFILE BODY SECTION -->
-        <div class="col-8">
+        <div class="col-8" v-if="instructor.courses.length > 0 ">
           <div class="profile_body">
             <div class="text-center">
-              <h2 class="sec-header"> Courses </h2>
+              <h2 class="sec-header"> {{ $t('courses') }} </h2>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="col-12 col-md-6 my-2"
                 v-for="course in instructor.courses"
                 :key="course.id"
@@ -80,7 +80,11 @@ export default {
 
   methods: {
     getSingleInstructor() {
-      axios.get(this.$store.state.api_link+"api/instructors/"+this.theId )
+      axios.get(this.$store.state.api_link+"api/instructors/"+this.theId, {
+        headers: {
+          lang: localStorage.getItem("site_locale")
+        }
+      } )
       .then( res => this.instructor = res.data.data);
     }
   },

@@ -116,8 +116,8 @@ export default {
   height: 100vh;
   z-index: 9999;
   img {
-    width: 350px;
-    height: 300px;
+    width: 250px;
+    height: 200px;
   }
   .circels {
     display: flex;
