@@ -44,19 +44,19 @@
               </router-link> 
 
               <ul class="list-unstyled">
-                <li>
+                <li v-if="member.facebook != null ">
                   <a :href="member.facebook" class="member-social">
                     <icon name="facebook-square" color="#9B7C29" />
                   </a>
                 </li>
 
-                <li>
+                <li  v-if="member.twitter != null ">
                   <a :href="member.twitter" class="member-social">
                     <icon name="twitter-square" color="#9B7C29" />
                   </a>
                 </li>
 
-                <li>
+                <li  v-if="member.linkedin != null ">
                   <a :href="member.linkedin" class="member-social">
                     <icon name="linkedin" color="#9B7C29" />
                   </a>
