@@ -88,6 +88,14 @@
                 ></textarea>
               </div>
 
+              <div class="form-controle col-12 mt-3">
+                <vue-recaptcha
+                  sitekey="6LdVKpIaAAAAAPFxy-bSp5x_RAZ3sxcGKBhlScbg"
+                  @verify="recaptchaVerify"
+                >
+                </vue-recaptcha>
+              </div>
+
               <div class="form-controle col-12 d-flex justify-content-center">
                 <button> {{ $t('send') }} </button>
               </div>
@@ -150,9 +158,12 @@
 <script>
 import axios from 'axios';
 import PreLoader from "../components/ui/PreLoader.vue";
+import VueRecaptcha from 'vue-recaptcha';
+
 export default {
   components: {
     "pre-loader": PreLoader,
+    "vue-recaptcha": VueRecaptcha,
   },
 
   data() {
@@ -163,7 +174,8 @@ export default {
         mobile: '',
         email: '',
         message: ''
-      }
+      },
+      recaptcha: null,
     }
   },
 
@@ -189,18 +201,24 @@ export default {
       .then( res => this.branchesData = res.data.data )
     },
 
+    recaptchaVerify(response) {
+      this.recaptcha = response;
+    },
+
     submitContactForm() {
       axios.post(this.$store.state.api_link+'api/contact', this.contactFormData)
       .then( res => {
-        if ( res.data.success ) {
-          this.successSweetAlert( this.$t('successfuly_sent') );
-          this.contactFormData.name = '';
-          this.contactFormData.mobile = '';
-          this.contactFormData.email = '';
-          this.contactFormData.message = '';
-          return
+        if (this.recaptcha) {
+          if ( res.data.success ) {
+            this.successSweetAlert( this.$t('successfuly_sent') );
+            this.contactFormData.name = '';
+            this.contactFormData.mobile = '';
+            this.contactFormData.email = '';
+            this.contactFormData.message = '';
+            return
+          }
+          this.errorSweetAlert( res.data.message )
         }
-        this.errorSweetAlert( res.data.message )
       })
     }
   },
