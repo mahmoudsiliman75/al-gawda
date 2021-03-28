@@ -82,7 +82,8 @@ export default {
         h3 {
           font-size: 2.5rem;
           font-weight: 600;
-          color: $mainColor;
+          color: $secondryColor;
+          text-shadow: 0 0 10px $secondryColor;
         }
         p {
           width: 70%;
@@ -97,7 +98,7 @@ export default {
         align-items: center;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.6);
         .btns-box {
           display: flex;
           flex-wrap: wrap;
