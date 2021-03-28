@@ -19,14 +19,16 @@
               <h4> {{ slide.name }} </h4>
             </div>
           </div>
-          <a class="carousel-control-prev" href="#testemonials" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#testemonials" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+
+          <ol class="carousel-indicators">
+            <li
+              v-for="(slide,index) in data.testimoials"
+              :class="index == 0 ? 'active' : ''" 
+              :key="slide.id"
+              data-target="#testemonials" 
+              :data-slide-to="index"
+            ></li>
+          </ol>
         </div>
     </div>
   </div>
@@ -48,6 +50,21 @@ export default {
 .testemonuals-sec {
   padding: $sectionPadding;
   padding-bottom: 40px;
+  .carousel-indicators {
+    li {
+      background-color: $mainColor;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      &.active {
+        background-color: $secondryColor;
+        width: 15px;
+        height: 15px;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
   .carousel-inner {
     .carousel-item {
       min-height: 300px;
@@ -63,7 +80,7 @@ export default {
         display: flex;
       }
       .testemonial-card {
-        width: 80%;
+        min-width: 350px;
         background-color: #e1e1e1;
         text-align: center;
         padding: 30px 20px;
@@ -88,6 +105,7 @@ export default {
       }
       h4 {
         margin-top: 35px;
+        margin-bottom: 45px;
         color: $mainColor;
       }
     }
