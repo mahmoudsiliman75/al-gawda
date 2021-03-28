@@ -206,7 +206,11 @@ export default {
     },
 
     submitContactForm() {
-      axios.post(this.$store.state.api_link+'api/contact', this.contactFormData)
+      axios.post(this.$store.state.api_link+'api/contact', this.contactFormData, {
+        headers: {
+          lang: localStorage.getItem('site_locale')
+        }
+      })
       .then( res => {
         if (this.recaptcha) {
           if ( res.data.success ) {
