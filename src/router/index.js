@@ -33,7 +33,15 @@ const routes = [
       )
   },
   {
-    path: "/single_course/:id/:course_id",
+    path: "/cat_content/:id/:sub_id",
+    name: "SubCategories",
+    component: () =>
+      import(
+        /*webpackChunkName: 'cat_content'*/ "../components/SubCategories.vue"
+      )
+  },
+  {
+    path: "/cat_content/:id/:course_id",
     name: "CourseContent",
     component: () =>
       import(

@@ -1,42 +1,15 @@
 <template>
-  <div class="cat-content">
+    <div class="subcat_content">
     <!-- START:: PRELOADER COMPONENT -->
     <pre-loader></pre-loader>
     <!-- END:: PRELOADER COMPONENT -->
 
-    <!-- START:: SUB CATEGORIES -->
-    <div
-      class="container d-flex flex-column align-items-center justify-content-center mb-4 cat_sub_cats"
-      v-if="categoryContent.subcategories.length != 0"
-    >
-      <h2 class="sec-header"> {{ $t('sub_cats') }} </h2>
-      <div class="col-12 row justify-content-center">
-        <div
-          class="col-12 col-md-4 my-3"
-          v-for="category in categoryContent.subcategories"
-          :key="category.id"
-        >
-          <router-link
-            :to="{ name: 'SubCategories', params: { sub_id: category.id } }"
-          >
-            <div class="card category-card">
-              <img :src="category.image" class="card-img-top" alt="..." />
-              <div class="card-body text-center">
-                <h5 class="card-title">{{ category.name }}</h5>
-              </div>
-            </div>
-          </router-link>
-        </div>
-      </div>
-    </div>
-    <!-- START:: SUB CATEGORIES -->
-
     <!-- START:: CATEGORY COURSES -->
     <div 
-      class="container d-flex flex-column align-items-center justify-content-center cat_courses"
-      v-if="categoryContent.courses.length != 0"
+      class="container d-flex flex-column align-items-center justify-content-center subcat_courses"
+
     >
-      <h2 class="sec-header">{{ categoryContent.name }} {{$t('courses')}}</h2>
+      <h2 class="sec-header"> {{ categoryContent.name }} </h2>
       <div class="row justify-content-center">
 
         <!-- START:: CARD MARKUP -->
@@ -101,24 +74,25 @@ export default {
 
   data() {
     return {
-      categoryId: this.$route.params.id,
+      subCategoryId: this.$route.params.sub_id,
       categoryContent: []
     };
   },
 
   provide() {
     return {
-      catId: this.categoryId
+      catId: this.subCategoryId
     };
   },
 
   methods: {
     getCatContent() {
-      axios.get(this.$store.state.api_link+'api/categories/'+this.categoryId, {
+      axios.get(this.$store.state.api_link+'api/categories/'+this.subCategoryId, {
         headers: {
           lang: localStorage.getItem('site_locale')
         }
       })
+      // .then( res => console.log(res.data.data.courses))
       .then( res => this.categoryContent = res.data.data )
     },
 
@@ -139,32 +113,12 @@ export default {
 // END:: INCLUDING MAIN FILE
 
 
-.cat-content {
+.subcat_content {
   min-height: calc(100vh - (80px + 112px + 34px));
   padding: $sectionPadding;
   padding-bottom: 50px;
 
-  .cat_sub_cats {
-    a {
-      text-decoration: none;
-      .category-card {
-        min-width: 195px;
-        img {
-          width: 100%;
-          min-height: 195px;
-          max-height: 195px;
-        }
-        .card-body {
-          h5 {
-            color: $mainColor;
-            font-weight: 600;
-          }
-        }
-      }
-    }
-  }
-
-  .cat_courses{
+  .subcat_courses{
     a {
       text-decoration: none;
       color: $darkColor;
