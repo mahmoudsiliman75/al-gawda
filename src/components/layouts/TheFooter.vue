@@ -50,7 +50,7 @@ footer {
   }
   .copy-right {
     padding: 5px 10px;
-    background-color: #333;
+    background-color: #212121;
     color: $secondryColor;
     a {
       text-decoration: none;
